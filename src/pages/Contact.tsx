@@ -157,6 +157,20 @@ export default function Contact({ isLoading }: { isLoading?: boolean }) {
                 <label htmlFor="phone" className="absolute left-4 top-4 text-xs font-bold uppercase tracking-wider text-gray-400 transition-all duration-300 peer-focus:text-[10px] peer-focus:-translate-y-2 peer-focus:text-jac-lime peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:-translate-y-2 pointer-events-none">Phone Number *</label>
               </div>
               <div className="relative">
+                <select id="service" defaultValue="" className="peer w-full bg-white/5 border-2 border-white/10 focus:border-jac-lime focus:bg-white/10 rounded-none pt-6 pb-2 px-4 focus:outline-none transition-all duration-300 text-white font-bold appearance-none">
+                  <option value="" disabled className="bg-gray-800 text-gray-400">Select a Service...</option>
+                  <option value="foundation-repair" className="bg-gray-800 text-white">Foundation Repair</option>
+                  <option value="house-leveling" className="bg-gray-800 text-white">House Leveling</option>
+                  <option value="pier-and-beam" className="bg-gray-800 text-white">Pier & Beam Repair</option>
+                  <option value="drainage-solutions" className="bg-gray-800 text-white">Drainage Solutions</option>
+                  <option value="other" className="bg-gray-800 text-white">Other / Not Sure</option>
+                </select>
+                <label htmlFor="service" className="absolute left-4 top-2 text-[10px] font-bold uppercase tracking-wider text-gray-400 peer-focus:text-jac-lime transition-colors pointer-events-none">Service Needed *</label>
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/50 peer-focus:text-jac-lime transition-colors">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+                </div>
+              </div>
+              <div className="relative">
                 <textarea id="message" rows={4} placeholder=" " className="peer w-full bg-white/5 border-2 border-white/10 focus:border-jac-lime focus:bg-white/10 rounded-none pt-6 pb-2 px-4 focus:outline-none transition-all duration-300 text-white font-bold resize-none"></textarea>
                 <label htmlFor="message" className="absolute left-4 top-4 text-xs font-bold uppercase tracking-wider text-gray-400 transition-all duration-300 peer-focus:text-[10px] peer-focus:-translate-y-2 peer-focus:text-jac-lime peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:-translate-y-2 pointer-events-none">How can we help?</label>
               </div>

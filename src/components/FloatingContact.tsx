@@ -63,15 +63,10 @@ export default function FloatingContact() {
                 <div>
                   <select className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green text-sm bg-white" required defaultValue="">
                     <option value="" disabled>Select a Service *</option>
-                    <option value="pier-and-beam">Pier & Beam Repair</option>
                     <option value="foundation-repair">Foundation Repair</option>
-                    <option value="slab-repair">Slab Repair</option>
                     <option value="house-leveling">House Leveling</option>
-                    <option value="press-piers">Press Piers</option>
-                    <option value="foam-injection">Foam Injection</option>
-                    <option value="drainage">Drainage Solutions</option>
-                    <option value="root-barriers">Root Barriers</option>
-                    <option value="commercial">Commercial Prep</option>
+                    <option value="pier-and-beam">Pier & Beam Repair</option>
+                    <option value="drainage-solutions">Drainage Solutions</option>
                     <option value="other">Other / Not Sure</option>
                   </select>
                 </div>
