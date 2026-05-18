@@ -485,10 +485,6 @@ export default function Home({ isLoading }: { isLoading: boolean }) {
               <a href="tel:9362385604" className="text-3xl md:text-5xl font-bold hover:text-white/80 tracking-wide">
                 (936) 238-5604
               </a>
-              <div className="text-gray-500 font-bold px-4 hidden md:block">|</div>
-              <a href="tel:9362385604" className="text-lg md:text-xl text-gray-400 font-medium hover:text-white/80 tracking-wider">
-                (936) 238-5604
-              </a>
             </div>
             <a href="mailto:bestwayfoundationrepair936@gmail.com" className="text-sm sm:text-base md:text-xl text-gray-400 hover:text-jac-lime font-medium break-all block">
               bestwayfoundationrepair936@gmail.com
