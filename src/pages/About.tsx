@@ -57,7 +57,7 @@ export default function About({ isLoading }: { isLoading?: boolean }) {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: isLoading ? 0.8 : 0.1 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white uppercase tracking-tight mb-4"
+            className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white uppercase tracking-wide mb-4"
           >
             About Our Company
           </motion.h1>
