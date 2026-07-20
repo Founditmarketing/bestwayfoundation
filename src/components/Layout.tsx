@@ -1,51 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, NavLink as RouterNavLink, Link, useLocation } from 'react-router-dom';
 import {
-  ArrowRight,
   Menu,
   Phone,
   Mail,
+  MapPin,
+  Clock,
   Facebook,
   X,
-  House,
   ChevronDown
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FloatingContact from './FloatingContact';
-const NavLink = ({ children, to = "#" }: { children: React.ReactNode, to?: string }) => {
-  const location = useLocation();
-  const isHome = location.pathname === '/';
-  
-  if (to.startsWith('#')) {
-    // If it's a hash link and we are not on home page, link back to home with hash
-    const href = isHome ? to : `/${to}`;
-    return (
-      <a href={href} className="text-sm font-bold tracking-wide uppercase hover:text-jac-green transition-colors flex items-center gap-1 group">
-        {children}
-      </a>
-    );
-  }
-  
-  return (
-    <RouterNavLink 
-      to={to} 
-      className={({ isActive }) => `text-sm font-bold tracking-wide uppercase hover:text-jac-green transition-colors flex items-center gap-1 group ${isActive ? 'text-jac-green' : ''}`}
-    >
-      {children}
-    </RouterNavLink>
-  );
-};
 
-const BrandName = () => (
-  <span className="inline-flex items-baseline font-bold tracking-wide uppercase">
-    Best Way
-  </span>
-);
+const serviceLinks = [
+  { to: '/services/foundation-repair', label: 'Foundation Repair' },
+  { to: '/services/house-leveling', label: 'House Leveling' },
+  { to: '/services/pier-and-beam', label: 'Pier & Beam Repair' },
+  { to: '/services/drainage-solutions', label: 'Drainage Solutions' },
+];
 
-const FooterBrandName = () => (
-  <span className="inline-flex items-baseline font-bold tracking-wide uppercase">
-    Best Way
-  </span>
+const NavItem = ({ children, to }: { children: React.ReactNode, to: string }) => (
+  <RouterNavLink
+    to={to}
+    className={({ isActive }) => `text-sm font-bold tracking-wide uppercase transition-colors py-2 ${isActive ? 'text-jac-green border-b-2 border-jac-lime' : 'text-gray-700 hover:text-jac-green'}`}
+  >
+    {children}
+  </RouterNavLink>
 );
 
 export default function Layout() {
@@ -55,110 +36,98 @@ export default function Layout() {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
   }, [isMobileMenuOpen]);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden flex flex-col">
-      {/* Top Bar */}
-      <div className="bg-jac-charcoal text-white text-[10px] sm:text-xs font-bold tracking-widest uppercase h-10 px-6 lg:px-12 flex justify-between items-center relative z-50 shrink-0">
+
+      {/* Top Utility Bar */}
+      <div className="bg-jac-green text-white text-xs font-semibold h-10 px-4 lg:px-12 flex justify-between items-center relative z-50 shrink-0">
         <div className="flex items-center gap-6">
-          <a href="tel:9039328150" className="flex items-center gap-2 hover:text-jac-lime transition-colors">
-            <Phone className="w-3 h-3 text-jac-lime" /> (903) 932-8150
+          <a href="mailto:bestwayfoundationrepair936@gmail.com" className="items-center gap-2 hover:text-jac-lime transition-colors hidden md:flex">
+            <Mail className="w-3.5 h-3.5 text-jac-lime" /> bestwayfoundationrepair936@gmail.com
           </a>
-          <a href="mailto:bestwayfoundationrepair936@gmail.com" className="items-center gap-2 hover:text-jac-lime transition-colors hidden md:flex break-all">
-            <Mail className="w-3 h-3 text-jac-lime" /> bestwayfoundationrepair936@gmail.com
-          </a>
+          <span className="flex items-center gap-2">
+            <MapPin className="w-3.5 h-3.5 text-jac-lime" /> Longview, TX &amp; Surrounding Areas
+          </span>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="text-gray-300 hidden sm:block">
-            Serving Deep East Texas for 25+ Years
-          </div>
-          <div className="flex items-center sm:hidden">
-            <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="hover:text-jac-lime transition-colors">
-              <Facebook className="w-4 h-4" />
-            </a>
-          </div>
+        <div className="flex items-center gap-5">
+          <span className="hidden sm:flex items-center gap-2 text-white/80">
+            <Clock className="w-3.5 h-3.5 text-jac-lime" /> Mon–Fri: 8:00 AM – 6:00 PM
+          </span>
+          <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="hover:text-jac-lime transition-colors" aria-label="Facebook">
+            <Facebook className="w-4 h-4" />
+          </a>
         </div>
       </div>
 
-      {/* Header */}
-      <header className={`fixed w-full z-40 transition-all duration-300 ${isScrolled ? 'top-0 bg-white shadow-md py-2' : 'top-10 bg-white py-4'}`}>
-        <div className="w-full px-4 lg:px-12 grid grid-cols-[auto_1fr_auto] items-center gap-4 lg:gap-8">
+      {/* Main Header */}
+      <header className={`sticky top-0 w-full z-40 bg-white transition-all duration-300 border-b border-gray-100 ${isScrolled ? 'shadow-md py-2' : 'py-3'}`}>
+        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 flex items-center justify-between gap-4">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center relative z-20 h-10 w-28 sm:w-32 lg:w-40">
-            <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className={`absolute -left-2 lg:-left-4 top-1/2 -translate-y-1/2 max-w-none object-contain drop-shadow-md pointer-events-auto transition-all duration-300 ${isScrolled ? 'w-32 sm:w-40 lg:w-48' : 'w-40 sm:w-48 lg:w-56'}`} />
+          <Link to="/" className="flex items-center shrink-0">
+            <img
+              src="/bestwaylogo.png"
+              alt="Best Way Foundation Repair LLC"
+              className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16 lg:h-20'}`}
+            />
           </Link>
 
           {/* Nav */}
-          <nav className="hidden lg:flex items-center justify-center gap-8">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About Us</NavLink>
-            
-            {/* Desktop Services Dropdown */}
-            <div className="relative group/nav py-4">
-              <button className="text-sm font-bold tracking-wide uppercase group-hover/nav:text-jac-green transition-colors flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-7">
+            <NavItem to="/">Home</NavItem>
+            <NavItem to="/about">About Us</NavItem>
+
+            {/* Services Dropdown */}
+            <div className="relative group/nav py-2">
+              <button className="text-sm font-bold tracking-wide uppercase text-gray-700 group-hover/nav:text-jac-green transition-colors flex items-center gap-1 py-2">
                 Services <ChevronDown className="w-4 h-4 group-hover/nav:rotate-180 transition-transform duration-300" />
               </button>
-              
-              {/* Dropdown Menu */}
-              <div className="absolute top-[80%] left-0 pt-4 w-64 opacity-0 translate-y-2 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-300 z-50">
-                <div className="bg-white border-t-2 border-jac-green shadow-xl flex flex-col py-2">
-                  <RouterNavLink to="/services/foundation-repair" className="px-6 py-3 text-sm font-bold uppercase text-jac-charcoal hover:text-jac-green hover:bg-gray-50 transition-colors">Foundation Repair</RouterNavLink>
-                  <RouterNavLink to="/services/house-leveling" className="px-6 py-3 text-sm font-bold uppercase text-jac-charcoal hover:text-jac-green hover:bg-gray-50 transition-colors">House Leveling</RouterNavLink>
-                  <RouterNavLink to="/services/drainage-solutions" className="px-6 py-3 text-sm font-bold uppercase text-jac-charcoal hover:text-jac-green hover:bg-gray-50 transition-colors">Drainage Solutions</RouterNavLink>
-                  <RouterNavLink to="/services/pier-and-beam" className="px-6 py-3 text-sm font-bold uppercase text-jac-charcoal hover:text-jac-green hover:bg-gray-50 transition-colors">Pier & Beam Expert</RouterNavLink>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 opacity-0 translate-y-2 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-300 z-50">
+                <div className="bg-white border-t-4 border-jac-lime rounded-b-lg shadow-xl flex flex-col py-2 overflow-hidden">
+                  {serviceLinks.map((s) => (
+                    <RouterNavLink key={s.to} to={s.to} className="px-6 py-3 text-sm font-bold text-gray-700 hover:text-jac-green hover:bg-gray-50 transition-colors">
+                      {s.label}
+                    </RouterNavLink>
+                  ))}
                 </div>
               </div>
             </div>
 
-            <NavLink to="/gallery">Gallery</NavLink>
-            <NavLink to="/contact">Contact Us</NavLink>
+            <NavItem to="/gallery">Gallery</NavItem>
+            <NavItem to="/contact">Contact Us</NavItem>
           </nav>
 
-          {/* CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a 
-              href="https://www.facebook.com/profile.php?id=61589371986773" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-jac-lime hover:border-jac-lime hover:text-jac-dark transition-all text-gray-500"
-            >
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a href="tel:9039328150" className="flex items-stretch text-jac-charcoal group relative overflow-hidden border border-jac-charcoal">
-              <div className="absolute inset-0 bg-jac-charcoal w-0 group-hover:w-full transition-all duration-300 ease-out z-0"></div>
-              <div className="group-hover:text-white px-6 py-3 font-bold tracking-wide text-sm flex items-center justify-center relative z-10 transition-colors duration-300">
-                Call Today
+          {/* Phone + CTA */}
+          <div className="hidden lg:flex items-center gap-5 shrink-0">
+            <a href="tel:9039328150" className="flex items-center gap-3 group">
+              <div className="w-11 h-11 rounded-full bg-jac-green/5 border border-jac-green/20 flex items-center justify-center group-hover:bg-jac-green transition-colors">
+                <Phone className="w-5 h-5 text-jac-green group-hover:text-jac-lime transition-colors" />
               </div>
-              <div className="border-l border-jac-charcoal group-hover:border-transparent group-hover:text-white px-4 py-3 flex items-center justify-center relative z-10 transition-colors duration-300">
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <div className="leading-tight">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-gray-500">Call Us Today</div>
+                <div className="text-lg font-extrabold text-jac-green whitespace-nowrap">(903) 932-8150</div>
               </div>
             </a>
+            <Link to="/contact" className="bg-jac-lime text-jac-green px-6 py-3 rounded-md font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-sm whitespace-nowrap">
+              Free Inspection
+            </Link>
           </div>
 
-          <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 -mr-2 justify-self-end ml-auto text-jac-charcoal hover:text-jac-lime transition-colors relative z-20">
+          <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 -mr-2 text-jac-green" aria-label="Open menu">
             <Menu className="w-8 h-8" />
           </button>
         </div>
@@ -171,35 +140,28 @@ export default function Layout() {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[100] bg-jac-charcoal flex flex-col lg:hidden overflow-y-auto"
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[100] bg-white flex flex-col lg:hidden overflow-y-auto"
           >
-            <div className="sticky top-0 left-0 z-50 w-full p-6 flex justify-between items-center bg-jac-charcoal border-b border-white/10 shadow-lg">
-              <div className="flex items-center relative h-10 w-32">
-                <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className="absolute -left-2 top-1/2 -translate-y-1/2 w-40 object-contain drop-shadow-md" />
-              </div>
-              <button 
+            <div className="sticky top-0 z-50 w-full p-5 flex justify-between items-center bg-white border-b border-gray-100 shadow-sm">
+              <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className="h-12 w-auto object-contain" />
+              <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-12 h-12 flex items-center justify-center text-white hover:text-jac-lime transition-colors bg-white/5 rounded-full"
+                className="w-11 h-11 flex items-center justify-center text-jac-green bg-gray-50 rounded-full"
+                aria-label="Close menu"
               >
-                <X className="w-8 h-8" />
+                <X className="w-7 h-7" />
               </button>
             </div>
 
-            {/* Geometric Background Accents */}
-            <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-              <div className="absolute top-1/4 -right-1/4 w-96 h-96 bg-jac-lime/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-jac-lime/5 to-transparent"></div>
-            </div>
+            <nav className="flex flex-col gap-1 w-full px-6 pt-6 pb-24">
+              <Link to="/" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">Home</Link>
+              <Link to="/about" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">About Us</Link>
 
-            <nav className="flex flex-col items-center gap-6 text-center relative z-10 w-full px-6 pt-12 pb-32 min-h-[calc(100vh-100px)]">
-              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="font-display  text-2xl text-white uppercase hover:text-jac-lime transition-colors">Home</Link>
-              <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="font-display  text-2xl text-white uppercase hover:text-jac-lime transition-colors">About Us</Link>
-              
-              <div className="flex flex-col items-center">
-                <button 
-                  onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)} 
-                  className="font-display  text-2xl text-white uppercase hover:text-jac-lime transition-colors flex items-center justify-center gap-2"
+              <div className="border-b border-gray-100">
+                <button
+                  onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                  className="w-full font-display font-bold text-xl text-jac-green uppercase py-3 flex items-center justify-between"
                 >
                   Services <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
@@ -210,39 +172,31 @@ export default function Layout() {
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="flex flex-col items-center gap-4 overflow-hidden pt-4"
+                      className="flex flex-col overflow-hidden pb-2"
                     >
-                      <Link to="/services/foundation-repair" onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-white/80 hover:text-jac-lime transition-colors uppercase font-bold tracking-wide">Foundation Repair</Link>
-                      <Link to="/services/house-leveling" onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-white/80 hover:text-jac-lime transition-colors uppercase font-bold tracking-wide">House Leveling</Link>
-                      <Link to="/services/drainage-solutions" onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-white/80 hover:text-jac-lime transition-colors uppercase font-bold tracking-wide">Drainage Solutions</Link>
-                      <Link to="/services/pier-and-beam" onClick={() => setIsMobileMenuOpen(false)} className="text-lg text-white/80 hover:text-jac-lime transition-colors uppercase font-bold tracking-wide">Pier & Beam Expert</Link>
+                      {serviceLinks.map((s) => (
+                        <Link key={s.to} to={s.to} className="text-base text-gray-600 font-semibold py-2.5 pl-4 hover:text-jac-green">
+                          {s.label}
+                        </Link>
+                      ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              <Link to="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="font-display  text-2xl text-white uppercase hover:text-jac-lime transition-colors">Gallery</Link>
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="font-display  text-2xl text-white uppercase hover:text-jac-lime transition-colors">Contact Us</Link>
-              
-              <div className="w-full max-w-sm border-t border-white/10 pt-8 mt-4 flex flex-col gap-6">
-                <a href="tel:9039328150" onClick={() => setIsMobileMenuOpen(false)} className="w-full flex items-stretch group relative overflow-hidden border border-jac-lime">
-                  <div className="absolute inset-0 bg-jac-lime w-0 group-hover:w-full transition-all duration-300 ease-out z-0"></div>
-                  <div className="flex-1 bg-jac-charcoal group-hover:bg-transparent group-hover:text-jac-charcoal text-jac-lime px-6 py-4 font-bold tracking-wide text-lg flex items-center justify-center relative z-10 transition-colors duration-300 uppercase">
-                    Call Today
-                  </div>
-                  <div className="shrink-0 bg-jac-lime/10 group-hover:bg-transparent border-l border-jac-lime/30 group-hover:border-jac-charcoal group-hover:text-jac-charcoal text-jac-lime px-4 py-4 flex items-center justify-center relative z-10 transition-colors duration-300">
-                    <ArrowRight className="w-6 h-6" />
-                  </div>
-                </a>
+              <Link to="/gallery" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">Gallery</Link>
+              <Link to="/contact" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">Contact Us</Link>
 
-                <div className="flex flex-col items-center gap-4 text-gray-300 mt-4">
-                  <a href="tel:9039328150" className="flex items-center gap-2 text-xl font-medium text-white hover:text-jac-lime transition-colors">
-                    <Phone className="w-5 h-5 text-jac-lime" /> (903) 932-8150
-                  </a>
-                  <a href="mailto:bestwayfoundationrepair936@gmail.com" className="text-sm font-medium hover:text-jac-lime transition-colors break-all block">
-                    bestwayfoundationrepair936@gmail.com
-                  </a>
-                </div>
+              <div className="pt-8 flex flex-col gap-4">
+                <a href="tel:9039328150" className="w-full bg-jac-green text-white py-4 rounded-md font-bold uppercase tracking-wide text-center flex items-center justify-center gap-2">
+                  <Phone className="w-5 h-5 text-jac-lime" /> (903) 932-8150
+                </a>
+                <Link to="/contact" className="w-full bg-jac-lime text-jac-green py-4 rounded-md font-bold uppercase tracking-wide text-center">
+                  Request Free Inspection
+                </Link>
+                <a href="mailto:bestwayfoundationrepair936@gmail.com" className="text-sm text-gray-500 text-center break-all">
+                  bestwayfoundationrepair936@gmail.com
+                </a>
               </div>
             </nav>
           </motion.div>
@@ -254,78 +208,77 @@ export default function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-jac-dark text-white pt-16 lg:pt-24 pb-8 border-t border-white/5 relative z-0 overflow-hidden mt-auto">
-        {/* Large Watermark Logo */}
-        <div className="absolute -bottom-24 -right-24 opacity-[0.02] pointer-events-none">
-          <House className="w-96 h-96 lg:w-[600px] lg:h-[600px] text-white" />
-        </div>
-        <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16 relative z-10">
+      <footer className="bg-gray-50 border-t border-gray-200 mt-auto">
+        <div className="max-w-[1400px] mx-auto px-6 py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 
-          <div className="col-span-1 lg:col-span-1">
-            {/* Logo */}
-            <div className="flex items-center gap-2 mb-6">
-              <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className="h-20 w-auto drop-shadow-md" />
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">Providing dependable foundation repair and house leveling services across Deep East Texas for over 25 years.</p>
-            <div className="flex gap-4 items-center">
-              <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-jac-lime hover:border-jac-lime hover:text-jac-charcoal transition-all">
+          {/* Brand */}
+          <div>
+            <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className="h-16 w-auto mb-5" />
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              Providing dependable foundation repair and house leveling services across Deep East Texas for over 25 years. Licensed, insured, locally owned &amp; operated.
+            </p>
+            <div className="flex items-center gap-4">
+              <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-jac-green text-white flex items-center justify-center hover:bg-jac-lime hover:text-jac-green transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
+              <img src="/bbblogo2.png" alt="BBB Accredited Business" className="h-10 w-auto" />
             </div>
           </div>
 
-          <div className="lg:pl-8">
-            <div className="mb-8">
-              <h4 className="font-subdisplay font-bold text-lg uppercase tracking-wide mb-3">Company</h4>
-              <div className="w-8 h-[2px] bg-jac-lime"></div>
-            </div>
-            <ul className="space-y-4 text-sm text-gray-400 font-medium">
-              <li><Link to="/about" className="hover:text-jac-lime transition-colors">About Us</Link></li>
-              <li><a href="/#services" className="hover:text-jac-lime transition-colors">Services</a></li>
-              <li><Link to="/gallery" className="hover:text-jac-lime transition-colors">Project Gallery</Link></li>
-              <li><Link to="/contact" className="hover:text-jac-lime transition-colors">Contact Us</Link></li>
+          {/* Quick Links */}
+          <div className="lg:pl-6">
+            <h4 className="text-jac-green uppercase tracking-wide text-lg mb-5">Quick Links</h4>
+            <ul className="space-y-3 text-sm text-gray-600 font-medium">
+              <li><Link to="/" className="hover:text-jac-green transition-colors">Home</Link></li>
+              <li><Link to="/about" className="hover:text-jac-green transition-colors">About Us</Link></li>
+              {serviceLinks.map((s) => (
+                <li key={s.to}><Link to={s.to} className="hover:text-jac-green transition-colors">{s.label}</Link></li>
+              ))}
+              <li><Link to="/gallery" className="hover:text-jac-green transition-colors">Project Gallery</Link></li>
+              <li><Link to="/contact" className="hover:text-jac-green transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
-          <div className="lg:pl-8">
-            <div className="mb-8">
-              <h4 className="font-subdisplay font-bold text-lg uppercase tracking-wide mb-3">Headquarters</h4>
-              <div className="w-8 h-[2px] bg-jac-lime"></div>
-            </div>
-            <ul className="space-y-4 text-sm text-gray-400 font-medium">
-              <li><span className="hover:text-jac-lime transition-colors cursor-default">Longview, TX</span></li>
-              <li><span className="hover:text-jac-lime transition-colors cursor-default">United States</span></li>
-              <li className="pt-2 text-gray-500 italic leading-relaxed">Proudly serving Longview and all surrounding areas.</li>
+          {/* Hours */}
+          <div className="lg:pl-6">
+            <h4 className="text-jac-green uppercase tracking-wide text-lg mb-5">Hours of Operation</h4>
+            <ul className="text-sm text-gray-600 font-medium divide-y divide-gray-200">
+              <li className="flex justify-between py-2"><span>Monday – Friday</span><span className="font-bold text-jac-green">8:00 AM – 6:00 PM</span></li>
+              <li className="flex justify-between py-2"><span>Saturday</span><span className="font-bold text-jac-green">Closed</span></li>
+              <li className="flex justify-between py-2"><span>Sunday</span><span className="font-bold text-jac-green">Closed</span></li>
             </ul>
+            <p className="text-xs text-gray-500 italic mt-4">Free inspections available — call to schedule.</p>
           </div>
 
-          <div className="lg:pl-8">
-            <div className="mb-8">
-              <h4 className="font-subdisplay font-bold text-lg uppercase tracking-wide mb-3">Contact</h4>
-              <div className="w-8 h-[2px] bg-jac-lime"></div>
-            </div>
-            <ul className="space-y-4 text-sm text-gray-400 font-medium">
-              <li><a href="tel:9039328150" className="hover:text-jac-lime transition-colors">(903) 932-8150</a></li>
-              <li><a href="mailto:bestwayfoundationrepair936@gmail.com" className="hover:text-jac-lime transition-colors break-all block">bestwayfoundationrepair936@gmail.com</a></li>
-              <li>Free Inspections Available</li>
-              <li>Mon-Fri: 8:00 AM - 6:00 PM</li>
+          {/* Contact */}
+          <div className="lg:pl-6">
+            <h4 className="text-jac-green uppercase tracking-wide text-lg mb-5">Get In Touch</h4>
+            <ul className="space-y-4 text-sm text-gray-600 font-medium">
+              <li className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-jac-lime mt-0.5 shrink-0" />
+                <a href="tel:9039328150" className="hover:text-jac-green transition-colors font-bold text-base text-jac-green">(903) 932-8150</a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-jac-lime mt-0.5 shrink-0" />
+                <a href="mailto:bestwayfoundationrepair936@gmail.com" className="hover:text-jac-green transition-colors break-all">bestwayfoundationrepair936@gmail.com</a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-jac-lime mt-0.5 shrink-0" />
+                <span>Longview, TX, United States<br /><span className="text-gray-500 italic">Proudly serving Longview and all surrounding areas.</span></span>
+              </li>
             </ul>
           </div>
-
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-6 border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <div className="flex gap-4">
-            <span>&copy; 2026 Best Way Foundation Repair LLC - All rights reserved.</span>
-          </div>
-          <div className="flex items-center gap-6">
-            <span>Web Design + Digital Marketing by <FooterBrandName /></span>
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="border border-gray-700 p-2 hover:bg-white/5 transition-colors rounded-sm">
-              <ChevronDown className="w-4 h-4 transform rotate-180" />
-            </button>
+        {/* Bottom Bar */}
+        <div className="bg-jac-green text-white/80 text-xs">
+          <div className="max-w-[1400px] mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-2">
+            <span>&copy; 2026 Best Way Foundation Repair LLC — All rights reserved.</span>
+            <span>2 Generations Leveling You!</span>
           </div>
         </div>
       </footer>
+
       <FloatingContact />
     </div>
   );
