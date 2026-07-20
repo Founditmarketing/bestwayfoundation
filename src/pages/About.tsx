@@ -1,74 +1,25 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight, Phone } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Phone, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const BrandName = () => (
-  <span className="font-bold uppercase tracking-wide text-jac-lime">Best Way</span>
-);
-
-
 
 export default function About({ isLoading }: { isLoading?: boolean }) {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-40 pb-20 md:pt-48 md:pb-28 bg-jac-dark overflow-hidden">
+      {/* Page Banner */}
+      <section className="relative bg-jac-green overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/jacitgallery3.jpeg"
             alt="About Our Company"
-            className="w-full h-full object-cover object-center grayscale opacity-30"
+            className="w-full h-full object-cover object-center opacity-15"
           />
-          <div className="absolute inset-0 bg-jac-charcoal/80 mix-blend-multiply"></div>
-          {/* Subtle Green Overlay */}
-          <div className="absolute inset-0 bg-jac-green/20 mix-blend-overlay"></div>
-
-          {/* White Bottom Corner Design */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
-            {/* Sub Layer 1 */}
-            <motion.div 
-              initial={{ opacity: 0, x: 100, y: 100 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: isLoading ? 1.0 : 0.3 }}
-              className="absolute inset-0 bg-white/20" style={{ clipPath: 'polygon(calc(100% - 38vw) 100%, 100% calc(100% - 38vw), 100% 100%)' }}
-            ></motion.div>
-
-            {/* Sub Layer 2 */}
-            <motion.div 
-              initial={{ opacity: 0, x: 100, y: 100 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: isLoading ? 0.9 : 0.2 }}
-              className="absolute inset-0 bg-white/40" style={{ clipPath: 'polygon(calc(100% - 34vw) 100%, 100% calc(100% - 34vw), 100% 100%)' }}
-            ></motion.div>
-
-            {/* Solid White Corner */}
-            <motion.div 
-              initial={{ opacity: 0, x: 100, y: 100 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: isLoading ? 0.8 : 0.1 }}
-              className="absolute inset-0 bg-white" style={{ clipPath: 'polygon(calc(100% - 30vw) 100%, 100% calc(100% - 30vw), 100% 100%)' }}
-            ></motion.div>
-          </div>
         </div>
-
-        <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 text-left">
-          <motion.h1
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: isLoading ? 0.8 : 0.1 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white uppercase tracking-wide mb-4"
-          >
-            About Our Company
-          </motion.h1>
-          <motion.p
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: isLoading ? 0.9 : 0.2 }}
-            className="text-xl md:text-2xl text-jac-lime font-bold uppercase tracking-widest max-w-2xl"
-          >
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-16 md:py-24 text-center">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase text-white mb-4">About Our Company</h1>
+          <p className="text-lg md:text-xl text-jac-lime font-bold uppercase tracking-widest">
             Leveling Homes. Lifting Standards.
-          </motion.p>
+          </p>
+          <div className="section-divider mt-6 mx-auto"></div>
         </div>
       </section>
 
@@ -77,82 +28,87 @@ export default function About({ isLoading }: { isLoading?: boolean }) {
         <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Text */}
           <div className="order-2 lg:order-1">
-            <div className="text-jac-lime font-bold tracking-widest uppercase text-sm mb-2">Construction Company</div>
-            <h2 className="font-display  text-3xl md:text-5xl uppercase text-jac-charcoal mb-8">
-              Stronger foundations start right here at <span className="text-jac-green">home</span>.
+            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Construction Company</div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green mb-4">
+              Stronger foundations start right here at home.
             </h2>
-            
+            <div className="section-divider mb-8"></div>
+
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
               <p>
                 Best-Way Foundation Repair LLC has been protecting homes right here in our community - delivering expert pier systems, certified diagnostics, and repairs built to last. We do not cut corners because your home deserves better.
               </p>
-              <h3 className="font-subdisplay font-bold text-2xl uppercase tracking-wide text-jac-charcoal pt-4">Fix it right the first time and save thousands.</h3>
+              <h3 className="font-display text-2xl uppercase text-jac-green pt-4">Fix it right the first time and save thousands.</h3>
               <p>
                 Best-Way Foundation Repair LLC brings years of hands-on structural experience, certified diagnostics, and proven repair methods to every job. We use pier systems, drainage solutions, and soil stabilization techniques that hold long-term - not just patch the surface. Stop paying twice for the same problem.
               </p>
-              <h3 className="font-subdisplay font-bold text-2xl uppercase tracking-wide text-jac-charcoal pt-4">Shifting soil is silently destroying your foundation right now</h3>
-              <p className="font-bold text-jac-charcoal text-xl pt-6 border-t border-gray-100 mt-4">
+              <h3 className="font-display text-2xl uppercase text-jac-green pt-4">Shifting soil is silently destroying your foundation right now</h3>
+              <p className="font-bold text-jac-green text-xl pt-6 border-t border-gray-100 mt-4">
                 Most homeowners don't act until the damage becomes severe - by then, repair costs skyrocket. Our schedule fills fast, and every delay means more structural risk. Don't wait until cracks become catastrophes.
               </p>
             </div>
-            
-            <div className="mt-10">
-              <Link to="/contact" className="inline-flex items-stretch group relative overflow-hidden border border-jac-green text-jac-charcoal">
-                <div className="absolute inset-0 bg-jac-green w-0 group-hover:w-full transition-all duration-300 ease-out z-0"></div>
-                <div className="group-hover:text-white px-8 py-4 font-bold tracking-wide text-sm flex items-center justify-center relative z-10 transition-colors duration-300 uppercase">
-                  Schedule Free Inspection
-                </div>
-                <div className="border-l border-jac-green group-hover:border-transparent group-hover:text-white px-6 flex items-center justify-center relative z-10 transition-colors duration-300">
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-md font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-md">
+                Schedule Free Inspection <ArrowRight className="w-4 h-4" />
               </Link>
+              <a href="tel:9039328150" className="inline-flex items-center justify-center gap-2 bg-jac-green text-white px-8 py-4 rounded-md font-bold uppercase tracking-wide text-sm hover:bg-jac-navy-dark transition-colors shadow-md">
+                <Phone className="w-4 h-4 text-jac-lime" /> (903) 932-8150
+              </a>
             </div>
           </div>
 
           {/* Right Image */}
-          <div className="order-1 lg:order-2 relative aspect-[4/3] md:aspect-square lg:aspect-[4/5] overflow-hidden rounded-sm shadow-2xl group">
-            <img 
-              src="/jacitgallery2.jpeg" 
-              alt="Best Way House Leveling Experience" 
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            {/* Design accents */}
-            <div className="absolute inset-0 border-8 border-white/10 group-hover:border-white/20 transition-colors duration-500 pointer-events-none"></div>
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-jac-green/20 rounded-full blur-3xl"></div>
+          <div className="order-1 lg:order-2 relative">
+            <div className="rounded-lg overflow-hidden shadow-xl border-8 border-gray-50">
+              <img
+                src="/jacitgallery2.jpeg"
+                alt="Best Way House Leveling Experience"
+                className="w-full h-[320px] md:h-[500px] object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 left-6 bg-jac-green text-white rounded-lg shadow-xl px-6 py-4 flex items-center gap-4">
+              <div className="font-display text-4xl font-extrabold text-jac-lime">25+</div>
+              <div className="text-sm font-bold uppercase tracking-wide leading-tight">Years of<br />Experience</div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Value Points */}
+      <section className="bg-gray-50 py-16 border-y border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              '25+ Years Mastery',
+              'Direct Owner Oversight',
+              'Bonded & Fully Insured',
+              'Transparent Pricing',
+              'Longview Local Roots',
+              'Lifetime Integrity',
+            ].map((item) => (
+              <div key={item} className="bg-white border border-gray-200 rounded-lg px-6 py-5 flex items-center gap-3">
+                <CheckCircle2 className="w-6 h-6 text-jac-lime shrink-0" />
+                <span className="font-bold text-jac-green">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Final Call to Action */}
-      <section className="bg-black py-24 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-jac-green/10 via-black to-black"></div>
-        </div>
-
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10 text-center">
-          <h2 className="font-display  text-3xl sm:text-4xl md:text-6xl text-white uppercase mb-4 tracking-tight">
-            Level up your home—<br className="hidden md:block"/>Call <BrandName /> today!
+      <section className="bg-jac-green py-16 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 text-center">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white uppercase mb-4">
+            Level Up Your Home — Call <span className="text-jac-lime">Best Way</span> Today!
           </h2>
-          <div className="flex flex-col items-center gap-6 justify-center text-white mt-10">
-            <div className="flex flex-col items-center gap-1">
-              <a href="tel:9039328150" className="text-3xl md:text-5xl font-bold hover:text-jac-lime transition-colors tracking-wide flex items-center gap-4">
-                <Phone className="w-8 h-8 md:w-10 md:h-10 text-jac-lime" />
-                (903) 932-8150
-              </a>
-            </div>
-
-            <div className="mt-6 inline-block">
-              <Link to="/contact" className="flex items-stretch group relative overflow-hidden border border-jac-lime">
-                <div className="absolute inset-0 bg-jac-lime w-0 group-hover:w-full transition-all duration-300 ease-out z-0"></div>
-                <div className="bg-black/30 group-hover:bg-transparent group-hover:text-jac-charcoal backdrop-blur-sm text-jac-lime px-6 sm:px-10 py-4 sm:py-5 font-bold tracking-wide text-sm sm:text-xl flex items-center justify-center border-r-0 relative z-10 transition-all duration-300 uppercase">
-                  Schedule Free Inspection
-                </div>
-                <div className="bg-jac-lime/10 group-hover:bg-transparent border-l border-jac-lime/30 group-hover:border-jac-lime/0 px-4 sm:px-6 flex items-center justify-center relative z-10 transition-colors duration-300">
-                  <ArrowRight className="w-6 h-6 text-jac-lime group-hover:text-jac-charcoal group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            </div>
+          <a href="tel:9039328150" className="text-3xl md:text-4xl font-extrabold text-jac-lime hover:text-white transition-colors inline-flex items-center gap-3 mt-4">
+            <Phone className="w-8 h-8" /> (903) 932-8150
+          </a>
+          <div className="mt-8">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-md font-bold uppercase tracking-wide text-base hover:bg-white transition-colors shadow-md">
+              Schedule Free Inspection <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
