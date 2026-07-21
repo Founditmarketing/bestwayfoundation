@@ -77,12 +77,12 @@ export default function Layout() {
       <header className={`sticky top-0 w-full z-40 bg-white transition-all duration-300 border-b-4 border-jac-lime ${isScrolled ? 'shadow-md py-2' : 'py-3'}`}>
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 flex items-center justify-between gap-4">
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0">
+          {/* Logo — stretches across the top on mobile, fixed height on desktop */}
+          <Link to="/" className="flex items-center flex-1 min-w-0 lg:flex-none lg:shrink-0 pr-3 lg:pr-0">
             <img
               src="/bestwaylogo.png"
               alt="Best Way Foundation Repair LLC"
-              className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16 lg:h-20'}`}
+              className={`w-full max-w-[480px] h-auto lg:max-w-none lg:w-auto object-contain transition-all duration-300 ${isScrolled ? 'lg:h-14' : 'lg:h-20'}`}
             />
           </Link>
 
