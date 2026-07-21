@@ -92,7 +92,7 @@ export default function ServiceTemplate({ title, subtitle, image, heroImage, con
       </section>
 
       {/* Final Call to Action */}
-      <section className="bg-jac-green py-16 md:py-20">
+      <section className="bg-jac-green py-16 md:py-20 border-t-8 border-jac-lime">
         <div className="max-w-[1400px] mx-auto px-6 text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white uppercase mb-4">
             Level Up Your Home — Call <span className="text-jac-lime">Best Way</span> Today!
