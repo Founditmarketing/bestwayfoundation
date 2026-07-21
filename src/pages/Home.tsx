@@ -145,11 +145,11 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
       <section className="relative min-h-[560px] md:min-h-[640px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/jacitgallery2.jpeg"
-            alt="Best Way crew performing foundation repair"
+            src="/presspiers.png"
+            alt="Press pier foundation repair beneath a home"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-jac-navy-dark/95 via-jac-green/85 to-jac-green/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-jac-navy-dark/95 via-jac-green/80 to-jac-green/30"></div>
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-20 md:py-28 w-full">
