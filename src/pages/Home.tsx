@@ -19,7 +19,12 @@ import {
   ChevronLeft,
   ChevronRight,
   MapPin,
-  Star
+  CalendarCheck,
+  ClipboardList,
+  Wrench,
+  BadgeCheck,
+  Award,
+  Users
 } from 'lucide-react';
 
 const warningSigns = [
@@ -33,41 +38,55 @@ const warningSigns = [
   { icon: MoveHorizontal, title: 'Slab or Wall Separation', to: '/services/foundation-repair' },
 ];
 
-const fieldWork = [
-  { src: '/jacitgallery.jpeg', title: 'Wall Lifting', desc: 'Hydraulic lifting of exterior brick foundation.' },
-  { src: '/jacitgallery2.jpeg', title: 'Exterior Excavation', desc: 'Foundation excavation on residential structure.' },
-  { src: '/jacitgallery3.jpeg', title: 'Interior Leveling', desc: 'Completed interior with newly leveled floors.' },
-  { src: '/jacitgallery4.jpeg', title: 'Concrete Supports', desc: 'Deep concrete block installation for stability.' },
-  { src: '/jacitgallery5.png', title: 'Subfloor Installation', desc: 'Installing new structural subfloors.' },
-  { src: '/jacitgallery6.png', title: 'Joist Replacement', desc: 'Replacing damaged floor joists.' },
-  { src: '/jacitgallery7.png', title: 'Framework Repair', desc: 'Securing interior joist framework.' },
-  { src: '/presspiers.png', title: 'Press Piers System', desc: 'Heavy duty steel and concrete press pier installation.' },
-];
-
 const services = [
   {
     title: 'Foundation Repair',
-    desc: 'Precision stabilization for slab and pier & beam structures.',
-    image: '/Construction-Foundation-Pit.H03.2k.png',
+    desc: 'Precision stabilization for slab and pier & beam structures — we pinpoint the root cause and fix it for good.',
+    photo: '/jacitgallery2.jpeg',
+    icon: '/Construction-Foundation-Pit.H03.2k.png',
     to: '/services/foundation-repair',
   },
   {
     title: 'House Leveling',
-    desc: 'Restoring structural integrity with advanced hydraulic leveling.',
-    image: '/Survey-Automatic-Level-on-Tripod.H03.2k.png',
+    desc: 'Restoring structural integrity with advanced hydraulic leveling that brings your home back to true.',
+    photo: '/jacitgallery3.jpeg',
+    icon: '/Survey-Automatic-Level-on-Tripod.H03.2k.png',
     to: '/services/house-leveling',
   },
   {
     title: 'Pier & Beam Repair',
-    desc: 'Specialized care for older homes and custom structural frames.',
-    image: '/Concrete-Pillar.H03.2k.png',
+    desc: 'Specialized care for older homes and custom structural frames, from joists to sills to piers.',
+    photo: '/jacitgallery4.jpeg',
+    icon: '/Concrete-Pillar.H03.2k.png',
     to: '/services/pier-and-beam',
   },
   {
     title: 'Drainage Solutions',
-    desc: 'Protecting your foundation from moisture and soil shifts.',
-    image: '/Steel-Shower-Drain.H03.2k.png',
+    desc: 'Protecting your foundation from moisture and soil shifts before they become structural problems.',
+    photo: '/jacitgallery.jpeg',
+    icon: '/Steel-Shower-Drain.H03.2k.png',
     to: '/services/drainage-solutions',
+  },
+];
+
+const processSteps = [
+  {
+    icon: CalendarCheck,
+    step: '1',
+    title: 'Schedule Your Free Inspection',
+    desc: "Call or send a message and we'll set up a free, no-obligation structural inspection of your home.",
+  },
+  {
+    icon: ClipboardList,
+    step: '2',
+    title: 'Get a Custom Repair Plan',
+    desc: 'We evaluate every crack, shift, and settling issue to pinpoint the root cause — then walk you through a transparent, honest repair plan.',
+  },
+  {
+    icon: Wrench,
+    step: '3',
+    title: 'We Fix It Right the First Time',
+    desc: 'Our crew installs engineering-approved solutions with owner James Wilson on-site — warranted work built to last a lifetime.',
   },
 ];
 
@@ -94,18 +113,21 @@ const trustFactors = [
   },
 ];
 
+const fieldWork = [
+  { src: '/jacitgallery.jpeg', title: 'Wall Lifting', desc: 'Hydraulic lifting of exterior brick foundation.' },
+  { src: '/jacitgallery2.jpeg', title: 'Exterior Excavation', desc: 'Foundation excavation on residential structure.' },
+  { src: '/jacitgallery3.jpeg', title: 'Interior Leveling', desc: 'Completed interior with newly leveled floors.' },
+  { src: '/jacitgallery4.jpeg', title: 'Concrete Supports', desc: 'Deep concrete block installation for stability.' },
+  { src: '/jacitgallery5.png', title: 'Subfloor Installation', desc: 'Installing new structural subfloors.' },
+  { src: '/jacitgallery6.png', title: 'Joist Replacement', desc: 'Replacing damaged floor joists.' },
+  { src: '/jacitgallery7.png', title: 'Framework Repair', desc: 'Securing interior joist framework.' },
+  { src: '/presspiers.png', title: 'Press Piers System', desc: 'Heavy duty steel and concrete press pier installation.' },
+];
+
 const serviceAreas = [
   'Longview', 'Kilgore', 'Gladewater', 'White Oak', 'Hallsville', 'Marshall',
   'Tyler', 'Henderson', 'Gilmer', 'Carthage', 'Tatum', 'Jacksonville',
 ];
-
-const SectionHeading = ({ eyebrow, title, center = true }: { eyebrow?: string, title: React.ReactNode, center?: boolean }) => (
-  <div className={`mb-12 ${center ? 'text-center' : ''}`}>
-    {eyebrow && <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">{eyebrow}</div>}
-    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">{title}</h2>
-    <div className={`section-divider mt-5 ${center ? 'mx-auto' : ''}`}></div>
-  </div>
-);
 
 export default function Home({ isLoading }: { isLoading?: boolean }) {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -119,88 +141,116 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gray-50 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-jac-lime/15 border border-jac-lime/40 text-jac-green px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-              <Star className="w-3.5 h-3.5 fill-jac-lime text-jac-lime" /> Licensed • Insured • Locally Owned
-            </div>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase text-jac-green leading-[1.05] mb-6">
-              Best Way<br />Foundation Repair
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed mb-4">
-              Helping East Texans stand on the strongest foundation for over <span className="font-bold text-jac-green">25+ years</span>.
-            </p>
-            <p className="text-base text-gray-500 leading-relaxed mb-8 max-w-xl">
-              Expert foundation repair and house leveling across Deep East Texas. Honest craftsmanship you can trust — schedule your free, no-obligation structural inspection today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#services" className="bg-jac-lime text-jac-green px-8 py-4 rounded-md font-bold uppercase tracking-wide text-sm text-center hover:bg-jac-green hover:text-white transition-colors shadow-md flex items-center justify-center gap-2">
-                All Services <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="tel:9039328150" className="bg-jac-green text-white px-8 py-4 rounded-md font-bold uppercase tracking-wide text-sm text-center hover:bg-jac-navy-dark transition-colors shadow-md flex items-center justify-center gap-2">
-                <Phone className="w-4 h-4 text-jac-lime" /> (903) 932-8150
-              </a>
-            </div>
-          </div>
+      {/* Hero Section — full-width photo with navy overlay */}
+      <section className="relative min-h-[560px] md:min-h-[640px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/jacitgallery2.jpeg"
+            alt="Best Way crew performing foundation repair"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-jac-navy-dark/95 via-jac-green/85 to-jac-green/40"></div>
+        </div>
 
-          <div className="relative">
-            <div className="rounded-lg overflow-hidden shadow-2xl border-8 border-white">
-              <img src="/bestwayhero.png" alt="Cracked foundation in need of repair" className="w-full h-[320px] md:h-[440px] object-cover" />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-20 md:py-28 w-full">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-jac-lime/50 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
+              <BadgeCheck className="w-4 h-4 text-jac-lime" /> Licensed • Insured • Locally Owned
             </div>
-            <div className="absolute -bottom-6 left-6 bg-jac-green text-white rounded-lg shadow-xl px-6 py-4 flex items-center gap-4">
-              <div className="font-display text-4xl font-extrabold text-jac-lime">25+</div>
-              <div className="text-sm font-bold uppercase tracking-wide leading-tight">Years of<br />Experience</div>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase text-white leading-[1.05] mb-6">
+              Your Foundation.<br />
+              <span className="text-jac-lime">Fixed The Best Way.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-xl">
+              Helping East Texans stand on the strongest foundation for over 25+ years. Expert foundation repair and house leveling — honest craftsmanship you can trust.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <Link to="/contact" className="bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm text-center hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
+                Schedule Free Inspection <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a href="tel:9039328150" className="border-2 border-white/70 text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm text-center hover:bg-white hover:text-jac-green transition-colors flex items-center justify-center gap-2 backdrop-blur-sm">
+                <Phone className="w-4 h-4" /> (903) 932-8150
+              </a>
+            </div>
+            <div className="flex flex-wrap gap-x-8 gap-y-3">
+              {['Free Inspections', 'Warranted Work', 'Owner On Every Job'].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-white/90 text-sm font-semibold">
+                  <CheckCircle2 className="w-4 h-4 text-jac-lime" /> {item}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Three Positioning Cards */}
-      <section className="bg-white py-16 md:py-20">
-        <div className="max-w-[1400px] mx-auto px-6 grid md:grid-cols-3 gap-8">
+      {/* Trust Bar — overlapping strip */}
+      <section className="relative z-20 -mt-10 px-6">
+        <div className="max-w-[1200px] mx-auto bg-white rounded-xl shadow-xl border border-gray-100 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-gray-100 overflow-hidden">
           {[
-            {
-              title: 'Foundation Repair',
-              desc: 'Foundation repair is a complex problem that requires specialized training and experience. We evaluate every crack, shift, and settling issue to pinpoint the root cause.',
-              to: '/services/foundation-repair',
-            },
-            {
-              title: 'Residential Experts',
-              desc: 'A second-generation business that has served East Texas homeowners for over 25 years — with owner James Wilson on-site for every job.',
-              to: '/about',
-            },
-            {
-              title: 'Drainage & More',
-              desc: 'From house leveling and pier & beam repair to drainage solutions that protect your foundation from moisture and shifting soil.',
-              to: '/services/drainage-solutions',
-            },
-          ].map((card) => (
-            <div key={card.title} className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              <h3 className="font-display text-2xl uppercase text-jac-green mb-3">{card.title}</h3>
-              <div className="section-divider mx-auto mb-5"></div>
-              <p className="text-gray-600 leading-relaxed mb-6">{card.desc}</p>
-              <Link to={card.to} className="inline-flex items-center gap-2 text-jac-green font-bold uppercase tracking-wide text-sm hover:text-jac-lime transition-colors">
-                Learn More <ArrowRight className="w-4 h-4" />
+            { icon: Award, title: '25+ Years', sub: 'Of Experience' },
+            { icon: Users, title: '2 Generations', sub: 'Family Owned & Operated' },
+            { icon: ShieldCheck, title: 'Warranted', sub: 'Work Built To Last' },
+            { icon: BadgeCheck, title: 'BBB', sub: 'Accredited Business' },
+          ].map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title} className="flex items-center gap-4 p-6">
+                <div className="w-12 h-12 rounded-full bg-jac-green/5 flex items-center justify-center shrink-0">
+                  <Icon className="w-6 h-6 text-jac-green" />
+                </div>
+                <div>
+                  <div className="font-display text-xl font-extrabold text-jac-green leading-none">{item.title}</div>
+                  <div className="text-xs text-gray-500 font-semibold uppercase tracking-wide mt-1">{item.sub}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Services — photo cards */}
+      <section id="services" className="bg-white pt-20 pb-16 md:pt-24 md:pb-24">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">What We Do</div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Our Repair Solutions</h2>
+            <div className="section-divider mt-5 mx-auto"></div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service) => (
+              <Link key={service.title} to={service.to} className="group bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                <div className="relative h-44 overflow-hidden">
+                  <img src={service.photo} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-jac-navy-dark/60 to-transparent"></div>
+                  <img src={service.icon} alt="" className="absolute bottom-3 right-3 w-16 h-16 object-contain drop-shadow-lg" />
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="font-display text-xl uppercase text-jac-green mb-2">{service.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-grow">{service.desc}</p>
+                  <span className="inline-flex items-center gap-2 text-jac-green font-bold uppercase tracking-wide text-xs group-hover:gap-3 transition-all">
+                    Learn More <ArrowRight className="w-4 h-4 text-jac-lime" />
+                  </span>
+                </div>
               </Link>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* 8 Warning Signs */}
       <section className="bg-gray-50 py-16 md:py-24 border-y border-gray-200">
         <div className="max-w-[1400px] mx-auto px-6">
-          <SectionHeading
-            eyebrow="Know the Warning Signs"
-            title={<>8 Most Common Signs of<br className="hidden md:block" /> Foundation Problems</>}
-          />
+          <div className="text-center mb-12">
+            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Know the Warning Signs</div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">8 Most Common Signs of<br className="hidden md:block" /> Foundation Problems</h2>
+            <div className="section-divider mt-5 mx-auto"></div>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {warningSigns.map((sign) => {
               const Icon = sign.icon;
               return (
-                <Link key={sign.title} to={sign.to} className="bg-white border border-gray-200 rounded-lg p-6 flex items-center gap-4 hover:border-jac-lime hover:shadow-md transition-all duration-300 group">
+                <Link key={sign.title} to={sign.to} className="bg-white border border-gray-200 rounded-xl p-6 flex items-center gap-4 hover:border-jac-lime hover:shadow-md transition-all duration-300 group">
                   <div className="w-14 h-14 rounded-full bg-jac-green/5 flex items-center justify-center shrink-0 group-hover:bg-jac-green transition-colors">
                     <Icon className="w-7 h-7 text-jac-green group-hover:text-jac-lime transition-colors" />
                   </div>
@@ -213,9 +263,111 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               Noticing any of these around your home? Don't wait until cracks become catastrophes — most homeowners don't act until the damage becomes severe, and by then repair costs skyrocket.
             </p>
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-green text-white px-8 py-4 rounded-md font-bold uppercase tracking-wide text-sm hover:bg-jac-navy-dark transition-colors shadow-md">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-green text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-navy-dark transition-colors shadow-md">
               Contact Your Local Experts <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3-Step Process */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="text-center mb-14">
+            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">How It Works</div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Peace of Mind in 3 Simple Steps</h2>
+            <div className="section-divider mt-5 mx-auto"></div>
+          </div>
+
+          <div className="relative grid md:grid-cols-3 gap-10 md:gap-8">
+            <div className="hidden md:block absolute top-10 left-[18%] right-[18%] h-0.5 border-t-2 border-dashed border-jac-lime/60"></div>
+            {processSteps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <div key={step.step} className="relative flex flex-col items-center text-center">
+                  <div className="relative z-10 w-20 h-20 rounded-full bg-jac-green flex items-center justify-center mb-6 shadow-lg">
+                    <Icon className="w-9 h-9 text-jac-lime" />
+                    <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-jac-lime text-jac-green font-display font-extrabold text-lg flex items-center justify-center border-2 border-white">
+                      {step.step}
+                    </div>
+                  </div>
+                  <h3 className="font-display text-2xl uppercase text-jac-green mb-3">{step.title}</h3>
+                  <p className="text-gray-600 leading-relaxed max-w-sm">{step.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-14">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-md">
+              Schedule Free Inspection <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* About / Stats Band — dark navy */}
+      <section id="about" className="bg-jac-green py-16 md:py-24 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+          <div className="relative">
+            <div className="rounded-xl overflow-hidden shadow-2xl">
+              <img src="/jacitgallery3.jpeg" alt="Completed interior with newly leveled floors" className="w-full h-[320px] md:h-[440px] object-cover" />
+            </div>
+            <div className="absolute -bottom-6 right-6 bg-jac-lime text-jac-green rounded-xl shadow-xl px-6 py-4">
+              <div className="text-sm font-bold uppercase tracking-wide">2 Generations Leveling You!</div>
+            </div>
+          </div>
+
+          <div className="text-white">
+            <div className="text-jac-lime font-bold tracking-widest uppercase text-sm mb-2">About Our Company</div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-white mb-5">Why Best Way Is Different</h2>
+            <div className="section-divider mb-8"></div>
+            <p className="text-lg text-white/85 leading-relaxed mb-8">
+              We believe your home deserves a foundation you can trust. With over 25 years of technical expertise, James Wilson provides solutions that are built to last a lifetime — with prompt service, fair pricing, and peace of mind on every job.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              {[
+                { value: '25+', label: 'Years of Experience' },
+                { value: '2', label: 'Generations of Craftsmanship' },
+                { value: '4', label: 'Specialized Services' },
+                { value: '100%', label: 'Owner Oversight On-Site' },
+              ].map((stat) => (
+                <div key={stat.label} className="border-l-4 border-jac-lime pl-4">
+                  <div className="font-display text-4xl font-extrabold text-jac-lime leading-none">{stat.value}</div>
+                  <div className="text-sm font-semibold text-white/80 uppercase tracking-wide mt-1">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <Link to="/about" className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-white transition-colors shadow-md">
+              Learn More About Us <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Factors */}
+      <section className="bg-gray-50 py-16 md:py-24 border-b border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">The Best Way Difference</div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Why Homeowners Trust Best Way</h2>
+            <div className="section-divider mt-5 mx-auto"></div>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {trustFactors.map((factor) => {
+              const Icon = factor.icon;
+              return (
+                <div key={factor.title} className="bg-white border border-gray-200 rounded-xl p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-16 h-16 rounded-full bg-jac-green flex items-center justify-center mx-auto mb-5">
+                    <Icon className="w-8 h-8 text-jac-lime" />
+                  </div>
+                  <h3 className="font-display text-xl uppercase text-jac-green mb-3">{factor.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{factor.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -241,7 +393,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
 
           <div ref={carouselRef} className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {fieldWork.map((item) => (
-              <div key={item.title} className="min-w-[80vw] sm:min-w-[380px] snap-center bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <div key={item.title} className="min-w-[80vw] sm:min-w-[380px] snap-center bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <div className="h-56 overflow-hidden">
                   <img src={item.src} alt={item.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
@@ -261,100 +413,8 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
         </div>
       </section>
 
-      {/* Services List */}
-      <section id="services" className="bg-jac-green py-16 md:py-24 relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <div className="mb-12 text-center">
-            <div className="text-jac-lime font-bold tracking-widest uppercase text-sm mb-2">What We Do</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-white">Our Foundation Services</h2>
-            <div className="section-divider mt-5 mx-auto"></div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => (
-              <Link key={service.title} to={service.to} className="bg-white rounded-lg p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300 shadow-lg group">
-                <img src={service.image} alt={service.title} className="w-28 h-28 object-contain mb-5 group-hover:scale-105 transition-transform duration-300" />
-                <h3 className="font-display text-xl uppercase text-jac-green mb-3">{service.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-5 flex-grow">{service.desc}</p>
-                <span className="inline-flex items-center gap-2 text-jac-green font-bold uppercase tracking-wide text-xs group-hover:text-jac-lime transition-colors">
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-md font-bold uppercase tracking-wide text-sm hover:bg-white transition-colors shadow-md">
-              Contact Your Local Experts <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* About Blurb */}
-      <section id="about" className="bg-white py-16 md:py-24">
-        <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="relative">
-            <div className="rounded-lg overflow-hidden shadow-xl border-8 border-gray-50">
-              <img src="/jacitgallery2.jpeg" alt="Best Way crew performing foundation excavation" className="w-full h-[320px] md:h-[460px] object-cover" />
-            </div>
-            <div className="absolute -bottom-6 right-6 bg-jac-lime text-jac-green rounded-lg shadow-xl px-6 py-4">
-              <div className="text-sm font-bold uppercase tracking-wide">2 Generations Leveling You!</div>
-            </div>
-          </div>
-
-          <div>
-            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">About Our Company</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green mb-5">Why Best Way Is Different</h2>
-            <div className="section-divider mb-8"></div>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              We believe your home deserves a foundation you can trust. With over 25 years of technical expertise, James Wilson provides solutions that are built to last a lifetime — with prompt service, fair pricing, and peace of mind on every job.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {[
-                '25+ Years Mastery',
-                'Direct Owner Oversight',
-                'Bonded & Fully Insured',
-                'Transparent Pricing',
-                'Longview Local Roots',
-                'Lifetime Integrity',
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-jac-lime shrink-0" />
-                  <span className="font-bold text-gray-700">{item}</span>
-                </div>
-              ))}
-            </div>
-            <Link to="/about" className="inline-flex items-center gap-2 bg-jac-green text-white px-8 py-4 rounded-md font-bold uppercase tracking-wide text-sm hover:bg-jac-navy-dark transition-colors shadow-md">
-              Learn More About Us <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Factors */}
-      <section className="bg-gray-50 py-16 md:py-24 border-y border-gray-200">
-        <div className="max-w-[1400px] mx-auto px-6">
-          <SectionHeading eyebrow="The Best Way Difference" title="Why Homeowners Trust Best Way" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {trustFactors.map((factor) => {
-              const Icon = factor.icon;
-              return (
-                <div key={factor.title} className="bg-white border border-gray-200 rounded-lg p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-16 h-16 rounded-full bg-jac-green flex items-center justify-center mx-auto mb-5">
-                    <Icon className="w-8 h-8 text-jac-lime" />
-                  </div>
-                  <h3 className="font-display text-xl uppercase text-jac-green mb-3">{factor.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{factor.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Service Area */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-gray-50 py-16 md:py-24 border-y border-gray-200">
         <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Where We Work</div>
@@ -370,12 +430,12 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
                 </div>
               ))}
             </div>
-            <a href="tel:9039328150" className="inline-flex items-center gap-3 bg-jac-lime text-jac-green px-8 py-4 rounded-md font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md">
+            <a href="tel:9039328150" className="inline-flex items-center gap-3 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md">
               <Phone className="w-5 h-5" /> Call (903) 932-8150
             </a>
           </div>
 
-          <div className="h-[400px] lg:h-[480px] w-full relative rounded-lg overflow-hidden shadow-xl border border-gray-200">
+          <div className="h-[400px] lg:h-[480px] w-full relative rounded-xl overflow-hidden shadow-xl border border-gray-200">
             <iframe
               src="https://www.google.com/maps?q=Longview,+TX&z=10&output=embed"
               width="100%"
@@ -392,9 +452,13 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className="bg-jac-green py-16 md:py-24 relative">
-        <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <section id="contact" className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="/jacitgallery4.jpeg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-jac-navy-dark/90"></div>
+        </div>
 
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="text-white">
             <div className="text-jac-lime font-bold tracking-widest uppercase text-sm mb-2">Free Inspection</div>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-white mb-5">Request Your Free Estimate</h2>
@@ -416,29 +480,29 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             </ul>
           </div>
 
-          <form className="bg-white rounded-lg shadow-2xl p-8 md:p-10 space-y-4">
+          <form className="bg-white rounded-xl shadow-2xl p-8 md:p-10 space-y-4">
             <h3 className="font-display text-2xl uppercase text-jac-green mb-2">Get In Touch</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="home-name" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Name *</label>
-                <input type="text" id="home-name" required className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
+                <input type="text" id="home-name" required className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
               </div>
               <div>
                 <label htmlFor="home-phone" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Phone *</label>
-                <input type="tel" id="home-phone" required className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
+                <input type="tel" id="home-phone" required className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
               </div>
             </div>
             <div>
               <label htmlFor="home-email" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Email *</label>
-              <input type="email" id="home-email" required className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
+              <input type="email" id="home-email" required className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
             </div>
             <div>
               <label htmlFor="home-address" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Property Address</label>
-              <input type="text" id="home-address" className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
+              <input type="text" id="home-address" className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
             </div>
             <div>
               <label htmlFor="home-service" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Service Needed</label>
-              <select id="home-service" defaultValue="" className="w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors">
+              <select id="home-service" defaultValue="" className="w-full border border-gray-300 rounded-lg px-4 py-3 bg-white focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors">
                 <option value="" disabled>Select a Service...</option>
                 <option value="foundation-repair">Foundation Repair</option>
                 <option value="house-leveling">House Leveling</option>
@@ -449,9 +513,9 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             </div>
             <div>
               <label htmlFor="home-message" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">How Can We Help?</label>
-              <textarea id="home-message" rows={4} className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors resize-none"></textarea>
+              <textarea id="home-message" rows={4} className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors resize-none"></textarea>
             </div>
-            <button type="submit" className="w-full bg-jac-lime text-jac-green py-4 rounded-md font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md flex items-center justify-center gap-2">
+            <button type="submit" className="w-full bg-jac-lime text-jac-green py-4 rounded-full font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md flex items-center justify-center gap-2">
               Submit Request <ArrowRight className="w-5 h-5" />
             </button>
           </form>

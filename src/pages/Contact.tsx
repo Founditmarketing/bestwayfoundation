@@ -5,20 +5,22 @@ export default function Contact({ isLoading }: { isLoading?: boolean }) {
   return (
     <>
       {/* Page Banner */}
-      <section className="relative bg-jac-green overflow-hidden">
+      <section className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/jacitimage.jpg"
             alt="Contact Us background"
-            className="w-full h-full object-cover object-center opacity-15"
+            className="w-full h-full object-cover object-center"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-jac-navy-dark/95 via-jac-green/85 to-jac-green/50"></div>
         </div>
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-16 md:py-24 text-center">
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase text-white mb-4">Get In Touch</h1>
-          <p className="text-lg md:text-xl text-white/85 max-w-2xl mx-auto font-medium">
-            Reach out today for a free evaluation. Our experts are ready to secure your property's foundation with lasting results.
-          </p>
-          <div className="section-divider mt-6 mx-auto"></div>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-20 md:py-28">
+          <div className="max-w-2xl">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase text-white mb-4">Get In Touch</h1>
+            <p className="text-lg md:text-xl text-white/85 font-medium">
+              Reach out today for a free evaluation. Our experts are ready to secure your property's foundation with lasting results.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -119,7 +121,7 @@ export default function Contact({ isLoading }: { isLoading?: boolean }) {
               <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">How Can We Help?</label>
               <textarea id="message" rows={4} className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors resize-none"></textarea>
             </div>
-            <button type="submit" className="w-full bg-jac-lime text-jac-green py-4 rounded-md font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md flex items-center justify-center gap-2">
+            <button type="submit" className="w-full bg-jac-lime text-jac-green py-4 rounded-full font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md flex items-center justify-center gap-2">
               Submit Request <ArrowRight className="w-5 h-5" />
             </button>
           </form>
