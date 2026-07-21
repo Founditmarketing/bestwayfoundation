@@ -194,13 +194,13 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
           ].map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="flex items-center gap-4 p-6">
-                <div className="w-12 h-12 rounded-full bg-jac-green flex items-center justify-center shrink-0">
-                  <Icon className="w-6 h-6 text-jac-lime" />
+              <div key={item.title} className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-4 p-4 md:p-6">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-jac-green flex items-center justify-center shrink-0">
+                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-jac-lime" />
                 </div>
                 <div>
-                  <div className="font-display text-xl font-extrabold text-jac-green leading-none">{item.title}</div>
-                  <div className="text-xs text-jac-green/70 font-semibold uppercase tracking-wide mt-1">{item.sub}</div>
+                  <div className="font-display text-lg md:text-xl font-extrabold text-jac-green leading-none">{item.title}</div>
+                  <div className="text-[11px] md:text-xs text-jac-green/70 font-semibold uppercase tracking-wide mt-1">{item.sub}</div>
                 </div>
               </div>
             );
