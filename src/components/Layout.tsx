@@ -74,7 +74,7 @@ export default function Layout() {
       </div>
 
       {/* Main Header */}
-      <header className={`sticky top-0 w-full z-40 bg-white transition-all duration-300 border-b border-gray-100 ${isScrolled ? 'shadow-md py-2' : 'py-3'}`}>
+      <header className={`sticky top-0 w-full z-40 bg-white transition-all duration-300 border-b-4 border-jac-lime ${isScrolled ? 'shadow-md py-2' : 'py-3'}`}>
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 flex items-center justify-between gap-4">
 
           {/* Logo */}
@@ -223,7 +223,7 @@ export default function Layout() {
 
           {/* Brand */}
           <div>
-            <div className="bg-white rounded-lg p-3 inline-block mb-5">
+            <div className="bg-white rounded-lg p-3 inline-block mb-5 border-2 border-jac-lime">
               <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className="h-14 w-auto" />
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-6">

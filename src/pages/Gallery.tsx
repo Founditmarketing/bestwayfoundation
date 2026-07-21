@@ -40,7 +40,7 @@ export default function Gallery({ isLoading }: { isLoading?: boolean }) {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-jac-green py-16 md:py-20">
+      <section className="bg-jac-green py-16 md:py-20 border-t-8 border-jac-lime">
         <div className="max-w-[1400px] mx-auto px-6 text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white uppercase mb-4">Ready to Start Your Project?</h2>
           <p className="text-xl text-white/85 mb-10 max-w-2xl mx-auto">Contact us today for a free evaluation and professional structural assessment.</p>

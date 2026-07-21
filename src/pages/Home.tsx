@@ -142,7 +142,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
   return (
     <>
       {/* Hero Section — full-width photo with navy overlay */}
-      <section className="relative min-h-[560px] md:min-h-[640px] flex items-center overflow-hidden">
+      <section className="relative min-h-[560px] md:min-h-[640px] flex items-center overflow-hidden border-b-8 border-jac-lime">
         <div className="absolute inset-0 z-0">
           <img
             src="/presspiers.png"
@@ -154,8 +154,8 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-20 md:py-28 w-full">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-jac-lime/50 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
-              <BadgeCheck className="w-4 h-4 text-jac-lime" /> Licensed • Insured • Locally Owned
+            <div className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 shadow-md">
+              <BadgeCheck className="w-4 h-4" /> Licensed • Insured • Locally Owned
             </div>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase text-white leading-[1.05] mb-6">
               Your Foundation.<br />
@@ -168,7 +168,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
               <Link to="/contact" className="bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm text-center hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
                 Schedule Free Inspection <ArrowRight className="w-4 h-4" />
               </Link>
-              <a href="tel:9039328150" className="border-2 border-white/70 text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm text-center hover:bg-white hover:text-jac-green transition-colors flex items-center justify-center gap-2 backdrop-blur-sm">
+              <a href="tel:9039328150" className="border-2 border-jac-lime text-jac-lime px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm text-center hover:bg-jac-lime hover:text-jac-green transition-colors flex items-center justify-center gap-2 backdrop-blur-sm">
                 <Phone className="w-4 h-4" /> (903) 932-8150
               </a>
             </div>
@@ -185,7 +185,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
 
       {/* Trust Bar — overlapping strip */}
       <section className="relative z-20 -mt-10 px-6">
-        <div className="max-w-[1200px] mx-auto bg-white rounded-xl shadow-xl border border-gray-100 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-gray-100 overflow-hidden">
+        <div className="max-w-[1200px] mx-auto bg-jac-lime rounded-xl shadow-xl grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-jac-green/10 overflow-hidden">
           {[
             { icon: Award, title: '25+ Years', sub: 'Of Experience' },
             { icon: Users, title: '2 Generations', sub: 'Family Owned & Operated' },
@@ -195,12 +195,12 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             const Icon = item.icon;
             return (
               <div key={item.title} className="flex items-center gap-4 p-6">
-                <div className="w-12 h-12 rounded-full bg-jac-lime flex items-center justify-center shrink-0">
-                  <Icon className="w-6 h-6 text-jac-green" />
+                <div className="w-12 h-12 rounded-full bg-jac-green flex items-center justify-center shrink-0">
+                  <Icon className="w-6 h-6 text-jac-lime" />
                 </div>
                 <div>
                   <div className="font-display text-xl font-extrabold text-jac-green leading-none">{item.title}</div>
-                  <div className="text-xs text-gray-500 font-semibold uppercase tracking-wide mt-1">{item.sub}</div>
+                  <div className="text-xs text-jac-green/70 font-semibold uppercase tracking-wide mt-1">{item.sub}</div>
                 </div>
               </div>
             );
@@ -213,7 +213,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-12">
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">What We Do</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Our Repair Solutions</h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Our Repair <span className="text-jac-lime">Solutions</span></h2>
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
 
@@ -239,11 +239,11 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
       </section>
 
       {/* 8 Warning Signs */}
-      <section className="bg-gray-50 py-16 md:py-24 border-y border-gray-200">
+      <section className="bg-jac-lime/15 py-16 md:py-24 border-y-4 border-jac-lime">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-12">
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Know the Warning Signs</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">8 Most Common Signs of<br className="hidden md:block" /> Foundation Problems</h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">8 Most Common Signs of<br className="hidden md:block" /> <span className="text-jac-lime">Foundation Problems</span></h2>
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -275,7 +275,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-14">
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">How It Works</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Peace of Mind in 3 Simple Steps</h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Peace of Mind in <span className="text-jac-lime">3 Simple Steps</span></h2>
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
 
@@ -307,7 +307,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
       </section>
 
       {/* About / Stats Band — dark navy */}
-      <section id="about" className="bg-jac-green py-16 md:py-24 relative overflow-hidden">
+      <section id="about" className="bg-jac-green py-16 md:py-24 relative overflow-hidden border-y-8 border-jac-lime">
         <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
           <div className="relative">
             <div className="rounded-xl overflow-hidden shadow-2xl">
@@ -320,7 +320,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
 
           <div className="text-white">
             <div className="text-jac-lime font-bold tracking-widest uppercase text-sm mb-2">About Our Company</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-white mb-5">Why Best Way Is Different</h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-white mb-5">Why <span className="text-jac-lime">Best Way</span> Is Different</h2>
             <div className="section-divider mb-8"></div>
             <p className="text-lg text-white/85 leading-relaxed mb-8">
               We believe your home deserves a foundation you can trust. With over 25 years of technical expertise, James Wilson provides solutions that are built to last a lifetime — with prompt service, fair pricing, and peace of mind on every job.
@@ -348,11 +348,11 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
       </section>
 
       {/* Trust Factors */}
-      <section className="bg-gray-50 py-16 md:py-24 border-b border-gray-200">
+      <section className="bg-jac-lime/15 py-16 md:py-24 border-b-4 border-jac-lime">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-12">
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">The Best Way Difference</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Why Homeowners Trust Best Way</h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Why Homeowners Trust <span className="text-jac-lime">Best Way</span></h2>
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -378,14 +378,14 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
             <div>
               <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Our Work</div>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Recent Work In The Field</h2>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Recent Work <span className="text-jac-lime">In The Field</span></h2>
               <div className="section-divider mt-5"></div>
             </div>
             <div className="flex gap-3">
-              <button onClick={() => scrollCarousel(-1)} className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center text-jac-green hover:bg-jac-lime hover:border-jac-lime transition-all" aria-label="Previous">
+              <button onClick={() => scrollCarousel(-1)} className="w-12 h-12 rounded-full border-2 border-jac-lime bg-jac-lime/20 flex items-center justify-center text-jac-green hover:bg-jac-lime transition-all" aria-label="Previous">
                 <ChevronLeft className="w-6 h-6" />
               </button>
-              <button onClick={() => scrollCarousel(1)} className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center text-jac-green hover:bg-jac-lime hover:border-jac-lime transition-all" aria-label="Next">
+              <button onClick={() => scrollCarousel(1)} className="w-12 h-12 rounded-full border-2 border-jac-lime bg-jac-lime/20 flex items-center justify-center text-jac-green hover:bg-jac-lime transition-all" aria-label="Next">
                 <ChevronRight className="w-6 h-6" />
               </button>
             </div>
@@ -418,7 +418,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
         <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Where We Work</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green mb-5">Contact Your Foundation Expert Today</h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green mb-5">Contact Your <span className="text-jac-lime">Foundation Expert</span> Today</h2>
             <div className="section-divider mb-8"></div>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
               Headquartered in Longview, TX, we proudly serve homeowners across Deep East Texas — including these communities and all surrounding areas:
@@ -461,7 +461,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="text-white">
             <div className="text-jac-lime font-bold tracking-widest uppercase text-sm mb-2">Free Inspection</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-white mb-5">Request Your Free Estimate</h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-white mb-5">Request Your <span className="text-jac-lime">Free Estimate</span></h2>
             <div className="section-divider mb-8"></div>
             <p className="text-lg text-white/85 leading-relaxed mb-8">
               Fill out the form and we'll get back to you promptly — or call <a href="tel:9039328150" className="font-bold text-jac-lime hover:text-white transition-colors">(903) 932-8150</a> to speak with a foundation expert today.

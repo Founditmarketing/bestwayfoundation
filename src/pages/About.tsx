@@ -81,7 +81,7 @@ export default function About({ isLoading }: { isLoading?: boolean }) {
       </section>
 
       {/* Value Points */}
-      <section className="bg-gray-50 py-16 border-y border-gray-200">
+      <section className="bg-jac-lime/15 py-16 border-y-4 border-jac-lime">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -102,7 +102,7 @@ export default function About({ isLoading }: { isLoading?: boolean }) {
       </section>
 
       {/* Final Call to Action */}
-      <section className="bg-jac-green py-16 md:py-20">
+      <section className="bg-jac-green py-16 md:py-20 border-t-8 border-jac-lime">
         <div className="max-w-[1400px] mx-auto px-6 text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white uppercase mb-4">
             Level Up Your Home — Call <span className="text-jac-lime">Best Way</span> Today!
