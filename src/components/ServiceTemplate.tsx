@@ -15,20 +15,25 @@ export default function ServiceTemplate({ title, subtitle, image, heroImage, con
   return (
     <>
       {/* Page Banner */}
-      <section className="relative bg-jac-green overflow-hidden">
+      <section className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={heroImage || '/jacitgallery.jpeg'}
             alt={`${title} background`}
-            className="w-full h-full object-cover object-center opacity-15"
+            className="w-full h-full object-cover object-center"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-jac-navy-dark/95 via-jac-green/85 to-jac-green/50"></div>
         </div>
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-16 md:py-24 text-center">
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase text-white mb-4">{title}</h1>
-          {subtitle && (
-            <p className="text-lg md:text-xl text-jac-lime font-bold uppercase tracking-widest">{subtitle}</p>
-          )}
-          <div className="section-divider mt-6 mx-auto"></div>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-20 md:py-28">
+          <div className="max-w-2xl">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase text-white mb-4">{title}</h1>
+            {subtitle && (
+              <p className="text-lg md:text-xl text-jac-lime font-bold uppercase tracking-widest mb-8">{subtitle}</p>
+            )}
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-white transition-colors shadow-lg">
+              Schedule Free Inspection <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -48,10 +53,10 @@ export default function ServiceTemplate({ title, subtitle, image, heroImage, con
             </div>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-md font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-md">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-md">
                 Schedule Free Inspection <ArrowRight className="w-4 h-4" />
               </Link>
-              <a href="tel:9039328150" className="inline-flex items-center justify-center gap-2 bg-jac-green text-white px-8 py-4 rounded-md font-bold uppercase tracking-wide text-sm hover:bg-jac-navy-dark transition-colors shadow-md">
+              <a href="tel:9039328150" className="inline-flex items-center justify-center gap-2 bg-jac-green text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-navy-dark transition-colors shadow-md">
                 <Phone className="w-4 h-4 text-jac-lime" /> (903) 932-8150
               </a>
             </div>
@@ -96,7 +101,7 @@ export default function ServiceTemplate({ title, subtitle, image, heroImage, con
             <Phone className="w-8 h-8" /> (903) 932-8150
           </a>
           <div className="mt-8">
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-md font-bold uppercase tracking-wide text-base hover:bg-white transition-colors shadow-md">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-base hover:bg-white transition-colors shadow-md">
               Schedule Free Inspection <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

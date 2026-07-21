@@ -122,7 +122,7 @@ export default function Layout() {
                 <div className="text-lg font-extrabold text-jac-green whitespace-nowrap">(903) 932-8150</div>
               </div>
             </a>
-            <Link to="/contact" className="bg-jac-lime text-jac-green px-6 py-3 rounded-md font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-sm whitespace-nowrap">
+            <Link to="/contact" className="bg-jac-lime text-jac-green px-6 py-3 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-sm whitespace-nowrap">
               Free Inspection
             </Link>
           </div>
@@ -188,10 +188,10 @@ export default function Layout() {
               <Link to="/contact" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">Contact Us</Link>
 
               <div className="pt-8 flex flex-col gap-4">
-                <a href="tel:9039328150" className="w-full bg-jac-green text-white py-4 rounded-md font-bold uppercase tracking-wide text-center flex items-center justify-center gap-2">
+                <a href="tel:9039328150" className="w-full bg-jac-green text-white py-4 rounded-full font-bold uppercase tracking-wide text-center flex items-center justify-center gap-2">
                   <Phone className="w-5 h-5 text-jac-lime" /> (903) 932-8150
                 </a>
-                <Link to="/contact" className="w-full bg-jac-lime text-jac-green py-4 rounded-md font-bold uppercase tracking-wide text-center">
+                <Link to="/contact" className="w-full bg-jac-lime text-jac-green py-4 rounded-full font-bold uppercase tracking-wide text-center">
                   Request Free Inspection
                 </Link>
                 <a href="mailto:bestwayfoundationrepair936@gmail.com" className="text-sm text-gray-500 text-center break-all">
@@ -208,17 +208,29 @@ export default function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-50 border-t border-gray-200 mt-auto">
+      <footer className="bg-jac-navy-dark mt-auto">
+        {/* CTA Strip */}
+        <div className="bg-jac-lime">
+          <div className="max-w-[1400px] mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <h3 className="font-display text-xl md:text-2xl uppercase text-jac-green text-center md:text-left">Ready for a rock-solid foundation? Get your free inspection today.</h3>
+            <a href="tel:9039328150" className="bg-jac-green text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-white hover:text-jac-green transition-colors flex items-center gap-2 whitespace-nowrap shrink-0">
+              <Phone className="w-4 h-4" /> (903) 932-8150
+            </a>
+          </div>
+        </div>
+
         <div className="max-w-[1400px] mx-auto px-6 py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 
           {/* Brand */}
           <div>
-            <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className="h-16 w-auto mb-5" />
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+            <div className="bg-white rounded-lg p-3 inline-block mb-5">
+              <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className="h-14 w-auto" />
+            </div>
+            <p className="text-white/70 text-sm leading-relaxed mb-6">
               Providing dependable foundation repair and house leveling services across Deep East Texas for over 25 years. Licensed, insured, locally owned &amp; operated.
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-jac-green text-white flex items-center justify-center hover:bg-jac-lime hover:text-jac-green transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-jac-lime hover:text-jac-green transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
               <img src="/bbblogo2.png" alt="BBB Accredited Business" className="h-10 w-auto" />
@@ -227,51 +239,54 @@ export default function Layout() {
 
           {/* Quick Links */}
           <div className="lg:pl-6">
-            <h4 className="text-jac-green uppercase tracking-wide text-lg mb-5">Quick Links</h4>
-            <ul className="space-y-3 text-sm text-gray-600 font-medium">
-              <li><Link to="/" className="hover:text-jac-green transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-jac-green transition-colors">About Us</Link></li>
+            <h4 className="text-white uppercase tracking-wide text-lg mb-2">Quick Links</h4>
+            <div className="w-8 h-0.5 bg-jac-lime mb-5"></div>
+            <ul className="space-y-3 text-sm text-white/70 font-medium">
+              <li><Link to="/" className="hover:text-jac-lime transition-colors">Home</Link></li>
+              <li><Link to="/about" className="hover:text-jac-lime transition-colors">About Us</Link></li>
               {serviceLinks.map((s) => (
-                <li key={s.to}><Link to={s.to} className="hover:text-jac-green transition-colors">{s.label}</Link></li>
+                <li key={s.to}><Link to={s.to} className="hover:text-jac-lime transition-colors">{s.label}</Link></li>
               ))}
-              <li><Link to="/gallery" className="hover:text-jac-green transition-colors">Project Gallery</Link></li>
-              <li><Link to="/contact" className="hover:text-jac-green transition-colors">Contact Us</Link></li>
+              <li><Link to="/gallery" className="hover:text-jac-lime transition-colors">Project Gallery</Link></li>
+              <li><Link to="/contact" className="hover:text-jac-lime transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
           {/* Hours */}
           <div className="lg:pl-6">
-            <h4 className="text-jac-green uppercase tracking-wide text-lg mb-5">Hours of Operation</h4>
-            <ul className="text-sm text-gray-600 font-medium divide-y divide-gray-200">
-              <li className="flex justify-between py-2"><span>Monday – Friday</span><span className="font-bold text-jac-green">8:00 AM – 6:00 PM</span></li>
-              <li className="flex justify-between py-2"><span>Saturday</span><span className="font-bold text-jac-green">Closed</span></li>
-              <li className="flex justify-between py-2"><span>Sunday</span><span className="font-bold text-jac-green">Closed</span></li>
+            <h4 className="text-white uppercase tracking-wide text-lg mb-2">Hours of Operation</h4>
+            <div className="w-8 h-0.5 bg-jac-lime mb-5"></div>
+            <ul className="text-sm text-white/70 font-medium divide-y divide-white/10">
+              <li className="flex justify-between py-2"><span>Monday – Friday</span><span className="font-bold text-jac-lime">8:00 AM – 6:00 PM</span></li>
+              <li className="flex justify-between py-2"><span>Saturday</span><span className="font-bold text-white/80">Closed</span></li>
+              <li className="flex justify-between py-2"><span>Sunday</span><span className="font-bold text-white/80">Closed</span></li>
             </ul>
-            <p className="text-xs text-gray-500 italic mt-4">Free inspections available — call to schedule.</p>
+            <p className="text-xs text-white/50 italic mt-4">Free inspections available — call to schedule.</p>
           </div>
 
           {/* Contact */}
           <div className="lg:pl-6">
-            <h4 className="text-jac-green uppercase tracking-wide text-lg mb-5">Get In Touch</h4>
-            <ul className="space-y-4 text-sm text-gray-600 font-medium">
+            <h4 className="text-white uppercase tracking-wide text-lg mb-2">Get In Touch</h4>
+            <div className="w-8 h-0.5 bg-jac-lime mb-5"></div>
+            <ul className="space-y-4 text-sm text-white/70 font-medium">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-jac-lime mt-0.5 shrink-0" />
-                <a href="tel:9039328150" className="hover:text-jac-green transition-colors font-bold text-base text-jac-green">(903) 932-8150</a>
+                <a href="tel:9039328150" className="hover:text-jac-lime transition-colors font-bold text-base text-white">(903) 932-8150</a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-jac-lime mt-0.5 shrink-0" />
-                <a href="mailto:bestwayfoundationrepair936@gmail.com" className="hover:text-jac-green transition-colors break-all">bestwayfoundationrepair936@gmail.com</a>
+                <a href="mailto:bestwayfoundationrepair936@gmail.com" className="hover:text-jac-lime transition-colors break-all">bestwayfoundationrepair936@gmail.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-jac-lime mt-0.5 shrink-0" />
-                <span>Longview, TX, United States<br /><span className="text-gray-500 italic">Proudly serving Longview and all surrounding areas.</span></span>
+                <span>Longview, TX, United States<br /><span className="text-white/50 italic">Proudly serving Longview and all surrounding areas.</span></span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="bg-jac-green text-white/80 text-xs">
+        <div className="border-t border-white/10 text-white/60 text-xs">
           <div className="max-w-[1400px] mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-2">
             <span>&copy; 2026 Best Way Foundation Repair LLC — All rights reserved.</span>
             <span>2 Generations Leveling You!</span>
