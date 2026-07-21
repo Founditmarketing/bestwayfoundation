@@ -32,30 +32,30 @@ export default function Contact({ isLoading }: { isLoading?: boolean }) {
           <div className="flex flex-col gap-8">
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <div className="w-12 h-12 rounded-full bg-jac-green flex items-center justify-center mb-4">
-                  <Phone className="w-6 h-6 text-jac-lime" />
+                <div className="w-12 h-12 rounded-full bg-jac-lime flex items-center justify-center mb-4">
+                  <Phone className="w-6 h-6 text-jac-green" />
                 </div>
                 <h3 className="font-display text-lg uppercase text-jac-green mb-1">Call Us</h3>
                 <a href="tel:9039328150" className="text-lg font-bold text-gray-700 hover:text-jac-green transition-colors">(903) 932-8150</a>
               </div>
               <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <div className="w-12 h-12 rounded-full bg-jac-green flex items-center justify-center mb-4">
-                  <Mail className="w-6 h-6 text-jac-lime" />
+                <div className="w-12 h-12 rounded-full bg-jac-lime flex items-center justify-center mb-4">
+                  <Mail className="w-6 h-6 text-jac-green" />
                 </div>
                 <h3 className="font-display text-lg uppercase text-jac-green mb-1">Email Us</h3>
                 <a href="mailto:bestwayfoundationrepair936@gmail.com" className="text-sm font-semibold text-gray-700 hover:text-jac-green transition-colors break-all">bestwayfoundationrepair936@gmail.com</a>
               </div>
               <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <div className="w-12 h-12 rounded-full bg-jac-green flex items-center justify-center mb-4">
-                  <MapPin className="w-6 h-6 text-jac-lime" />
+                <div className="w-12 h-12 rounded-full bg-jac-lime flex items-center justify-center mb-4">
+                  <MapPin className="w-6 h-6 text-jac-green" />
                 </div>
                 <h3 className="font-display text-lg uppercase text-jac-green mb-1">Headquarters</h3>
                 <p className="text-sm font-semibold text-gray-700">Longview, TX, United States</p>
                 <p className="text-xs text-gray-500 italic mt-1">Proudly serving Longview and all surrounding areas.</p>
               </div>
               <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <div className="w-12 h-12 rounded-full bg-jac-green flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6 text-jac-lime" />
+                <div className="w-12 h-12 rounded-full bg-jac-lime flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6 text-jac-green" />
                 </div>
                 <h3 className="font-display text-lg uppercase text-jac-green mb-1">Hours</h3>
                 <p className="text-sm font-semibold text-gray-700">Mon – Fri: 8:00 AM – 6:00 PM</p>

@@ -71,7 +71,7 @@ export default function ServiceTemplate({ title, subtitle, image, heroImage, con
                 className="w-full max-w-sm h-auto object-contain"
               />
             </div>
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
+            <div className="bg-gray-50 border-t-4 border-t-jac-lime border border-gray-200 rounded-lg p-8">
               <h3 className="font-display text-xl uppercase text-jac-green mb-5">Every Job Includes</h3>
               <ul className="space-y-3">
                 {[

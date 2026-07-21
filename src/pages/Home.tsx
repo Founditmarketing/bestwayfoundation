@@ -195,7 +195,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             const Icon = item.icon;
             return (
               <div key={item.title} className="flex items-center gap-4 p-6">
-                <div className="w-12 h-12 rounded-full bg-jac-green/5 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full bg-jac-lime flex items-center justify-center shrink-0">
                   <Icon className="w-6 h-6 text-jac-green" />
                 </div>
                 <div>
@@ -219,7 +219,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
-              <Link key={service.title} to={service.to} className="group bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+              <Link key={service.title} to={service.to} className="group bg-white rounded-xl overflow-hidden border-b-4 border-b-jac-lime border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
                 <div className="relative h-44 overflow-hidden">
                   <img src={service.photo} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-jac-navy-dark/60 to-transparent"></div>
@@ -251,7 +251,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
               const Icon = sign.icon;
               return (
                 <Link key={sign.title} to={sign.to} className="bg-white border border-gray-200 rounded-xl p-6 flex items-center gap-4 hover:border-jac-lime hover:shadow-md transition-all duration-300 group">
-                  <div className="w-14 h-14 rounded-full bg-jac-green/5 flex items-center justify-center shrink-0 group-hover:bg-jac-green transition-colors">
+                  <div className="w-14 h-14 rounded-full bg-jac-lime flex items-center justify-center shrink-0 group-hover:bg-jac-green transition-colors">
                     <Icon className="w-7 h-7 text-jac-green group-hover:text-jac-lime transition-colors" />
                   </div>
                   <span className="font-bold text-jac-green leading-snug">{sign.title}</span>
@@ -263,7 +263,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               Noticing any of these around your home? Don't wait until cracks become catastrophes — most homeowners don't act until the damage becomes severe, and by then repair costs skyrocket.
             </p>
-            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-green text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-navy-dark transition-colors shadow-md">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-md">
               Contact Your Local Experts <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -285,9 +285,9 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
               const Icon = step.icon;
               return (
                 <div key={step.step} className="relative flex flex-col items-center text-center">
-                  <div className="relative z-10 w-20 h-20 rounded-full bg-jac-green flex items-center justify-center mb-6 shadow-lg">
-                    <Icon className="w-9 h-9 text-jac-lime" />
-                    <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-jac-lime text-jac-green font-display font-extrabold text-lg flex items-center justify-center border-2 border-white">
+                  <div className="relative z-10 w-20 h-20 rounded-full bg-jac-lime flex items-center justify-center mb-6 shadow-lg">
+                    <Icon className="w-9 h-9 text-jac-green" />
+                    <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-jac-green text-jac-lime font-display font-extrabold text-lg flex items-center justify-center border-2 border-white">
                       {step.step}
                     </div>
                   </div>
@@ -359,9 +359,9 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             {trustFactors.map((factor) => {
               const Icon = factor.icon;
               return (
-                <div key={factor.title} className="bg-white border border-gray-200 rounded-xl p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-16 h-16 rounded-full bg-jac-green flex items-center justify-center mx-auto mb-5">
-                    <Icon className="w-8 h-8 text-jac-lime" />
+                <div key={factor.title} className="bg-white border-t-4 border-t-jac-lime border border-gray-200 rounded-xl p-8 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-16 h-16 rounded-full bg-jac-lime flex items-center justify-center mx-auto mb-5">
+                    <Icon className="w-8 h-8 text-jac-green" />
                   </div>
                   <h3 className="font-display text-xl uppercase text-jac-green mb-3">{factor.title}</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">{factor.desc}</p>

@@ -54,20 +54,20 @@ export default function Layout() {
     <div className="min-h-screen bg-white overflow-x-hidden flex flex-col">
 
       {/* Top Utility Bar */}
-      <div className="bg-jac-green text-white text-xs font-semibold h-10 px-4 lg:px-12 flex justify-between items-center relative z-50 shrink-0">
+      <div className="bg-jac-lime text-jac-green text-xs font-bold h-10 px-4 lg:px-12 flex justify-between items-center relative z-50 shrink-0">
         <div className="flex items-center gap-6">
-          <a href="mailto:bestwayfoundationrepair936@gmail.com" className="items-center gap-2 hover:text-jac-lime transition-colors hidden md:flex">
-            <Mail className="w-3.5 h-3.5 text-jac-lime" /> bestwayfoundationrepair936@gmail.com
+          <a href="mailto:bestwayfoundationrepair936@gmail.com" className="items-center gap-2 hover:text-white transition-colors hidden md:flex">
+            <Mail className="w-3.5 h-3.5" /> bestwayfoundationrepair936@gmail.com
           </a>
           <span className="flex items-center gap-2">
-            <MapPin className="w-3.5 h-3.5 text-jac-lime" /> Longview, TX &amp; Surrounding Areas
+            <MapPin className="w-3.5 h-3.5" /> Longview, TX &amp; Surrounding Areas
           </span>
         </div>
         <div className="flex items-center gap-5">
-          <span className="hidden sm:flex items-center gap-2 text-white/80">
-            <Clock className="w-3.5 h-3.5 text-jac-lime" /> Mon–Fri: 8:00 AM – 6:00 PM
+          <span className="hidden sm:flex items-center gap-2">
+            <Clock className="w-3.5 h-3.5" /> Mon–Fri: 8:00 AM – 6:00 PM
           </span>
-          <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="hover:text-jac-lime transition-colors" aria-label="Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Facebook">
             <Facebook className="w-4 h-4" />
           </a>
         </div>
@@ -239,7 +239,7 @@ export default function Layout() {
 
           {/* Quick Links */}
           <div className="lg:pl-6">
-            <h4 className="text-white uppercase tracking-wide text-lg mb-2">Quick Links</h4>
+            <h4 className="text-jac-lime uppercase tracking-wide text-lg mb-2">Quick Links</h4>
             <div className="w-8 h-0.5 bg-jac-lime mb-5"></div>
             <ul className="space-y-3 text-sm text-white/70 font-medium">
               <li><Link to="/" className="hover:text-jac-lime transition-colors">Home</Link></li>
@@ -254,7 +254,7 @@ export default function Layout() {
 
           {/* Hours */}
           <div className="lg:pl-6">
-            <h4 className="text-white uppercase tracking-wide text-lg mb-2">Hours of Operation</h4>
+            <h4 className="text-jac-lime uppercase tracking-wide text-lg mb-2">Hours of Operation</h4>
             <div className="w-8 h-0.5 bg-jac-lime mb-5"></div>
             <ul className="text-sm text-white/70 font-medium divide-y divide-white/10">
               <li className="flex justify-between py-2"><span>Monday – Friday</span><span className="font-bold text-jac-lime">8:00 AM – 6:00 PM</span></li>
@@ -266,7 +266,7 @@ export default function Layout() {
 
           {/* Contact */}
           <div className="lg:pl-6">
-            <h4 className="text-white uppercase tracking-wide text-lg mb-2">Get In Touch</h4>
+            <h4 className="text-jac-lime uppercase tracking-wide text-lg mb-2">Get In Touch</h4>
             <div className="w-8 h-0.5 bg-jac-lime mb-5"></div>
             <ul className="space-y-4 text-sm text-white/70 font-medium">
               <li className="flex items-start gap-3">

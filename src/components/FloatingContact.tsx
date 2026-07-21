@@ -82,7 +82,7 @@ export default function FloatingContact() {
 
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-jac-green text-white rounded-full flex items-center justify-center border border-white hover:bg-jac-charcoal transition-all duration-300 relative group"
+        className="w-14 h-14 bg-jac-lime text-jac-green rounded-full flex items-center justify-center border border-white shadow-lg hover:bg-jac-green hover:text-jac-lime transition-all duration-300 relative group"
         aria-label="Toggle contact widget"
       >
         <div className="absolute inset-0 bg-jac-lime rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center"></div>
