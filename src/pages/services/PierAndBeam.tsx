@@ -22,7 +22,7 @@ export default function PierAndBeam({ isLoading }: { isLoading?: boolean }) {
             Serving Longview and all surrounding areas, we take pride in delivering results that stand the test of time. When it comes to pier and beam repair, trust Best Way to protect your home and provide lasting peace of mind.
           </p>
           
-          <div className="mt-10 bg-gray-50 border-l-4 border-jac-green p-6 shadow-sm">
+          <div className="mt-10 bg-gray-50 border-l-4 border-jac-lime p-6 shadow-sm">
             <h3 className="font-display font-bold text-2xl text-jac-charcoal uppercase mb-3">How it Works</h3>
             <p className="text-gray-700">
               We inspect your home for damaged beams and uneven floors, then lift and level it using precision equipment. Damaged supports are replaced or reinforced with heavy-duty materials, and drainage issues are corrected to prevent future problems. The result: a stable, level foundation and a home built to last.

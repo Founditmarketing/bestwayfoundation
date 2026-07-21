@@ -22,7 +22,7 @@ export default function DrainageSolutions({ isLoading }: { isLoading?: boolean }
             Serving Longview and all surrounding areas, we take pride in delivering durable, reliable drainage solutions. When it comes to drainage and water management, trust Best Way to safeguard your home and provide lasting peace of mind.
           </p>
           
-          <div className="mt-10 bg-gray-50 border-l-4 border-jac-green p-6 shadow-sm">
+          <div className="mt-10 bg-gray-50 border-l-4 border-jac-lime p-6 shadow-sm">
             <h3 className="font-display font-bold text-2xl text-jac-charcoal uppercase mb-3">How it Works</h3>
             <p className="text-gray-700">
               We start with a thorough inspection to identify water flow issues, pooling, and soil erosion around your home. Customized solutions—such as French drains, grading adjustments, and vapor barriers—are installed using heavy-duty, engineering-approved materials to redirect water away from your foundation. These measures protect your home from moisture damage, stabilize the soil, and prevent future foundation problems.

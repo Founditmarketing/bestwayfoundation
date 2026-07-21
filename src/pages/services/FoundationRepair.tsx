@@ -22,7 +22,7 @@ export default function FoundationRepair({ isLoading }: { isLoading?: boolean })
             Proudly serving Longview and all surrounding areas, we’re dedicated to delivering results that stand firm for decades. When it comes to foundation repair, trust Best Way to strengthen your home from the ground up.
           </p>
           
-          <div className="mt-10 bg-gray-50 border-l-4 border-jac-green p-6 shadow-sm">
+          <div className="mt-10 bg-gray-50 border-l-4 border-jac-lime p-6 shadow-sm">
             <h3 className="font-display font-bold text-2xl text-jac-charcoal uppercase mb-3">How it Works</h3>
             <p className="text-gray-700">
               We begin with a detailed inspection to identify cracks, settling, or structural weaknesses in your foundation. Using advanced equipment and proven repair methods, we lift, stabilize, and reinforce your home’s base with heavy-duty materials to restore strength and balance. The result: a secure, long-lasting foundation that protects your home for years to come.

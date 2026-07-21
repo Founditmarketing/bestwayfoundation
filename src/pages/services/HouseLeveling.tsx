@@ -22,7 +22,7 @@ export default function HouseLeveling({ isLoading }: { isLoading?: boolean }) {
             Proudly serving Longview and all surrounding areas, we’re dedicated to results that last. When your home needs to be lifted, leveled, or stabilized, trust Best Way to restore its foundation and your peace of mind.
           </p>
           
-          <div className="mt-10 bg-gray-50 border-l-4 border-jac-green p-6 shadow-sm">
+          <div className="mt-10 bg-gray-50 border-l-4 border-jac-lime p-6 shadow-sm">
             <h3 className="font-display font-bold text-2xl text-jac-charcoal uppercase mb-3">How it Works</h3>
             <p className="text-gray-700">
               We begin with a full inspection to locate uneven areas or settling in your home. Using precision jacks and advanced leveling equipment, we carefully lift and realign your structure to its proper position. Damaged supports are reinforced with heavy-duty materials for long-term stability—restoring balance, safety, and confidence in your home’s foundation.
