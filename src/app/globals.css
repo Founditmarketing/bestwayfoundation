@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette: deep steel navy + safety amber accent */
+  --color-ink-950: #0b1c2c;
+  --color-ink-900: #10263a;
+  --color-ink-800: #16324c;
+  --color-ink-700: #1f4265;
+  --color-ink-100: #dbe6f0;
+  --color-ink-50: #f2f6fa;
+
+  --color-amber-450: #f5a524;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-slate-800 antialiased;
+}
+
+/* Consistent focus visibility for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--color-amber-450);
+  outline-offset: 2px;
+}
