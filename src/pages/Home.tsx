@@ -56,7 +56,7 @@ const services = [
   {
     title: 'Pier & Beam Repair',
     desc: 'Specialized care for older homes and custom structural frames, from joists to sills to piers.',
-    photo: '/jacitgallery4.jpeg',
+    photo: '/pierandbeam.jpeg',
     icon: '/Concrete-Pillar.H03.2k.png',
     to: '/services/pier-and-beam',
   },
