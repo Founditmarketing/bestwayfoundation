@@ -26,6 +26,7 @@ import {
   Award,
   Users
 } from 'lucide-react';
+import { locations } from '../data/locations';
 
 const warningSigns = [
   { icon: BrickWall, title: 'Cracks in Exterior & Interior Walls', to: '/services/foundation-repair' },
@@ -124,10 +125,7 @@ const fieldWork = [
   { src: '/presspiers.png', title: 'Press Piers System', desc: 'Heavy duty steel and concrete press pier installation.' },
 ];
 
-const serviceAreas = [
-  'Longview', 'Kilgore', 'Gladewater', 'White Oak', 'Hallsville', 'Marshall',
-  'Tyler', 'Henderson', 'Gilmer', 'Carthage', 'Tatum', 'Jacksonville',
-];
+const serviceAreas = locations.map((l) => ({ city: l.city, to: `/service-areas/${l.slug}` }));
 
 export default function Home({ isLoading }: { isLoading?: boolean }) {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -423,16 +421,26 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
               Headquartered in Longview, TX, we proudly serve homeowners across Deep East Texas — including these communities and all surrounding areas:
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
-              {serviceAreas.map((city) => (
-                <div key={city} className="flex items-center gap-2 text-gray-700 font-semibold">
-                  <MapPin className="w-4 h-4 text-jac-lime shrink-0" /> {city}
-                </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+              {serviceAreas.map((area) => (
+                <Link
+                  key={area.city}
+                  to={area.to}
+                  className="flex items-center gap-2 text-gray-700 font-semibold hover:text-jac-green transition-colors group"
+                >
+                  <MapPin className="w-4 h-4 text-jac-lime shrink-0" />
+                  <span className="group-hover:underline decoration-jac-lime decoration-2 underline-offset-4">{area.city}</span>
+                </Link>
               ))}
             </div>
-            <a href="tel:9039328150" className="inline-flex items-center gap-3 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md">
-              <Phone className="w-5 h-5" /> Call (903) 932-8150
-            </a>
+            <Link to="/service-areas" className="inline-flex items-center gap-2 text-jac-green font-bold uppercase tracking-wide text-sm hover:text-jac-lime transition-colors mb-8">
+              View All Service Areas <ArrowRight className="w-4 h-4" />
+            </Link>
+            <div>
+              <a href="tel:9039328150" className="inline-flex items-center gap-3 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md">
+                <Phone className="w-5 h-5" /> Call (903) 932-8150
+              </a>
+            </div>
           </div>
 
           <div className="h-[400px] lg:h-[480px] w-full relative rounded-xl overflow-hidden shadow-xl border border-gray-200">

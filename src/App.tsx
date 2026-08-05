@@ -9,6 +9,8 @@ import PierAndBeam from './pages/services/PierAndBeam';
 import FoundationRepair from './pages/services/FoundationRepair';
 import HouseLeveling from './pages/services/HouseLeveling';
 import DrainageSolutions from './pages/services/DrainageSolutions';
+import ServiceAreas from './pages/locations/ServiceAreas';
+import LocationPage from './pages/locations/LocationPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -35,6 +37,10 @@ export default function App() {
             <Route path="foundation-repair" element={<FoundationRepair />} />
             <Route path="house-leveling" element={<HouseLeveling />} />
             <Route path="drainage-solutions" element={<DrainageSolutions />} />
+          </Route>
+          <Route path="service-areas">
+            <Route index element={<ServiceAreas />} />
+            <Route path=":slug" element={<LocationPage />} />
           </Route>
         </Route>
       </Routes>
