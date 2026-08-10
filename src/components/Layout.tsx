@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FloatingContact from './FloatingContact';
+import { locations } from '../data/locations';
 
 const serviceLinks = [
   { to: '/services/foundation-repair', label: 'Foundation Repair' },
@@ -20,10 +21,12 @@ const serviceLinks = [
   { to: '/services/drainage-solutions', label: 'Drainage Solutions' },
 ];
 
+const locationLinks = locations.map((l) => ({ to: `/service-areas/${l.slug}`, label: `${l.city}, TX` }));
+
 const NavItem = ({ children, to }: { children: React.ReactNode, to: string }) => (
   <RouterNavLink
     to={to}
-    className={({ isActive }) => `text-sm font-bold tracking-wide uppercase transition-colors py-2 ${isActive ? 'text-jac-green border-b-2 border-jac-lime' : 'text-gray-700 hover:text-jac-green'}`}
+    className={({ isActive }) => `text-[13px] xl:text-sm font-bold tracking-wide uppercase transition-colors py-2 whitespace-nowrap ${isActive ? 'text-jac-green border-b-2 border-jac-lime' : 'text-gray-700 hover:text-jac-green'}`}
   >
     {children}
   </RouterNavLink>
@@ -33,6 +36,7 @@ export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isMobileAreasOpen, setIsMobileAreasOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -82,18 +86,18 @@ export default function Layout() {
             <img
               src="/bestwaylogo.png"
               alt="Best Way Foundation Repair LLC"
-              className={`w-full max-w-[480px] h-auto lg:max-w-none lg:w-auto object-contain transition-all duration-300 ${isScrolled ? 'lg:h-14' : 'lg:h-20'}`}
+              className={`w-full max-w-[480px] h-auto lg:max-w-none lg:w-auto object-contain transition-all duration-300 ${isScrolled ? 'lg:h-11 xl:h-14' : 'lg:h-12 xl:h-16 2xl:h-20'}`}
             />
           </Link>
 
           {/* Nav */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6">
             <NavItem to="/">Home</NavItem>
             <NavItem to="/about">About Us</NavItem>
 
             {/* Services Dropdown */}
             <div className="relative group/nav py-2">
-              <button className="text-sm font-bold tracking-wide uppercase text-gray-700 group-hover/nav:text-jac-green transition-colors flex items-center gap-1 py-2">
+              <button className="text-[13px] xl:text-sm font-bold tracking-wide uppercase text-gray-700 group-hover/nav:text-jac-green transition-colors flex items-center gap-1 py-2 whitespace-nowrap">
                 Services <ChevronDown className="w-4 h-4 group-hover/nav:rotate-180 transition-transform duration-300" />
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 opacity-0 translate-y-2 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-300 z-50">
@@ -107,22 +111,46 @@ export default function Layout() {
               </div>
             </div>
 
+            {/* Service Areas Dropdown */}
+            <div className="relative group/areas py-2">
+              <Link
+                to="/service-areas"
+                className={`text-[13px] xl:text-sm font-bold tracking-wide uppercase transition-colors flex items-center gap-1 py-2 whitespace-nowrap ${location.pathname.startsWith('/service-areas') ? 'text-jac-green' : 'text-gray-700 group-hover/areas:text-jac-green'}`}
+              >
+                Service Areas <ChevronDown className="w-4 h-4 group-hover/areas:rotate-180 transition-transform duration-300" />
+              </Link>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[420px] opacity-0 translate-y-2 pointer-events-none group-hover/areas:opacity-100 group-hover/areas:translate-y-0 group-hover/areas:pointer-events-auto transition-all duration-300 z-50">
+                <div className="bg-white border-t-4 border-jac-lime rounded-b-lg shadow-xl overflow-hidden">
+                  <div className="grid grid-cols-2 gap-x-2 py-3 px-2">
+                    {locationLinks.map((l) => (
+                      <RouterNavLink key={l.to} to={l.to} className="px-4 py-2.5 text-sm font-bold text-gray-700 hover:text-jac-green hover:bg-gray-50 rounded transition-colors flex items-center gap-2">
+                        <MapPin className="w-3.5 h-3.5 text-jac-lime shrink-0" /> {l.label}
+                      </RouterNavLink>
+                    ))}
+                  </div>
+                  <Link to="/service-areas" className="block bg-jac-lime/20 text-jac-green text-center text-xs font-bold uppercase tracking-widest py-3 hover:bg-jac-lime transition-colors">
+                    View All Service Areas
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <NavItem to="/gallery">Gallery</NavItem>
             <NavItem to="/contact">Contact Us</NavItem>
           </nav>
 
           {/* Phone + CTA */}
-          <div className="hidden lg:flex items-center gap-5 shrink-0">
-            <a href="tel:9039328150" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-full bg-jac-green/5 border border-jac-green/20 flex items-center justify-center group-hover:bg-jac-green transition-colors">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-5 shrink-0">
+            <a href="tel:9039328150" className="flex items-center gap-2 xl:gap-3 group">
+              <div className="w-11 h-11 rounded-full bg-jac-green/5 border border-jac-green/20 flex items-center justify-center group-hover:bg-jac-green transition-colors shrink-0">
                 <Phone className="w-5 h-5 text-jac-green group-hover:text-jac-lime transition-colors" />
               </div>
               <div className="leading-tight">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-gray-500">Call Us Today</div>
-                <div className="text-lg font-extrabold text-jac-green whitespace-nowrap">(903) 932-8150</div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-gray-500 hidden xl:block">Call Us Today</div>
+                <div className="text-base xl:text-lg font-extrabold text-jac-green whitespace-nowrap">(903) 932-8150</div>
               </div>
             </a>
-            <Link to="/contact" className="bg-jac-lime text-jac-green px-6 py-3 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-sm whitespace-nowrap">
+            <Link to="/contact" className="hidden 2xl:block bg-jac-lime text-jac-green px-5 py-3 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-sm whitespace-nowrap">
               Free Inspection
             </Link>
           </div>
@@ -184,6 +212,35 @@ export default function Layout() {
                 </AnimatePresence>
               </div>
 
+              <div className="border-b border-gray-100">
+                <button
+                  onClick={() => setIsMobileAreasOpen(!isMobileAreasOpen)}
+                  className="w-full font-display font-bold text-xl text-jac-green uppercase py-3 flex items-center justify-between"
+                >
+                  Service Areas <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${isMobileAreasOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {isMobileAreasOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex flex-col overflow-hidden pb-2"
+                    >
+                      <Link to="/service-areas" className="text-base text-jac-green font-bold py-2.5 pl-4">
+                        All Service Areas
+                      </Link>
+                      {locationLinks.map((l) => (
+                        <Link key={l.to} to={l.to} className="text-base text-gray-600 font-semibold py-2.5 pl-4 hover:text-jac-green flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-jac-lime shrink-0" /> {l.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <Link to="/gallery" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">Gallery</Link>
               <Link to="/contact" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">Contact Us</Link>
 
@@ -219,6 +276,21 @@ export default function Layout() {
           </div>
         </div>
 
+        {/* Service Area Links */}
+        <div className="border-b border-white/10">
+          <div className="max-w-[1400px] mx-auto px-6 py-8 text-center">
+            <h4 className="text-jac-lime uppercase tracking-wide text-sm font-bold mb-4">Foundation Repair Service Areas</h4>
+            <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 text-sm text-white/70 font-medium">
+              {locationLinks.map((l, i) => (
+                <span key={l.to} className="flex items-center gap-2">
+                  <Link to={l.to} className="hover:text-jac-lime transition-colors">{l.label}</Link>
+                  {i < locationLinks.length - 1 && <span className="text-white/25">•</span>}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="max-w-[1400px] mx-auto px-6 py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 
           {/* Brand */}
@@ -247,6 +319,7 @@ export default function Layout() {
               {serviceLinks.map((s) => (
                 <li key={s.to}><Link to={s.to} className="hover:text-jac-lime transition-colors">{s.label}</Link></li>
               ))}
+              <li><Link to="/service-areas" className="hover:text-jac-lime transition-colors">Service Areas</Link></li>
               <li><Link to="/gallery" className="hover:text-jac-lime transition-colors">Project Gallery</Link></li>
               <li><Link to="/contact" className="hover:text-jac-lime transition-colors">Contact Us</Link></li>
             </ul>
