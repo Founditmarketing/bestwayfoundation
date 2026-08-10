@@ -609,6 +609,147 @@ export const locations: Location[] = [
       },
     ],
   },
+  {
+    slug: 'rusk-tx',
+    city: 'Rusk',
+    cityState: 'Rusk, TX',
+    county: 'Cherokee County',
+    distance: 'Roughly 60 miles south-southwest of Longview',
+    mapQuery: 'Rusk,+TX',
+    heroImage: '/jacitgallery6.png',
+    metaTitle: 'Foundation Repair in Rusk, TX | Best Way Foundation Repair',
+    metaDescription:
+      'Rusk, TX foundation repair, house leveling and pier & beam work. Free inspections, warranted results, owner on every job. Call (903) 932-8150.',
+    tagline: 'Foundation Repair & House Leveling in Rusk, Texas',
+    intro: [
+      'Rusk is the Cherokee County seat, and it has the housing stock you would expect from a town that old — homes near the courthouse square that have been standing on their original piers for generations, alongside newer slab construction out toward the highways.',
+      'We level houses, stabilize slabs, rebuild pier and beam support systems, and correct the drainage that caused the movement in the first place. The inspection is free, the price is written down before anything starts, and owner James Wilson is on-site for the work.',
+      'Floors that pitch toward one corner, a door that has started dragging on the jamb, or a crack in the brick that opens up every August are all worth a look before the next dry spell makes them worse.',
+    ],
+    localFactors: [
+      {
+        title: 'Rolling Cherokee County Terrain',
+        desc: 'Rusk sits in genuinely hilly country. A house built across a grade carries different soil pressure from one end to the other, and the downhill side is usually the first to drop.',
+      },
+      {
+        title: 'Sandy Surface Over Tight Clay',
+        desc: 'Rain moves quickly through the sandy topsoil and then stalls at the clay underneath. That perched water loads one part of the foundation harder than the rest.',
+      },
+      {
+        title: 'Century-Old Housing Near the Square',
+        desc: 'Older homes in Rusk were built on shallow piers and cedar or brick supports. Crushed, leaning or rotted supports are normal at that age and are straightforward to replace.',
+      },
+    ],
+    nearby: ['Jacksonville', 'Alto', 'New Summerfield', 'Reklaw', 'Mount Enterprise', 'Gallatin', 'Cuney'],
+    faqs: [
+      {
+        q: 'Do you serve the city of Rusk and Rusk County?',
+        a: 'Both. The city of Rusk is in Cherokee County, while Rusk County is just east with Henderson as its seat — we cover the city of Rusk, Henderson and the communities across both counties.',
+      },
+      {
+        q: 'Is the inspection really free this far from Longview?',
+        a: 'Yes. The inspection and the written repair plan are free with no obligation, whatever the distance. Call (903) 932-8150 and we will confirm scheduling for your area.',
+      },
+      {
+        q: 'Can an old pier and beam house be leveled without tearing it up?',
+        a: 'In most cases, yes. We work from underneath, replacing failed piers and rotted framing and bringing the house back to level in controlled stages so the finishes above take as little strain as possible.',
+      },
+    ],
+  },
+  {
+    slug: 'nacogdoches-tx',
+    city: 'Nacogdoches',
+    cityState: 'Nacogdoches, TX',
+    county: 'Nacogdoches County',
+    distance: 'Roughly 70 miles south of Longview',
+    mapQuery: 'Nacogdoches,+TX',
+    heroImage: '/jacitgallery7.png',
+    metaTitle: 'Foundation Repair in Nacogdoches, TX | Best Way Foundation Repair',
+    metaDescription:
+      'Nacogdoches, TX foundation repair and house leveling. Historic pier & beam homes and modern slabs. Free inspections, warranted work. Call (903) 932-8150.',
+    tagline: 'Foundation Repair & House Leveling in Nacogdoches, Texas',
+    intro: [
+      'Nacogdoches is the oldest town in Texas, and it has the foundations to prove it. The historic neighborhoods around the older parts of town are full of homes that have been on pier and beam for a century or more, and they move in ways a modern slab simply does not.',
+      'We handle the whole range here — whole-house leveling, pier and sill replacement, joist and beam repair, slab stabilization, and the drainage corrections that keep a repair from being undone in a few wet seasons. Free inspection, honest diagnosis, written price, owner on the job.',
+      'If you are managing a rental property near the university or living in a house your family has owned for decades, the warning signs are the same: sloping floors, sticking doors, cracks that come and go with the weather, and gaps opening at trim or brick.',
+    ],
+    localFactors: [
+      {
+        title: 'Red Clay Redland Soils',
+        desc: 'Nacogdoches sits in the Redlands, where iron-rich red clay runs deep. That clay holds water and swells, then gives it up and shrinks, and the foundation follows it both directions.',
+      },
+      {
+        title: 'Creek Bottoms and Low Lots',
+        desc: 'Creeks cut through town and a lot of homes sit on the low ground near them. Persistent moisture under one side of a house is one of the most common causes of uneven settling here.',
+      },
+      {
+        title: 'Very Old Housing Stock',
+        desc: 'In the historic districts it is normal to find original shallow supports still carrying the house. Replacing them restores the structure without disturbing the character of the home.',
+      },
+    ],
+    nearby: ['Lufkin', 'Appleby', 'Cushing', 'Garrison', 'Douglass', 'Chireno', 'Martinsville', 'Etoile'],
+    faqs: [
+      {
+        q: 'Do you work on historic homes in Nacogdoches?',
+        a: 'Yes, and they are a large part of what we do. Older homes need to be lifted slowly and in stages to protect plaster, trim and masonry, which is exactly how we approach them.',
+      },
+      {
+        q: 'How do I know whether it is the foundation or just an old house settling?',
+        a: 'That is what the free inspection answers. We take measurements across the floor, look at the support system underneath, and tell you plainly whether it needs repair, monitoring, or nothing at all.',
+      },
+      {
+        q: 'Do you handle rental and investment properties?',
+        a: 'Yes. We can inspect, provide a written scope and price for your records, and schedule the work around tenants where that is needed.',
+      },
+    ],
+  },
+  {
+    slug: 'lufkin-tx',
+    city: 'Lufkin',
+    cityState: 'Lufkin, TX',
+    county: 'Angelina County',
+    distance: 'Roughly 90 miles south of Longview',
+    mapQuery: 'Lufkin,+TX',
+    heroImage: '/jacitgallery2.jpeg',
+    metaTitle: 'Foundation Repair in Lufkin, TX | Best Way Foundation Repair',
+    metaDescription:
+      'Lufkin, TX foundation repair, house leveling and pier & beam repair. Free inspections, engineering-approved methods, warranted work. Call (903) 932-8150.',
+    tagline: 'Foundation Repair & House Leveling in Lufkin, Texas',
+    intro: [
+      'Lufkin marks the southern end of our service area, and Angelina County gets the wettest weather of anywhere we work. More rain means more soil movement, and it shows up in foundations across the city.',
+      'We stabilize slabs, level houses back to true, replace failed piers, joists and sills, and fix the grading and drainage that let water sit against the house. Every inspection is free, every price is in writing first, and our own crew does the work with owner James Wilson on-site.',
+      'Doors and windows that bind, floors with a noticeable slope, cracks stair-stepping through brick, or a wall pulling away at a corner all point back to what is happening under the house.',
+    ],
+    localFactors: [
+      {
+        title: 'The Region\'s Heaviest Rainfall',
+        desc: 'Deep East Texas takes on more rain each year than the counties north of it. Saturated clay under a foundation loses bearing strength, and the house settles into the soft spots.',
+      },
+      {
+        title: 'Big Pines Close to the House',
+        desc: 'Mature pines and hardwoods pull large amounts of moisture out of the soil on one side of a house during dry spells. That localized drying is a very common cause of one-sided settling in the piney woods.',
+      },
+      {
+        title: 'Timber-Era and Mid-Century Homes',
+        desc: 'Lufkin grew with the lumber and foundry industry, leaving a lot of mid-century slab and pier and beam homes now well past the age where original supports and drainage need attention.',
+      },
+    ],
+    nearby: ['Nacogdoches', 'Diboll', 'Huntington', 'Hudson', 'Zavalla', 'Burke', 'Central', 'Pollok'],
+    faqs: [
+      {
+        q: 'Do you really come all the way to Lufkin?',
+        a: 'Yes. Lufkin and Angelina County are part of our service area. It is a longer drive than Longview, so call (903) 932-8150 and we will confirm scheduling — the inspection itself is still free.',
+      },
+      {
+        q: 'Will fixing the foundation stop the problem from coming back?',
+        a: 'Only if the water is dealt with too. In a climate this wet, correcting drainage and grading is part of the repair rather than an add-on, because that is what keeps the house where we put it.',
+      },
+      {
+        q: 'What kind of warranty comes with the work?',
+        a: 'Our lifting work is warranted long-term. We use engineering-approved materials and methods, and we put the scope and the warranty in writing before the job starts.',
+      },
+    ],
+  },
 ];
 
 export const getLocation = (slug?: string): Location | undefined =>

@@ -192,7 +192,10 @@ export default function LocationTemplate({ location }: { location: Location }) {
 
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 shadow-md">
-              <MapPin className="w-4 h-4" /> Serving {location.city} &amp; {location.county}
+              <MapPin className="w-4 h-4" /> Serving{' '}
+              {location.county.startsWith(location.city)
+                ? location.county
+                : `${location.city} & ${location.county}`}
             </div>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase text-white leading-[1.05] mb-4">
               Foundation Repair in{' '}
