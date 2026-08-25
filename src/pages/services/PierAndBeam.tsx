@@ -1,8 +1,57 @@
 import React from 'react';
 import ServiceTemplate from '../../components/ServiceTemplate';
+import useSeo from '../../hooks/useSeo';
 
+const origin = typeof window === 'undefined' ? '' : window.location.origin;
+const PAGE_DESCRIPTION =
+  'Pier and beam repair for crawlspace foundations — joists, beams and piers rebuilt by a second-generation crew serving Deep East Texas. Free inspections. Call (903) 932-8150.';
 
 export default function PierAndBeam({ isLoading }: { isLoading?: boolean }) {
+  useSeo({
+    title: 'Pier & Beam Foundation Repair in Longview, TX | Best Way Foundation Repair',
+    description: PAGE_DESCRIPTION,
+    canonicalPath: '/services/pier-and-beam',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'Pier and Beam Repair',
+        name: 'Pier & Beam Repair',
+        description: PAGE_DESCRIPTION,
+        url: `${origin}/services/pier-and-beam`,
+        provider: {
+          '@type': 'GeneralContractor',
+          name: 'Best Way Foundation Repair LLC',
+          telephone: '+1-903-932-8150',
+          email: 'bestwayfoundationrepair936@gmail.com',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Longview',
+            addressRegion: 'TX',
+            addressCountry: 'US',
+          },
+        },
+        areaServed: {
+          '@type': 'Place',
+          name: 'Deep East Texas',
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Pier & Beam Repair',
+            item: `${origin}/services/pier-and-beam`,
+          },
+        ],
+      },
+    ],
+  });
+
   return (
     <ServiceTemplate
       isLoading={isLoading}

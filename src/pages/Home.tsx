@@ -26,7 +26,10 @@ import {
   Award,
   Users
 } from 'lucide-react';
+import useSeo from '../hooks/useSeo';
 import { locations } from '../data/locations';
+
+const origin = typeof window === 'undefined' ? '' : window.location.origin;
 
 const warningSigns = [
   { icon: BrickWall, title: 'Cracks in Exterior & Interior Walls', to: '/services/foundation-repair' },
@@ -129,6 +132,49 @@ const serviceAreas = locations.map((l) => ({ city: l.city, to: `/service-areas/$
 
 export default function Home({ isLoading }: { isLoading?: boolean }) {
   const carouselRef = useRef<HTMLDivElement>(null);
+
+  useSeo({
+    title: 'Best Way Foundation Repair LLC | Foundation Repair & House Leveling in Longview, TX',
+    description:
+      'Family-owned foundation repair, house leveling, pier & beam repair and drainage solutions serving Longview and Deep East Texas for over 25 years. Free inspections, warranted work.',
+    canonicalPath: '/',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'GeneralContractor',
+        name: 'Best Way Foundation Repair LLC',
+        description:
+          'Family-owned foundation repair, house leveling, pier & beam repair and drainage solutions serving Longview and Deep East Texas for over 25 years.',
+        telephone: '+1-903-932-8150',
+        email: 'bestwayfoundationrepair936@gmail.com',
+        url: `${origin}/`,
+        image: `${origin}/bestwaylogo.png`,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Longview',
+          addressRegion: 'TX',
+          addressCountry: 'US',
+        },
+        openingHoursSpecification: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '08:00',
+          closes: '18:00',
+        },
+        areaServed: locations.map((l) => ({
+          '@type': 'City',
+          name: l.city,
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: l.city,
+            addressRegion: 'TX',
+            addressCountry: 'US',
+          },
+        })),
+        knowsAbout: ['Foundation Repair', 'House Leveling', 'Pier and Beam Repair', 'Drainage Solutions'],
+      },
+    ],
+  });
 
   const scrollCarousel = (dir: number) => {
     if (carouselRef.current) {

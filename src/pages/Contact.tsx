@@ -1,7 +1,27 @@
 import React from 'react';
 import { ArrowRight, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import useSeo from '../hooks/useSeo';
+
+const origin = typeof window === 'undefined' ? '' : window.location.origin;
 
 export default function Contact({ isLoading }: { isLoading?: boolean }) {
+  useSeo({
+    title: 'Contact Best Way Foundation Repair LLC | Free Inspection, Longview, TX',
+    description:
+      'Request a free foundation inspection in Longview or anywhere in Deep East Texas. Call (903) 932-8150 or send a message — we respond quickly.',
+    canonicalPath: '/contact',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+          { '@type': 'ListItem', position: 2, name: 'Contact', item: `${origin}/contact` },
+        ],
+      },
+    ],
+  });
+
   return (
     <>
       {/* Page Banner */}

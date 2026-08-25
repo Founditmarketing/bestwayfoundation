@@ -75,6 +75,10 @@ export default function useSeo({ title, description, canonicalPath, jsonLd }: Se
       setMeta('meta[name="description"]', metaByName('description'), DEFAULT_DESCRIPTION);
       setMeta('meta[property="og:title"]', metaByProperty('og:title'), DEFAULT_TITLE);
       setMeta('meta[property="og:description"]', metaByProperty('og:description'), DEFAULT_DESCRIPTION);
+      if (canonical) {
+        canonical.remove();
+      }
+      document.head.querySelector('meta[property="og:url"]')?.remove();
     };
     // jsonLd is a literal rebuilt each render; the title/description pair is a
     // sufficient identity for when the head needs rewriting.

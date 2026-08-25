@@ -1,8 +1,28 @@
 import React from 'react';
 import { ArrowRight, Phone, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import useSeo from '../hooks/useSeo';
+
+const origin = typeof window === 'undefined' ? '' : window.location.origin;
 
 export default function About({ isLoading }: { isLoading?: boolean }) {
+  useSeo({
+    title: 'About Best Way Foundation Repair LLC | Second-Generation, Longview, TX',
+    description:
+      'A second-generation, locally owned foundation repair company serving Longview and Deep East Texas for over 25 years. Owner James Wilson on every job, no cut corners.',
+    canonicalPath: '/about',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+          { '@type': 'ListItem', position: 2, name: 'About', item: `${origin}/about` },
+        ],
+      },
+    ],
+  });
+
   return (
     <>
       {/* Page Banner */}

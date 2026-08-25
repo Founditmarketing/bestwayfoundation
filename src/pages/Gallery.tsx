@@ -1,8 +1,28 @@
 import React from 'react';
 import { ArrowRight, Facebook, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import useSeo from '../hooks/useSeo';
+
+const origin = typeof window === 'undefined' ? '' : window.location.origin;
 
 export default function Gallery({ isLoading }: { isLoading?: boolean }) {
+  useSeo({
+    title: 'Project Gallery | Best Way Foundation Repair LLC',
+    description:
+      'See foundation repair, house leveling and pier & beam projects from Best Way Foundation Repair LLC, serving Longview and Deep East Texas.',
+    canonicalPath: '/gallery',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+          { '@type': 'ListItem', position: 2, name: 'Gallery', item: `${origin}/gallery` },
+        ],
+      },
+    ],
+  });
+
   return (
     <>
       {/* Page Banner */}
