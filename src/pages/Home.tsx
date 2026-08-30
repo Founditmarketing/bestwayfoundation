@@ -60,14 +60,14 @@ const services = [
   {
     title: 'Pier & Beam Repair',
     desc: 'Specialized care for older homes and custom structural frames, from joists to sills to piers.',
-    photo: '/jacitgallery4.jpeg',
+    photo: '/pierandbeam.jpeg',
     icon: '/Concrete-Pillar.H03.2k.png',
     to: '/services/pier-and-beam',
   },
   {
     title: 'Drainage Solutions',
     desc: 'Protecting your foundation from moisture and soil shifts before they become structural problems.',
-    photo: '/jacitgallery.jpeg',
+    photo: '/drainagesolutions.jpeg',
     icon: '/Steel-Shower-Drain.H03.2k.png',
     to: '/services/drainage-solutions',
   },
