@@ -10,6 +10,18 @@ import type { Faq } from '../components/FaqAccordion';
 
 export const homeFaqs: Faq[] = [
   {
+    q: 'What does Best Way actually specialize in?',
+    a: 'Foundation lifting. James Wilson is a concrete contractor by trade and lifting settled houses back to level is the job he does more than any other — on concrete and steel piers, across Deep East Texas. Slab repair, pier and beam work and drainage all sit around that core service, usually as part of the same job.',
+  },
+  {
+    q: 'Is foundation lifting the same thing as house leveling?',
+    a: 'Yes — two names for the same work. Lifting a settled structure back to a level plane and re-supporting it so it holds. Some people call it house leveling, some call it foundation lifting, and slab owners often call it foundation repair. We do all of it; the method changes with the foundation type, not the name.',
+  },
+  {
+    q: 'Why does it matter that you are a concrete contractor?',
+    a: 'Because the concrete is what holds the lift. Piers are what carry your house once it is back at elevation, and a pier poured or driven badly is why a lift does not last. Working in concrete every day is the difference between a house that stays level and one you pay to lift twice.',
+  },
+  {
     q: 'Is the foundation inspection really free?',
     a: 'Yes, everywhere we work, with no obligation and no travel charge — Longview, Kilgore, Tyler, Marshall, Nacogdoches, Lufkin and everywhere in between. You get elevation readings and a written recommendation whether or not you hire us.',
   },

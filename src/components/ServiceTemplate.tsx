@@ -12,7 +12,7 @@ import { getOtherLocations, type Location } from '../data/locations';
  * Renders both /services/:slug and /services/:slug/:city.
  *
  * When `location` is supplied the page gains the local context — county, soil
- * behaviour, nearby communities — that made the city pages strong, so the
+ * behavior, nearby communities — that made the city pages strong, so the
  * service x city combinations are genuinely distinct pages rather than the
  * same copy with a place name swapped in.
  */

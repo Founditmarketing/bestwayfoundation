@@ -1,5 +1,5 @@
 // Run from the project root: node scripts/serve-static.mjs
-// Local mirror of Vercel's behaviour: filesystem first, 404.html fallback,
+// Local mirror of Vercel's behavior: filesystem first, 404.html fallback,
 // no SPA rewrite. Used only to verify the prerendered output.
 import http from 'node:http';
 import fs from 'node:fs/promises';

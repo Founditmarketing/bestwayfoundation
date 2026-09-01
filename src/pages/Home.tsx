@@ -37,27 +37,27 @@ const warningSigns = [
   { icon: BrickWall, title: 'Cracks in Exterior & Interior Walls', to: '/services/foundation-repair' },
   { icon: DoorClosed, title: 'Stuck Doors & Jammed Windows', to: '/services/house-leveling' },
   { icon: Ruler, title: 'Sloping or Uneven Floors', to: '/services/house-leveling' },
-  { icon: House, title: 'Cracked Chimney', to: '/services/foundation-repair' },
+  { icon: House, title: 'Cracked Chimney', to: '/services/house-leveling' },
   { icon: Frame, title: 'Gaps Around Windows & Doors', to: '/services/foundation-repair' },
   { icon: TriangleAlert, title: 'Sagging or Bowing Walls', to: '/services/pier-and-beam' },
   { icon: LayoutGrid, title: 'Cracks in Tile & Flooring', to: '/services/foundation-repair' },
-  { icon: MoveHorizontal, title: 'Slab or Wall Separation', to: '/services/foundation-repair' },
+  { icon: MoveHorizontal, title: 'Slab or Wall Separation', to: '/services/house-leveling' },
 ];
 
 const services = [
   {
-    title: 'Foundation Repair',
-    desc: 'Precision stabilization for slab and pier & beam structures — we pinpoint the root cause and fix it for good.',
-    photo: '/img/foundation-repair-crew-east-texas.jpg',
-    icon: '/img/icon-foundation-repair.png',
-    to: '/services/foundation-repair',
-  },
-  {
-    title: 'House Leveling',
-    desc: 'Restoring structural integrity with advanced hydraulic leveling that brings your home back to true.',
+    title: 'Foundation Lifting & House Leveling',
+    desc: 'What we do more than anything else — controlled hydraulic lifting on concrete and steel piers that brings a settled house back to true.',
     photo: '/img/house-leveling-kilgore-tx.jpg',
     icon: '/img/icon-house-leveling.png',
     to: '/services/house-leveling',
+  },
+  {
+    title: 'Foundation Repair',
+    desc: 'Concrete slab stabilization for settling and cracking — we pinpoint the root cause and correct it for good.',
+    photo: '/img/foundation-repair-crew-east-texas.jpg',
+    icon: '/img/icon-foundation-repair.png',
+    to: '/services/foundation-repair',
   },
   {
     title: 'Pier & Beam Repair',
@@ -159,14 +159,16 @@ export default function Home() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 py-20 md:py-28 w-full">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 shadow-md">
-              <BadgeCheck className="w-4 h-4" /> Licensed • Insured • Locally Owned
+              <BadgeCheck className="w-4 h-4" /> Concrete Contractor • Licensed • Insured
             </div>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase text-white leading-[1.05] mb-6">
-              Your Foundation.<br />
-              <span className="text-jac-lime">Fixed The Best Way.</span>
+              Foundation Lifting.<br />
+              <span className="text-jac-lime">Done The Best Way.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-xl">
-              Helping East Texans stand on the strongest foundation for over 25+ years. Expert foundation repair and house leveling — honest craftsmanship you can trust.
+              A second-generation concrete contractor whose whole trade is lifting settled houses back
+              to level — on concrete and steel piers, across Deep East Texas, for over 25 years. Owner
+              James Wilson is on site for every lift.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link to="/contact" className="bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm text-center hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
@@ -217,7 +219,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-12">
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">What We Do</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Our Repair <span className="text-jac-lime">Solutions</span></h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Lifting, Leveling &amp; <span className="text-jac-lime">Concrete Repair</span></h2>
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
 

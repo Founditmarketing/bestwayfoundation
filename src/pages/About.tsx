@@ -5,6 +5,7 @@ import Img from '../components/Img';
 import {
   BUSINESS_NAME,
   FOUNDED_YEAR,
+  PRIMARY_CATEGORY,
   OWNER_NAME,
   PHONE_DISPLAY,
   PHONE_HREF,
@@ -77,10 +78,10 @@ export default function About() {
 
             <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
               <p>
-                {BUSINESS_NAME} is a second-generation, family-owned foundation contractor based in
+                {BUSINESS_NAME} is a second-generation, family-owned concrete contractor based in
                 Longview and working across Deep East Texas. Second-generation means what it sounds
                 like: the trade was learned on job sites in this region, from the generation before,
-                and it has been practised here continuously for more than {YEARS_IN_BUSINESS} years.
+                and it has been practiced here continuously for more than {YEARS_IN_BUSINESS} years.
               </p>
               <p>
                 We are not a franchise and we do not employ commission salespeople. When you call, you
@@ -88,6 +89,16 @@ export default function About() {
                 the elevation readings himself. When we repair, he is on site while the work is done.
                 That is the whole business model, and it is the reason we can say no to work a house
                 does not need.
+              </p>
+              <h3 className="font-display text-2xl uppercase text-jac-green pt-4">
+                One job, done more than any other.
+              </h3>
+              <p>
+                Foundation lifting is the work. Owner {OWNER_NAME} is a {PRIMARY_CATEGORY.toLowerCase()}{' '}
+                by trade, and the concrete is the whole point of it: the piers carrying your house
+                after the lift are what decide whether it stays where we put it. Slab repair, pier and
+                beam work and drainage all sit around that core service — usually as part of the same
+                job, because a lift that ignores them does not hold.
               </p>
               <h3 className="font-display text-2xl uppercase text-jac-green pt-4">
                 Measure first. Quote second.
@@ -132,7 +143,7 @@ export default function About() {
             <div className="rounded-lg overflow-hidden shadow-xl border-8 border-gray-50">
               <Img
                 src="/img/foundation-repair-crew-east-texas.jpg"
-                alt={`${OWNER_NAME} and the Best Way crew levelling a home in East Texas`}
+                alt={`${OWNER_NAME} and the Best Way crew leveling a home in East Texas`}
                 sizes="(min-width: 1024px) 640px, 100vw"
                 className="w-full h-[320px] md:h-[500px] object-cover"
               />
@@ -168,10 +179,11 @@ export default function About() {
                 company is paid a commission on the size of your repair.
               </p>
               <p>
-                His work covers concrete slab stabilization, full house leveling, pier and beam repair
-                including sills, beams and joists, and the drainage correction that keeps all of it
-                holding — across Gregg, Harrison, Smith, Rusk, Upshur, Panola, Cherokee, Nacogdoches
-                and Angelina counties.
+                He is a {PRIMARY_CATEGORY.toLowerCase()} by trade, and foundation lifting is what he
+                does more than anything else. The work covers hydraulic lifting on concrete and steel
+                piers, concrete slab stabilization, pier and beam repair including sills, beams and
+                joists, and the drainage correction that keeps all of it holding — across Gregg,
+                Harrison, Smith, Rusk, Upshur, Panola, Cherokee, Nacogdoches and Angelina counties.
               </p>
             </div>
           </div>
@@ -198,8 +210,8 @@ export default function About() {
               },
               {
                 icon: Users,
-                title: 'Second Generation',
-                desc: `The trade learned in this region from the generation before, and practised here since ${FOUNDED_YEAR}.`,
+                title: 'Concrete Contractor',
+                desc: `A concrete trade learned in this region from the generation before, and practiced here since ${FOUNDED_YEAR}.`,
               },
               {
                 icon: ShieldCheck,
@@ -217,7 +229,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              `${YEARS_IN_BUSINESS}+ years in Deep East Texas`,
+              `${YEARS_IN_BUSINESS}+ years lifting East Texas foundations`,
               'Owner on site for every job',
               'Elevation readings before and after',
               'Written scope and pricing',
