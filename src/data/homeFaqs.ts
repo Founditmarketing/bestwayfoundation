@@ -11,15 +11,15 @@ import type { Faq } from '../components/FaqAccordion';
 export const homeFaqs: Faq[] = [
   {
     q: 'What does Best Way actually specialize in?',
-    a: 'Foundation lifting. James Wilson is a concrete contractor by trade and lifting settled houses back to level is the job he does more than any other — on concrete and steel piers, across Deep East Texas. Slab repair, pier and beam work and drainage all sit around that core service, usually as part of the same job.',
+    a: 'Foundation leveling. James Wilson is a concrete contractor by trade. So foundation leveling on concrete and steel piers is the job he does more than any other. Slab repair, pier and beam work and drainage sit around that core service. Usually they happen as part of the same job.',
   },
   {
-    q: 'Is foundation lifting the same thing as house leveling?',
-    a: 'Yes — two names for the same work. Lifting a settled structure back to a level plane and re-supporting it so it holds. Some people call it house leveling, some call it foundation lifting, and slab owners often call it foundation repair. We do all of it; the method changes with the foundation type, not the name.',
+    q: 'Is foundation leveling the same thing as house leveling?',
+    a: 'Yes, they are two names for the same work. You lift a settled structure back to a level plane, and then you re-support it so it holds. Some people call it foundation leveling, some say house leveling or foundation lifting, and slab owners often call it foundation repair. We do all of it, because the method changes with the foundation type rather than the name.',
   },
   {
     q: 'Why does it matter that you are a concrete contractor?',
-    a: 'Because the concrete is what holds the lift. Piers are what carry your house once it is back at elevation, and a pier poured or driven badly is why a lift does not last. Working in concrete every day is the difference between a house that stays level and one you pay to lift twice.',
+    a: 'Because the concrete is what holds the lift. Piers carry your house once it is back at elevation. A pier poured or driven badly is why a lift does not last. Working in concrete every day is the difference between a house that stays level and one you pay to lift twice.',
   },
   {
     q: 'Is the foundation inspection really free?',
@@ -27,7 +27,7 @@ export const homeFaqs: Faq[] = [
   },
   {
     q: 'How do I know whether my house actually has a foundation problem?',
-    a: 'The signs worth acting on are the ones that are changing: a crack that has widened over a season, a door that used to latch and now does not, a floor slope you can feel. Static hairline cracks in sheetrock usually are not urgent. If something is moving, have it measured.',
+    a: 'Watch for anything that is changing. A crack that widened over a season. A door that used to latch and now does not. A floor slope you can feel. Hairline cracks in sheetrock are usually not urgent. But if something is moving, have it measured.',
   },
   {
     q: 'What does foundation repair cost in East Texas?',
@@ -39,23 +39,23 @@ export const homeFaqs: Faq[] = [
   },
   {
     q: 'Do you work on both slab and pier and beam foundations?',
-    a: 'Both. Slab work is press or concrete piers and a controlled lift; pier and beam is supports, sills, beams and joists plus crawlspace moisture. A large share of the older housing stock here is pier and beam, and we work on it every week.',
+    a: 'Both. Slab work means press or concrete piers and a controlled lift. Pier and beam means supports, sills, beams and joists, plus crawlspace moisture. A large share of the older housing stock here is pier and beam, and we work on it every week.',
   },
   {
     q: 'How long does the work take and do we have to move out?',
-    a: 'Most residential jobs run one to three working days, and almost nobody needs to move out — the majority of the work happens outside the house or in the crawlspace beneath it. If any part of your job is an exception we tell you before you sign.',
+    a: 'Most jobs run one to three working days. Almost nobody needs to move out, because most of the work happens outside the house or in the crawlspace under it. If your job is an exception, we tell you before you sign.',
   },
   {
     q: 'Who will actually be at my house?',
-    a: 'Our own crew, with owner James Wilson on site. There is no separate sales team and nobody here is paid a commission on the size of your repair, which is why we can tell you when your house does not need work.',
+    a: 'Our own crew, with owner James Wilson on site. There is no sales team, and nobody here earns a commission on the size of your repair. That is why we can tell you when your house does not need work.',
   },
   {
     q: 'Do you fix the drainage as well as the foundation?',
-    a: 'Yes, and on most East Texas jobs it is part of the repair rather than an add-on. Piers stop the house following the soil down; drainage stops the soil making the trip. Skipping it shortens the life of everything else.',
+    a: 'Yes, and on most East Texas jobs it is part of the repair rather than an add-on. Piers stop the house following the soil down, but drainage stops the soil making the trip in the first place. So skipping it shortens the life of the foundation leveling you just paid for.',
   },
   {
     q: 'Is the work warranted?',
-    a: 'Yes. Our lifting work carries a long-term warranty, with the scope and terms written into the agreement before anyone starts — not described verbally.',
+    a: 'Yes. Our foundation leveling carries a long-term warranty. The scope and terms go into the agreement before anyone starts, so nothing rests on a verbal promise.',
   },
   {
     q: 'How far do you travel?',

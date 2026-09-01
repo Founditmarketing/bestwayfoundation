@@ -47,8 +47,8 @@ const warningSigns = [
 
 const services = [
   {
-    title: 'Foundation Lifting & House Leveling',
-    desc: 'What we do more than anything else — controlled hydraulic lifting on concrete and steel piers that brings a settled house back to true.',
+    title: 'Foundation Leveling & House Leveling',
+    desc: 'Our core work. Controlled hydraulic foundation leveling on concrete and steel piers, so a settled house comes back to true and stays there.',
     photo: '/img/house-leveling-kilgore-tx.jpg',
     icon: '/img/icon-house-leveling.png',
     to: '/services/house-leveling',
@@ -87,25 +87,25 @@ const processSteps = [
     icon: ClipboardList,
     step: '2',
     title: 'Get a Custom Repair Plan',
-    desc: 'We take elevation readings across the whole house to find what is actually moving. Then we show you the numbers and the plan, in writing.',
+    desc: 'First we take elevation readings across the whole house, so we know what is actually moving. Then we show you the numbers and the foundation leveling plan, in writing.',
   },
   {
     icon: Wrench,
     step: '3',
     title: 'We Fix It Right the First Time',
-    desc: 'Our own crew does the work, with owner James Wilson on site. The lift is warranted, in writing, before we start.',
+    desc: 'Then our own crew does the foundation leveling, with owner James Wilson on site. The work is warranted in writing before we start.',
   },
 ];
 
 const trustFactors = [
   {
     title: 'Warranted Work',
-    desc: 'Our lifting work is warranted long term. You get the terms in writing before the job starts.',
+    desc: 'Our foundation leveling is warranted long term. You get the terms in writing before the job starts, so nothing is a surprise later.',
     icon: ShieldCheck,
   },
   {
     title: 'Honest Service',
-    desc: 'You get one written price and a straight answer. Nobody here works on commission.',
+    desc: 'You get one written price and a straight answer, and nobody here works on commission.',
     icon: Handshake,
   },
   {
@@ -115,7 +115,7 @@ const trustFactors = [
   },
   {
     title: 'Reliable Results',
-    desc: 'We use concrete and steel piers rated for the load. That is what keeps a house level after we lift it.',
+    desc: 'We use concrete and steel piers rated for the load, because that is what keeps a house level after the lift.',
     icon: Construction,
   },
 ];
@@ -163,13 +163,14 @@ export default function Home() {
               <BadgeCheck className="w-4 h-4" /> Concrete Contractor • Licensed • Insured
             </div>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase text-white leading-[1.05] mb-6">
-              Concrete Foundation Lifting.<br />
+              Concrete Foundation Leveling.<br />
               <span className="text-jac-lime">Done The Best Way.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-xl">
-              We are a second-generation concrete contractor in Longview, and lifting settled houses
-              is what we do. We put them back on concrete and steel piers that hold. Owner James
-              Wilson is on site for every lift, and the inspection is free.
+              We are a second-generation concrete contractor in Longview, so foundation leveling is
+              the job we do more than any other. We put a settled house back to level, and then we
+              hold it there on concrete and steel piers. Owner James Wilson is on site for every
+              lift, and the inspection is always free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link to="/contact" className="bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm text-center hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
@@ -220,7 +221,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-12">
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">What A Concrete Contractor Does Here</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Lifting, Leveling &amp; <span className="text-jac-lime">Concrete Repair</span></h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Foundation Leveling &amp; <span className="text-jac-lime">Concrete Repair</span></h2>
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
 
