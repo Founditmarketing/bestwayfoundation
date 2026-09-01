@@ -20,7 +20,7 @@ import {
  * works — rather than the urgency copy it previously ran. Search engines and
  * AI answer engines both reward substantiated experience over adjectives.
  *
- * TODO(client): a Texas licence or registration number and any named
+ * TODO(client): a Texas license or registration number and any named
  * certifications should be added to the Credentials block below. They are
  * deliberately absent rather than invented.
  */

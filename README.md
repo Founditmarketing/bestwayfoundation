@@ -26,6 +26,7 @@ npm run images           # re-run the image pipeline (one-off; see below)
 
 npm run serve:dist       # serve dist/ the way Vercel does, on :4173
 npm run check:hydration  # Playwright hydration + head checks against :4173
+npm run check:leads      # proves every form still produces a complete lead
 ```
 
 `npm run build` is what Vercel runs. All four steps matter and they are ordered:
@@ -44,6 +45,7 @@ prerenderer import the route registry from it.
 | `src/data/services.ts` | 4 services — copy, process, equipment, FAQs. |
 | `src/data/guides.ts` | Long-form cost and comparison guides. |
 | `src/components/Img.tsx` | The only place an `<img>` is written. Emits WebP + srcset, intrinsic dimensions, lazy loading. |
+| `src/components/LeadForm.tsx` | The only place a `<form>` is written. Every field must stay named — see below. |
 
 ### Adding a page
 
@@ -61,6 +63,26 @@ source images, and commit the output.
 
 Always render images through `<Img>`. A raw `<img>` will miss the responsive
 sources and the dimensions that keep CLS at zero.
+
+## Lead capture — read before touching a form
+
+Leads are delivered by the Found It embed in `index.html`. It serialises
+submissions with `new FormData(form)`, **which only includes controls that have
+a `name` attribute**, and it POSTs fire-and-forget with its errors swallowed —
+so a broken form fails completely silently.
+
+Three of the four original forms had `id` but no `name`, so the embed received
+`{}` and sent nothing, while the browser ran a native GET submit that cleared
+the form and looked like success to the visitor. Every form now renders through
+`LeadForm`, which owns the names, calls `preventDefault()` and shows a real
+confirmation.
+
+`npm run check:leads` drives a browser through the homepage, contact and city
+forms and fails if any of them submits without producing a complete lead. Run
+it after any change to a form.
+
+Nothing in this repo can confirm a lead reached the agency's backend — test
+that end to end after deploying.
 
 ## Verification
 
@@ -94,7 +116,7 @@ Marked `TODO(client)` in the source:
 - **Street address and postal code** (`src/config/site.ts`) — the schema
   publishes locality only. A service-area business may hide its address on
   Google Business Profile, but the schema and citation matching still want it.
-- **Licence number and certifications** (`src/pages/About.tsx`) — claimed in
+- **License number and certifications** (`src/pages/About.tsx`) — claimed in
   prose, never stated. Deliberately not invented.
 - **Review source for `AggregateRating`** — Google, Facebook or BBB. Star
   ratings need real, verifiable reviews behind them.
