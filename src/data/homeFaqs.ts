@@ -11,7 +11,7 @@ import type { Faq } from '../components/FaqAccordion';
 export const homeFaqs: Faq[] = [
   {
     q: 'What does Best Way actually specialize in?',
-    a: 'Foundation leveling. James Wilson is a concrete contractor by trade. So foundation leveling on concrete and steel piers is the job he does more than any other. Slab repair, pier and beam work and drainage sit around that core service. Usually they happen as part of the same job.',
+    a: 'Foundation leveling. James Wilson is a concrete contractor by trade, so putting settled houses back on concrete and steel piers is the job he does more than any other. Slab repair, pier and beam work and drainage sit around that core service. Usually they happen as part of the same job.',
   },
   {
     q: 'Is foundation leveling the same thing as house leveling?',
@@ -23,23 +23,23 @@ export const homeFaqs: Faq[] = [
   },
   {
     q: 'Is the foundation inspection really free?',
-    a: 'Yes, everywhere we work, with no obligation and no travel charge — Longview, Kilgore, Tyler, Marshall, Nacogdoches, Lufkin and everywhere in between. You get elevation readings and a written recommendation whether or not you hire us.',
+    a: 'Yes, everywhere we work, with no obligation and no travel charge. You get elevation readings and a written recommendation whether or not you hire us.',
   },
   {
-    q: 'How do I know whether my house actually has a foundation problem?',
+    q: 'How do I know if my house needs foundation leveling?',
     a: 'Watch for anything that is changing. A crack that widened over a season. A door that used to latch and now does not. A floor slope you can feel. Hairline cracks in sheetrock are usually not urgent. But if something is moving, have it measured.',
   },
   {
-    q: 'What does foundation repair cost in East Texas?',
-    a: 'It is priced by how many piers your house needs and how deep they go — not by square footage. Two houses on the same street can differ by a factor of five, which is why nobody honest quotes over the phone. We measure first and put the price in writing.',
+    q: 'What does foundation leveling cost in East Texas?',
+    a: 'Foundation leveling is priced by how many piers your house needs and how deep they go. Not by square footage. Two houses on the same street can differ by five times, so nobody honest quotes over the phone. We measure first, then put the price in writing.',
   },
   {
     q: 'Why do foundations move so much in this part of Texas?',
-    a: 'Expansive clay. It swells when it takes on water and shrinks as it dries, and the house on top moves with it. A wet spring followed by a hard late-summer dry spell is the cycle that puts most East Texas homes out of level.',
+    a: 'Expansive clay. It swells when it takes on water, then shrinks as it dries, and the house on top moves with it. A wet spring followed by a dry late summer is the cycle that puts most East Texas homes out of level.',
   },
   {
-    q: 'Do you work on both slab and pier and beam foundations?',
-    a: 'Both. Slab work means press or concrete piers and a controlled lift. Pier and beam means supports, sills, beams and joists, plus crawlspace moisture. A large share of the older housing stock here is pier and beam, and we work on it every week.',
+    q: 'Do you level both slab and pier and beam foundations?',
+    a: 'Both. On a slab, foundation leveling means press or concrete piers and a slow, controlled lift. On pier and beam it means supports, sills, beams and joists, plus crawlspace moisture. Much of the older housing here is pier and beam, and we work on it every week.',
   },
   {
     q: 'How long does the work take and do we have to move out?',
@@ -58,7 +58,7 @@ export const homeFaqs: Faq[] = [
     a: 'Yes. Our foundation leveling carries a long-term warranty. The scope and terms go into the agreement before anyone starts, so nothing rests on a verbal promise.',
   },
   {
-    q: 'How far do you travel?',
-    a: 'Across Deep East Texas from our Longview base — Gregg, Harrison, Smith, Rusk, Upshur, Panola, Cherokee, Nacogdoches and Angelina counties. There is no travel charge for the inspection anywhere in that area.',
+    q: 'How far do you travel for foundation leveling?',
+    a: 'Across Deep East Texas from our Longview base. That is Gregg, Harrison, Smith, Rusk, Upshur, Panola, Cherokee, Nacogdoches and Angelina counties. There is no travel charge for the inspection anywhere in that area.',
   },
 ];

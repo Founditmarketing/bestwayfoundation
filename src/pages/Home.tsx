@@ -48,28 +48,28 @@ const warningSigns = [
 const services = [
   {
     title: 'Foundation Leveling & House Leveling',
-    desc: 'Our core work. Controlled hydraulic foundation leveling on concrete and steel piers, so a settled house comes back to true and stays there.',
+    desc: 'Our core work. Slow, controlled foundation leveling on concrete and steel piers, so a settled house comes back to true and stays there.',
     photo: '/img/house-leveling-kilgore-tx.jpg',
     icon: '/img/icon-house-leveling.png',
     to: '/services/house-leveling',
   },
   {
     title: 'Foundation Repair',
-    desc: 'Concrete slab stabilization for settling and cracking — we pinpoint the root cause and correct it for good.',
+    desc: 'Slab work for settling and cracking. We find the real cause first, then fix it for good.',
     photo: '/img/foundation-repair-crew-east-texas.jpg',
     icon: '/img/icon-foundation-repair.png',
     to: '/services/foundation-repair',
   },
   {
     title: 'Pier & Beam Repair',
-    desc: 'Specialized care for older homes and custom structural frames, from joists to sills to piers.',
+    desc: 'For older homes on piers. We rebuild joists, sills, beams and the piers under them.',
     photo: '/img/foundation-inspection-east-texas.jpg',
     icon: '/img/icon-pier-and-beam.png',
     to: '/services/pier-and-beam',
   },
   {
     title: 'Drainage Solutions',
-    desc: 'Protecting your foundation from moisture and soil shifts before they become structural problems.',
+    desc: 'We move water away from the house, because wet soil is what moves a foundation.',
     photo: '/img/foundation-drainage-french-drain.jpg',
     icon: '/img/icon-drainage-solutions.png',
     to: '/services/drainage-solutions',
@@ -86,13 +86,13 @@ const processSteps = [
   {
     icon: ClipboardList,
     step: '2',
-    title: 'Get a Custom Repair Plan',
-    desc: 'First we take elevation readings across the whole house, so we know what is actually moving. Then we show you the numbers and the foundation leveling plan, in writing.',
+    title: 'Get a Foundation Leveling Plan',
+    desc: 'First we take elevation readings across the whole house. That shows what is really moving. Then you get the numbers and a foundation leveling plan, in writing.',
   },
   {
     icon: Wrench,
     step: '3',
-    title: 'We Fix It Right the First Time',
+    title: 'We Level It, Once',
     desc: 'Then our own crew does the foundation leveling, with owner James Wilson on site. The work is warranted in writing before we start.',
   },
 ];
@@ -100,7 +100,7 @@ const processSteps = [
 const trustFactors = [
   {
     title: 'Warranted Work',
-    desc: 'Our foundation leveling is warranted long term. You get the terms in writing before the job starts, so nothing is a surprise later.',
+    desc: 'Our foundation leveling is warranted long term. You get the terms in writing before we start, so nothing is a surprise.',
     icon: ShieldCheck,
   },
   {
@@ -110,12 +110,12 @@ const trustFactors = [
   },
   {
     title: 'Expert Crew',
-    desc: 'The whole crew learned the trade from James Wilson, and he is on site while they work.',
+    desc: 'The whole crew learned the trade from James Wilson. He is on site while they work.',
     icon: HardHat,
   },
   {
-    title: 'Reliable Results',
-    desc: 'We use concrete and steel piers rated for the load, because that is what keeps a house level after the lift.',
+    title: 'Foundation Leveling That Holds',
+    desc: 'We use concrete and steel piers rated for the load. That is what makes foundation leveling hold.',
     icon: Construction,
   },
 ];
@@ -167,10 +167,10 @@ export default function Home() {
               <span className="text-jac-lime">Done The Best Way.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-xl">
-              We are a second-generation concrete contractor in Longview, so foundation leveling is
-              the job we do more than any other. We put a settled house back to level, and then we
-              hold it there on concrete and steel piers. Owner James Wilson is on site for every
-              lift, and the inspection is always free.
+              We are a second-generation concrete contractor in Longview. Foundation leveling is the
+              job we do more than any other. We put a settled house back to level, then hold it there
+              on concrete and steel piers. Owner James Wilson is on site for every job, and the
+              inspection is always free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link to="/contact" className="bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm text-center hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
@@ -251,7 +251,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-12">
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Know the Warning Signs</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">8 Most Common Signs of<br className="hidden md:block" /> <span className="text-jac-lime">Foundation Problems</span></h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">8 Signs You Need<br className="hidden md:block" /> <span className="text-jac-lime">Foundation Leveling</span></h2>
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -269,7 +269,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Noticing any of these around your home? Don't wait until cracks become catastrophes — most homeowners don't act until the damage becomes severe, and by then repair costs skyrocket.
+              Seeing any of these at your house? Have it measured while it is still small. The number of piers a house needs grows as it keeps moving, and pier count is what you pay for.
             </p>
             <Link to="/contact" className="inline-flex items-center gap-2 bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm hover:bg-jac-green hover:text-white transition-colors shadow-md">
               Contact Your Local Experts <ArrowRight className="w-4 h-4" />
@@ -283,7 +283,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-14">
             <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">How It Works</div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Peace of Mind in <span className="text-jac-lime">3 Simple Steps</span></h2>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Foundation Leveling in <span className="text-jac-lime">3 Simple Steps</span></h2>
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
 
@@ -331,7 +331,7 @@ export default function Home() {
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-white mb-5">Why <span className="text-jac-lime">Best Way</span> Is Different</h2>
             <div className="section-divider mb-8"></div>
             <p className="text-lg text-white/85 leading-relaxed mb-8">
-              We believe your home deserves a foundation you can trust. With over 25 years of technical expertise, James Wilson provides solutions that are built to last a lifetime — with prompt service, fair pricing, and peace of mind on every job.
+              James Wilson has spent 25 years leveling houses in this part of Texas. He runs the readings, writes the plan, and is on site while the crew works. You get one fair price and a foundation that holds.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mb-8">
@@ -429,7 +429,7 @@ export default function Home() {
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green mb-5">Contact Your <span className="text-jac-lime">Foundation Expert</span> Today</h2>
             <div className="section-divider mb-8"></div>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              We are based in Longview and we travel. Here is where we work, plus everywhere around them:
+              We are based in Longview and we travel. Here is where we do foundation leveling, plus everywhere around it:
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
               {serviceAreas.map((area) => (
