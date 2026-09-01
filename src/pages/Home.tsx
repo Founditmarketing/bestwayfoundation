@@ -87,35 +87,35 @@ const processSteps = [
     icon: ClipboardList,
     step: '2',
     title: 'Get a Custom Repair Plan',
-    desc: 'We evaluate every crack, shift, and settling issue to pinpoint the root cause — then walk you through a transparent, honest repair plan.',
+    desc: 'We take elevation readings across the whole house to find what is actually moving. Then we show you the numbers and the plan, in writing.',
   },
   {
     icon: Wrench,
     step: '3',
     title: 'We Fix It Right the First Time',
-    desc: 'Our crew installs engineering-approved solutions with owner James Wilson on-site — warranted work built to last a lifetime.',
+    desc: 'Our own crew does the work, with owner James Wilson on site. The lift is warranted, in writing, before we start.',
   },
 ];
 
 const trustFactors = [
   {
     title: 'Warranted Work',
-    desc: 'Long-term guarantees on our lifting services, providing you with lasting peace of mind for years to come.',
+    desc: 'Our lifting work is warranted long term. You get the terms in writing before the job starts.',
     icon: ShieldCheck,
   },
   {
     title: 'Honest Service',
-    desc: 'Transparent pricing and clear communication from start to finish. Absolutely no hidden sales gimmicks.',
+    desc: 'You get one written price and a straight answer. Nobody here works on commission.',
     icon: Handshake,
   },
   {
     title: 'Expert Crew',
-    desc: 'Our entire team is trained directly under founder James Wilson to ensure flawless execution on every job.',
+    desc: 'The whole crew learned the trade from James Wilson, and he is on site while they work.',
     icon: HardHat,
   },
   {
     title: 'Reliable Results',
-    desc: 'We exclusively utilize structurally sound materials and engineering-approved methods for maximum stability.',
+    desc: 'We use concrete and steel piers rated for the load. That is what keeps a house level after we lift it.',
     icon: Construction,
   },
 ];
@@ -163,13 +163,13 @@ export default function Home() {
               <BadgeCheck className="w-4 h-4" /> Concrete Contractor • Licensed • Insured
             </div>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl uppercase text-white leading-[1.05] mb-6">
-              Foundation Lifting.<br />
+              Concrete Foundation Lifting.<br />
               <span className="text-jac-lime">Done The Best Way.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-xl">
-              A second-generation concrete contractor whose whole trade is lifting settled houses back
-              to level — on concrete and steel piers, across Deep East Texas, for over 25 years. Owner
-              James Wilson is on site for every lift.
+              We are a second-generation concrete contractor in Longview, and lifting settled houses
+              is what we do. We put them back on concrete and steel piers that hold. Owner James
+              Wilson is on site for every lift, and the inspection is free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link to="/contact" className="bg-jac-lime text-jac-green px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm text-center hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
@@ -195,7 +195,7 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto bg-jac-lime rounded-xl shadow-xl grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-jac-green/10 overflow-hidden">
           {[
             { icon: Award, title: '25+ Years', sub: 'Of Experience' },
-            { icon: Users, title: '2 Generations', sub: 'Family Owned & Operated' },
+            { icon: Users, title: 'Concrete Contractor', sub: 'Second Generation, Family Owned' },
             { icon: ShieldCheck, title: 'Warranted', sub: 'Work Built To Last' },
             { icon: BadgeCheck, title: 'BBB', sub: 'Accredited Business' },
           ].map((item) => {
@@ -219,7 +219,7 @@ export default function Home() {
       <section id="services" className="bg-white pt-20 pb-16 md:pt-24 md:pb-24">
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-12">
-            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">What We Do</div>
+            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">What A Concrete Contractor Does Here</div>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">Lifting, Leveling &amp; <span className="text-jac-lime">Concrete Repair</span></h2>
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
@@ -428,7 +428,7 @@ export default function Home() {
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green mb-5">Contact Your <span className="text-jac-lime">Foundation Expert</span> Today</h2>
             <div className="section-divider mb-8"></div>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Headquartered in Longview, TX, we proudly serve homeowners across Deep East Texas — including these communities and all surrounding areas:
+              We are based in Longview and we travel. Here is where we work, plus everywhere around them:
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
               {serviceAreas.map((area) => (
@@ -523,8 +523,8 @@ export default function Home() {
             </p>
             <ul className="space-y-4">
               {[
-                'Free, no-obligation structural inspection',
-                'Transparent pricing — no hidden sales gimmicks',
+                'A free inspection, with no obligation',
+                'One written price, and nobody on commission',
                 'Warranted work backed by 25+ years of experience',
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3">
