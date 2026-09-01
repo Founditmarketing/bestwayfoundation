@@ -311,7 +311,7 @@ export default function Layout() {
               <Img src="/img/best-way-foundation-repair-logo.png" alt="Best Way Foundation Repair LLC" sizes="220px" className="h-14 w-auto" />
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Providing dependable foundation repair and house leveling services across Deep East Texas for over 25 years. Licensed, insured, locally owned &amp; operated.
+              Foundation leveling, house leveling and slab repair across Deep East Texas for over 25 years. Licensed, insured, and locally owned.
             </p>
             <div className="flex items-center gap-4">
               <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-jac-lime hover:text-jac-green transition-colors" aria-label="Facebook">
