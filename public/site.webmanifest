@@ -1,0 +1,13 @@
+{
+  "name": "Best Way Foundation Repair LLC",
+  "short_name": "Best Way",
+  "description": "Foundation repair, house leveling, pier & beam repair and drainage solutions across Deep East Texas.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#1c3d2f",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
