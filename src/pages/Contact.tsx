@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Phone, Mail, MapPin, Clock } from 'lucide-react';
 import Img from '../components/Img';
+import LeadForm from '../components/LeadForm';
 
 
 export default function Contact() {
@@ -83,51 +84,11 @@ export default function Contact() {
           </div>
 
           {/* Form - Right Side */}
-          <form className="bg-white rounded-lg shadow-xl border border-gray-200 p-8 md:p-10 space-y-4">
-            <h2 className="font-display text-2xl md:text-3xl uppercase text-jac-green mb-1">Request an Estimate</h2>
-            <div className="section-divider mb-6"></div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="fname" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">First Name *</label>
-                <input type="text" id="fname" required className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-              </div>
-              <div>
-                <label htmlFor="lname" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Last Name *</label>
-                <input type="text" id="lname" required className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Email Address *</label>
-              <input type="email" id="email" required className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-            </div>
-            <div>
-              <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Phone Number *</label>
-              <input type="tel" id="phone" required className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-            </div>
-            <div>
-              <label htmlFor="address" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Property Address</label>
-              <input type="text" id="address" className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-            </div>
-            <div>
-              <label htmlFor="service" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Service Needed *</label>
-              <select id="service" defaultValue="" required className="w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors">
-                <option value="" disabled>Select a Service...</option>
-                <option value="foundation-repair">Foundation Repair</option>
-                <option value="house-leveling">House Leveling</option>
-                <option value="pier-and-beam">Pier &amp; Beam Repair</option>
-                <option value="drainage-solutions">Drainage Solutions</option>
-                <option value="other">Other / Not Sure</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">How Can We Help?</label>
-              <textarea id="message" rows={4} className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors resize-none"></textarea>
-            </div>
-            <button type="submit" className="w-full bg-jac-lime text-jac-green py-4 rounded-full font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md flex items-center justify-center gap-2">
-              Submit Request <ArrowRight className="w-5 h-5" />
-            </button>
-          </form>
+          <LeadForm
+            heading="Request an Estimate"
+            idPrefix="contact"
+            className="bg-white rounded-lg shadow-xl border border-gray-200 p-8 md:p-10 space-y-4"
+          />
         </div>
       </section>
     </>

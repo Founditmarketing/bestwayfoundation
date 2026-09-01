@@ -26,6 +26,7 @@ import { services } from '../data/services';
 import { guides } from '../data/guides';
 import Img from './Img';
 import FaqAccordion from './FaqAccordion';
+import LeadForm from './LeadForm';
 
 
 const warningSigns = [
@@ -466,46 +467,13 @@ export default function LocationTemplate({ location }: { location: Location }) {
             </ul>
           </div>
 
-          <form className="bg-white rounded-xl shadow-2xl p-8 md:p-10 space-y-4">
-            <h3 className="font-display text-2xl uppercase text-jac-green mb-2">Get In Touch</h3>
-            <input type="hidden" name="city" value={location.cityState} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor={`${location.slug}-name`} className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Name *</label>
-                <input type="text" id={`${location.slug}-name`} name="name" required className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-              </div>
-              <div>
-                <label htmlFor={`${location.slug}-phone`} className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Phone *</label>
-                <input type="tel" id={`${location.slug}-phone`} name="phone" required className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-              </div>
-            </div>
-            <div>
-              <label htmlFor={`${location.slug}-email`} className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Email *</label>
-              <input type="email" id={`${location.slug}-email`} name="email" required className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-            </div>
-            <div>
-              <label htmlFor={`${location.slug}-address`} className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Property Address</label>
-              <input type="text" id={`${location.slug}-address`} name="address" defaultValue="" placeholder={`Street, ${location.cityState}`} className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-            </div>
-            <div>
-              <label htmlFor={`${location.slug}-service`} className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Service Needed</label>
-              <select id={`${location.slug}-service`} name="service" defaultValue="" className="w-full border border-gray-300 rounded-lg px-4 py-3 bg-white focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors">
-                <option value="" disabled>Select a Service...</option>
-                <option value="foundation-repair">Foundation Repair</option>
-                <option value="house-leveling">House Leveling</option>
-                <option value="pier-and-beam">Pier &amp; Beam Repair</option>
-                <option value="drainage-solutions">Drainage Solutions</option>
-                <option value="other">Other / Not Sure</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor={`${location.slug}-message`} className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">How Can We Help?</label>
-              <textarea id={`${location.slug}-message`} name="message" rows={4} className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors resize-none"></textarea>
-            </div>
-            <button type="submit" className="w-full bg-jac-lime text-jac-green py-4 rounded-full font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md flex items-center justify-center gap-2">
-              Submit Request <ArrowRight className="w-5 h-5" />
-            </button>
-          </form>
+          <LeadForm
+            heading={`Free Inspection in ${location.city}`}
+            idPrefix={location.slug}
+            className="bg-white rounded-xl shadow-2xl p-8 md:p-10 space-y-4"
+            hiddenFields={{ city: location.cityState }}
+            addressPlaceholder={`Street, ${location.cityState}`}
+          />
         </div>
       </section>
 

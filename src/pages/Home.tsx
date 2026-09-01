@@ -31,6 +31,7 @@ import Img from '../components/Img';
 import FaqAccordion from '../components/FaqAccordion';
 import { homeFaqs } from '../data/homeFaqs';
 import { guides } from '../data/guides';
+import LeadForm from '../components/LeadForm';
 
 
 const warningSigns = [
@@ -534,45 +535,11 @@ export default function Home() {
             </ul>
           </div>
 
-          <form className="bg-white rounded-xl shadow-2xl p-8 md:p-10 space-y-4">
-            <h3 className="font-display text-2xl uppercase text-jac-green mb-2">Get In Touch</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="home-name" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Name *</label>
-                <input type="text" id="home-name" required className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-              </div>
-              <div>
-                <label htmlFor="home-phone" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Phone *</label>
-                <input type="tel" id="home-phone" required className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="home-email" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Email *</label>
-              <input type="email" id="home-email" required className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-            </div>
-            <div>
-              <label htmlFor="home-address" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Property Address</label>
-              <input type="text" id="home-address" className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors" />
-            </div>
-            <div>
-              <label htmlFor="home-service" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">Service Needed</label>
-              <select id="home-service" defaultValue="" className="w-full border border-gray-300 rounded-lg px-4 py-3 bg-white focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors">
-                <option value="" disabled>Select a Service...</option>
-                <option value="foundation-repair">Foundation Repair</option>
-                <option value="house-leveling">House Leveling</option>
-                <option value="pier-and-beam">Pier &amp; Beam Repair</option>
-                <option value="drainage-solutions">Drainage Solutions</option>
-                <option value="other">Other / Not Sure</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="home-message" className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">How Can We Help?</label>
-              <textarea id="home-message" rows={4} className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green transition-colors resize-none"></textarea>
-            </div>
-            <button type="submit" className="w-full bg-jac-lime text-jac-green py-4 rounded-full font-bold uppercase tracking-wide text-base hover:bg-jac-green hover:text-white transition-colors shadow-md flex items-center justify-center gap-2">
-              Submit Request <ArrowRight className="w-5 h-5" />
-            </button>
-          </form>
+          <LeadForm
+            heading="Get Your Free Inspection"
+            idPrefix="home"
+            className="bg-white rounded-xl shadow-2xl p-8 md:p-10 space-y-4"
+          />
         </div>
       </section>
     </>

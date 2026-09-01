@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, Phone, X, Send } from 'lucide-react';
+import { MessageSquare, Phone, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import LeadForm from './LeadForm';
 
 export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,31 +51,12 @@ export default function FloatingContact() {
                 <MessageSquare className="w-4 h-4 text-jac-green" />
                 Send a Quick Message
               </h4>
-              <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); setIsOpen(false); alert('Message sent successfully!'); }}>
-                <div>
-                  <input type="text" placeholder="Full Name *" className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green text-sm" required />
-                </div>
-                <div>
-                  <input type="tel" placeholder="Phone Number *" className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green text-sm" required />
-                </div>
-                <div>
-                  <input type="email" placeholder="Email Address *" className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green text-sm" required />
-                </div>
-                <div>
-                  <select className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-jac-green focus:ring-1 focus:ring-jac-green text-sm bg-white" required defaultValue="">
-                    <option value="" disabled>Select a Service *</option>
-                    <option value="foundation-repair">Foundation Repair</option>
-                    <option value="house-leveling">House Leveling</option>
-                    <option value="pier-and-beam">Pier & Beam Repair</option>
-                    <option value="drainage-solutions">Drainage Solutions</option>
-                    <option value="other">Other / Not Sure</option>
-                  </select>
-                </div>
-                <button type="submit" className="w-full bg-jac-green text-white font-bold py-2.5 rounded flex items-center justify-center gap-2 hover:bg-jac-charcoal transition-colors text-sm mt-2">
-                  Send Message
-                  <Send className="w-4 h-4" />
-                </button>
-              </form>
+              <LeadForm
+                compact
+                className="space-y-3"
+                idPrefix="floating"
+                onSent={() => setIsOpen(false)}
+              />
             </div>
           </motion.div>
         )}
