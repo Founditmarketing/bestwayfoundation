@@ -55,6 +55,119 @@ export interface Service {
 
 export const services: Service[] = [
   {
+    slug: 'house-leveling',
+    path: '/services/house-leveling',
+    name: 'Foundation Lifting & House Leveling',
+    navLabel: 'Foundation Lifting',
+    cityLabel: 'Foundation Lifting',
+    serviceType: 'Concrete Foundation Lifting',
+    metaTitle: 'Foundation Lifting & House Leveling | Best Way',
+    metaDescription:
+      'Concrete foundation lifting and house leveling across Deep East Texas. Controlled hydraulic lifting on concrete and steel piers. Call (903) 932-8150.',
+    tagline: 'What We Do More Than Anything Else',
+    summary: 'Our core work — controlled hydraulic lifting on concrete and steel piers, bringing a settled house back to true.',
+    icon: '/img/icon-house-leveling.png',
+    heroImage: '/img/house-leveling-hydraulic-lift.jpg',
+    ogImage: '/social/og-house-leveling.jpg',
+    intro: [
+      'Lifting foundations is what Best Way does more than anything else. We are a concrete contractor by trade, and the concrete is the point: the piers that carry your house after the lift are what decide whether it stays where we put it. Owner James Wilson has spent his working life on this one job across Deep East Texas.',
+      'Foundation lifting — house leveling, if that is the term you know it by — means physically returning a settled structure to a level plane and re-supporting it so it holds. On pier and beam homes that means lifting at the beams and piers; on a slab it means lifting the slab itself on piers driven beneath it. Either way the skill is in the lift, not the jack: going too fast is how contractors crack sheetrock, break tile and split framing.',
+      'We lift in small increments across many points simultaneously, moving the whole structure together rather than jacking one corner up and hoping the rest follows. Between increments we check elevations and look at the framing, the door reveals and the existing cracks. If the house tells us to slow down, we slow down.',
+      'A good leveling job ends with the structure supported on adequate piers at adequate spacing, shimmed with materials that will not compress or rot, and with the drainage corrected so the soil underneath stops moving. Anything less is a lift that will need doing again.',
+    ],
+    process: [
+      {
+        title: 'Full Elevation Map',
+        desc: 'Readings across every room and every support point, so we know the true shape of the settlement before a single jack goes under the house.',
+      },
+      {
+        title: 'Support Point Assessment',
+        desc: 'On pier and beam we inspect every pier, sill, beam and joist. Rotten or undersized supports get replaced as part of the lift rather than jacked against.',
+      },
+      {
+        title: 'Staged Hydraulic Lift',
+        desc: 'Multiple jacks working together in small increments, with elevation checks between stages. The house moves as one piece.',
+      },
+      {
+        title: 'Permanent Re-Support',
+        desc: 'New or reset piers at proper spacing, shimmed with steel and treated material. Nothing that will rot, crush or work loose.',
+      },
+      {
+        title: 'Post-Lift Verification',
+        desc: 'A second full elevation survey confirming the result, handed to you alongside the before readings.',
+      },
+    ],
+    equipment: [
+      {
+        title: 'Multi-Point Hydraulic Jacking',
+        desc: 'Several jacks under load at once so the lift is distributed. This is the single biggest difference between a careful leveling job and a damaging one.',
+      },
+      {
+        title: 'Steel Shims and Caps',
+        desc: 'Steel rather than wood scraps at the bearing points, so the support does not compress or rot back out of level in five years.',
+      },
+      {
+        title: 'Concrete and Steel Piers',
+        desc: 'Sized and spaced to the actual span and load of your structure rather than to a standard spacing that may not fit it.',
+      },
+      {
+        title: 'Digital Elevation Survey',
+        desc: 'Before-and-after readings recorded in writing so the result is measurable rather than a matter of opinion.',
+      },
+    ],
+    symptoms: [
+      'Floors that slope, bounce or feel springy underfoot',
+      'A visible dip or hump running across a room',
+      'Furniture that rocks and balls that roll to one wall',
+      'Gaps opening between the floor and the baseboard',
+      'Exterior doors that swing open or shut on their own',
+      'Separation at the corners of interior door frames',
+    ],
+    faqs: [
+      {
+        q: 'How much does house leveling cost?',
+        a: 'It scales with the size of the house, how far out of level it is, and how many of the existing supports need replacing rather than resetting. A pier and beam home with sound framing that needs shimming and a few new piers is a modest job; one with rotten sills and beams is a larger one. The inspection and written quote are free.',
+      },
+      {
+        q: 'Can you level a house without cracking the walls?',
+        a: 'That is exactly what the incremental method is for. Lifting slowly across many points at once lets finishes move with the structure. Some existing cracks change shape as the house returns to level, and older brittle plaster can show new hairlines — we tell you what to expect before we lift.',
+      },
+      {
+        q: 'How level does a house actually need to be?',
+        a: 'Perfectly flat is neither realistic nor necessary on an older home. The goal is to bring the structure back within tolerance, close the differential that is causing the damage, and support it so it stops moving. We show you the numbers rather than promising a flat floor.',
+      },
+      {
+        q: 'How long does leveling take?',
+        a: 'Typically one to four days depending on the size of the structure, the number of support points and how much sill or beam work is needed underneath.',
+      },
+      {
+        q: 'Can we stay in the house during the lift?',
+        a: 'In most cases yes. You will hear the work and you may notice doors moving as the house comes back. We let you know in advance if any part of the job needs the house empty.',
+      },
+      {
+        q: 'Do you level mobile and manufactured homes?',
+        a: 'Our work is on permanent residential and light commercial structures. Call and describe what you have at (903) 932-8150 and we will tell you honestly whether it is in our wheelhouse or point you to someone better suited.',
+      },
+      {
+        q: 'Why is my floor sagging in the middle of the house?',
+        a: 'On pier and beam that usually means interior piers have settled, a beam has deflected, or a girder was undersized for its span. It is very common in older East Texas homes where interior supports were spaced further apart than modern practice.',
+      },
+      {
+        q: 'Will my doors and windows work properly again?',
+        a: 'Usually, and that is one of the most satisfying parts of the job. Doors that dragged for years often latch again once the structure is back to elevation. Some need rehanging afterward, which we will tell you about up front.',
+      },
+      {
+        q: 'What keeps the house from settling again?',
+        a: 'Adequate supports at proper spacing, plus correcting the drainage. If water keeps collecting under one side of the house, that side will keep moving no matter how well it was lifted.',
+      },
+      {
+        q: 'Is the leveling work warranted?',
+        a: 'Yes, our lifting work carries a long-term warranty with the terms in writing before we begin.',
+      },
+    ],
+    cityAngle: 'settled foundations, sloping floors and doors that no longer latch',
+  },
+  {
     slug: 'foundation-repair',
     path: '/services/foundation-repair',
     name: 'Foundation Repair',
@@ -65,7 +178,7 @@ export const services: Service[] = [
     metaDescription:
       'Slab foundation repair in Longview and Deep East Texas. Press piers, crack stabilization, free inspections, warranted work. Call (903) 932-8150.',
     tagline: 'Stabilizing Concrete Slab Foundations',
-    summary: 'Slab stabilization that pinpoints the root cause and corrects it for good.',
+    summary: 'Concrete slab stabilization that pinpoints the root cause and corrects it for good.',
     icon: '/img/icon-foundation-repair.png',
     heroImage: '/img/foundation-repair-crew-east-texas.jpg',
     ogImage: '/social/og-foundation-repair.jpg',
@@ -166,118 +279,6 @@ export const services: Service[] = [
     ],
     cityAngle:
       'slab settlement, stair-step brick cracking and doors that have gone out of square',
-  },
-  {
-    slug: 'house-leveling',
-    path: '/services/house-leveling',
-    name: 'House Leveling',
-    navLabel: 'House Leveling',
-    cityLabel: 'House Leveling',
-    serviceType: 'House Leveling',
-    metaTitle: 'House Leveling in East Texas | Best Way',
-    metaDescription:
-      'Hydraulic house leveling in Longview and Deep East Texas. Controlled lifting, shimming and re-support. Free inspections. Call (903) 932-8150.',
-    tagline: 'Bringing Settled Homes Back To True',
-    summary: 'Controlled hydraulic lifting that brings your home back to true.',
-    icon: '/img/icon-house-leveling.png',
-    heroImage: '/img/house-leveling-hydraulic-lift.jpg',
-    ogImage: '/social/og-house-leveling.jpg',
-    intro: [
-      'House leveling is the act of physically returning a settled structure to a level plane and re-supporting it so it stays there. On pier and beam homes that means lifting at the beams and piers; on slabs it means lifting the slab itself. Either way the skill is in the lift, not the jack — going too fast is how contractors crack sheetrock, break tile and split framing.',
-      'We lift in small increments across many points simultaneously, moving the whole structure together rather than jacking one corner up and hoping the rest follows. Between increments we check elevations and look at the framing, the door reveals and the existing cracks. If the house tells us to slow down, we slow down.',
-      'A good leveling job ends with the structure supported on adequate piers at adequate spacing, shimmed with materials that will not compress or rot, and with the drainage corrected so the soil underneath stops moving. Anything less is a lift that will need doing again.',
-    ],
-    process: [
-      {
-        title: 'Full Elevation Map',
-        desc: 'Readings across every room and every support point, so we know the true shape of the settlement before a single jack goes under the house.',
-      },
-      {
-        title: 'Support Point Assessment',
-        desc: 'On pier and beam we inspect every pier, sill, beam and joist. Rotten or undersized supports get replaced as part of the lift rather than jacked against.',
-      },
-      {
-        title: 'Staged Hydraulic Lift',
-        desc: 'Multiple jacks working together in small increments, with elevation checks between stages. The house moves as one piece.',
-      },
-      {
-        title: 'Permanent Re-Support',
-        desc: 'New or reset piers at proper spacing, shimmed with steel and treated material. Nothing that will rot, crush or work loose.',
-      },
-      {
-        title: 'Post-Lift Verification',
-        desc: 'A second full elevation survey confirming the result, handed to you alongside the before readings.',
-      },
-    ],
-    equipment: [
-      {
-        title: 'Multi-Point Hydraulic Jacking',
-        desc: 'Several jacks under load at once so the lift is distributed. This is the single biggest difference between a careful leveling job and a damaging one.',
-      },
-      {
-        title: 'Steel Shims and Caps',
-        desc: 'Steel rather than wood scraps at the bearing points, so the support does not compress or rot back out of level in five years.',
-      },
-      {
-        title: 'Concrete and Steel Piers',
-        desc: 'Sized and spaced to the actual span and load of your structure rather than to a standard spacing that may not fit it.',
-      },
-      {
-        title: 'Digital Elevation Survey',
-        desc: 'Before-and-after readings recorded in writing so the result is measurable rather than a matter of opinion.',
-      },
-    ],
-    symptoms: [
-      'Floors that slope, bounce or feel springy underfoot',
-      'A visible dip or hump running across a room',
-      'Furniture that rocks and balls that roll to one wall',
-      'Gaps opening between the floor and the baseboard',
-      'Exterior doors that swing open or shut on their own',
-      'Separation at the corners of interior door frames',
-    ],
-    faqs: [
-      {
-        q: 'How much does house leveling cost?',
-        a: 'It scales with the size of the house, how far out of level it is, and how many of the existing supports need replacing rather than resetting. A pier and beam home with sound framing that needs shimming and a few new piers is a modest job; one with rotten sills and beams is a larger one. The inspection and written quote are free.',
-      },
-      {
-        q: 'Can you level a house without cracking the walls?',
-        a: 'That is exactly what the incremental method is for. Lifting slowly across many points at once lets finishes move with the structure. Some existing cracks change shape as the house returns to level, and older brittle plaster can show new hairlines — we tell you what to expect before we lift.',
-      },
-      {
-        q: 'How level does a house actually need to be?',
-        a: 'Perfectly flat is neither realistic nor necessary on an older home. The goal is to bring the structure back within tolerance, close the differential that is causing the damage, and support it so it stops moving. We show you the numbers rather than promising a flat floor.',
-      },
-      {
-        q: 'How long does leveling take?',
-        a: 'Typically one to four days depending on the size of the structure, the number of support points and how much sill or beam work is needed underneath.',
-      },
-      {
-        q: 'Can we stay in the house during the lift?',
-        a: 'In most cases yes. You will hear the work and you may notice doors moving as the house comes back. We let you know in advance if any part of the job needs the house empty.',
-      },
-      {
-        q: 'Do you level mobile and manufactured homes?',
-        a: 'Our work is on permanent residential and light commercial structures. Call and describe what you have at (903) 932-8150 and we will tell you honestly whether it is in our wheelhouse or point you to someone better suited.',
-      },
-      {
-        q: 'Why is my floor sagging in the middle of the house?',
-        a: 'On pier and beam that usually means interior piers have settled, a beam has deflected, or a girder was undersized for its span. It is very common in older East Texas homes where interior supports were spaced further apart than modern practice.',
-      },
-      {
-        q: 'Will my doors and windows work properly again?',
-        a: 'Usually, and that is one of the most satisfying parts of the job. Doors that dragged for years often latch again once the structure is back to elevation. Some need rehanging afterward, which we will tell you about up front.',
-      },
-      {
-        q: 'What keeps the house from settling again?',
-        a: 'Adequate supports at proper spacing, plus correcting the drainage. If water keeps collecting under one side of the house, that side will keep moving no matter how well it was lifted.',
-      },
-      {
-        q: 'Is the leveling work warranted?',
-        a: 'Yes, our lifting work carries a long-term warranty with the terms in writing before we begin.',
-      },
-    ],
-    cityAngle: 'sloping floors, settled interior supports and doors that no longer latch',
   },
   {
     slug: 'pier-and-beam',
@@ -414,7 +415,7 @@ export const services: Service[] = [
     process: [
       {
         title: 'Water Path Survey',
-        desc: 'We walk the property during or right after rain where we can, and trace where roof water, surface water and neighbouring runoff actually go.',
+        desc: 'We walk the property during or right after rain where we can, and trace where roof water, surface water and neighboring runoff actually go.',
       },
       {
         title: 'Grade Correction',
@@ -470,7 +471,7 @@ export const services: Service[] = [
       },
       {
         q: 'Do I really need a drain, or just better grading?',
-        a: 'Grading first, always. It is cheaper and it solves a surprising number of problems. We recommend a French drain when the surface simply cannot shed the water — a low lot, a neighbouring property draining toward you, or no fall available.',
+        a: 'Grading first, always. It is cheaper and it solves a surprising number of problems. We recommend a French drain when the surface simply cannot shed the water — a low lot, a neighboring property draining toward you, or no fall available.',
       },
       {
         q: 'How far should downspouts discharge from the house?',
@@ -493,7 +494,7 @@ export const services: Service[] = [
         a: 'Routinely, and we price it as part of the job rather than as an add-on. In this soil, repair without drainage correction is repair with a shorter life.',
       },
       {
-        q: 'My neighbour’s lot drains onto mine. What can be done?',
+        q: 'My neighbor’s lot drains onto mine. What can be done?',
         a: 'Quite a lot, on your own property — intercepting the flow with a drain along the property line and routing it past the house. We will show you what is achievable within your own lot lines.',
       },
       {

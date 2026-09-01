@@ -50,9 +50,9 @@ const crumbs = (...parts: [string, string][]) =>
 
 const home = (): RouteSeo => ({
   path: '/',
-  title: 'Foundation Repair Longview TX | Best Way Foundation',
+  title: 'Foundation Lifting & Repair | Longview, TX',
   description:
-    'Foundation repair, house leveling, pier & beam and drainage across Deep East Texas. Free inspections, warranted work. Call (903) 932-8150.',
+    'Concrete contractor specializing in foundation lifting and house leveling across Deep East Texas. Free inspections, warranted work. (903) 932-8150.',
   ogImage: DEFAULT_OG_IMAGE,
   noIndex: false,
   priority: 1.0,
@@ -60,8 +60,8 @@ const home = (): RouteSeo => ({
   lastmod: BUILD_DATE,
   jsonLd: graph([
     ...baseNodes(),
-    webPageNode('/', `${BUSINESS_NAME} — Foundation Repair in Longview, TX`,
-      'Foundation repair, house leveling, pier and beam repair and drainage solutions across Deep East Texas.'),
+    webPageNode('/', `${BUSINESS_NAME} — Foundation Lifting in Longview, TX`,
+      'Concrete contractor specializing in foundation lifting and house leveling across Deep East Texas.'),
     faqNode('/', homeFaqs),
   ]),
 });
@@ -70,7 +70,7 @@ const about = (): RouteSeo => ({
   path: '/about',
   title: 'About Best Way Foundation Repair | Longview TX',
   description:
-    'Second-generation, locally owned foundation repair serving Deep East Texas for over 25 years. Owner James Wilson on every job.',
+    'Second-generation concrete contractor focused on foundation lifting across Deep East Texas for 25+ years. Owner James Wilson on every job.',
   ogImage: DEFAULT_OG_IMAGE,
   noIndex: false,
   priority: 0.6,
@@ -161,9 +161,9 @@ const servicePages = (): RouteSeo[] =>
 
 const servicesIndex = (): RouteSeo => ({
   path: '/services',
-  title: 'Foundation Services in Deep East Texas | Best Way',
+  title: 'Foundation Lifting Services | Deep East Texas',
   description:
-    'Foundation repair, house leveling, pier & beam repair and drainage solutions across Longview and Deep East Texas. Free inspections.',
+    'Foundation lifting and house leveling, slab repair, pier & beam work and drainage from a concrete contractor serving Deep East Texas. Free inspections.',
   ogImage: DEFAULT_OG_IMAGE,
   noIndex: false,
   priority: 0.8,
@@ -171,7 +171,8 @@ const servicesIndex = (): RouteSeo => ({
   lastmod: BUILD_DATE,
   jsonLd: graph([
     ...baseNodes(),
-    webPageNode('/services', 'Foundation Services', 'All foundation services offered across Deep East Texas.'),
+    webPageNode('/services', 'Foundation Lifting Services',
+      'Foundation lifting, slab repair, pier and beam work and drainage across Deep East Texas.'),
     {
       '@type': 'ItemList',
       itemListElement: services.map((s, i) => ({
@@ -191,7 +192,7 @@ const serviceAreasIndex = (): RouteSeo => ({
   path: '/service-areas',
   title: 'Service Areas | Best Way Foundation Repair',
   description:
-    'Foundation repair across Longview, Kilgore, Tyler, Marshall, Nacogdoches, Lufkin and all of Deep East Texas. Free inspections.',
+    'Foundation lifting and house leveling across Longview, Kilgore, Tyler, Marshall, Nacogdoches, Lufkin and all of Deep East Texas. Free inspections.',
   ogImage: DEFAULT_OG_IMAGE,
   noIndex: false,
   priority: 0.9,

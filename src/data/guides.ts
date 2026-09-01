@@ -101,7 +101,7 @@ export const guides: Guide[] = [
           'Foundation type — slab work and pier and beam work are different jobs. Pier and beam is usually more accessible but often adds sill, beam and joist replacement.',
           'Condition of the wood — on pier and beam, rotted sills and beams are frequently a larger line item than the supports themselves.',
           'Interior versus exterior piers — interior piers require breaking and repouring floor sections, and cost meaningfully more per pier than exterior ones.',
-          'Access — tight side yards, mature landscaping, decks, patios and outbuildings all add labour.',
+          'Access — tight side yards, mature landscaping, decks, patios and outbuildings all add labor.',
           'Drainage correction — grading, downspout discharge and French drains. In East Texas clay this is part of the repair rather than an optional extra, and skipping it shortens the life of everything else.',
           'Plumbing — if a leak under the slab caused the movement, it has to be fixed first or the repair will not hold. That is a plumber\'s bill, not ours, and we will tell you when we suspect it.',
         ],

@@ -9,6 +9,9 @@
 
 import {
   ADDRESS,
+  PRIMARY_CATEGORY,
+  PRIMARY_SERVICE,
+  SLOGAN,
   BUSINESS_NAME,
   BUSINESS_SHORT_NAME,
   EMAIL,
@@ -54,16 +57,23 @@ const areaServed = () =>
   }));
 
 /**
- * The business node. Typed as an array because Best Way is all three, and
- * the extra types give AI crawlers more ways to match a query to it.
+ * The business node.
+ *
+ * `@type` stays on valid schema.org types. schema.org has no
+ * ConcreteContractor class, so the concrete-contractor identity is carried by
+ * the description, slogan, knowsAbout and the Service serviceType values
+ * instead — the fields that actually align the site with the Google Business
+ * Profile category. An invented type string, or an entity URI we have not
+ * verified resolves, would be worse than saying it in plain fields.
  */
 export const businessNode = () => ({
   '@type': ['GeneralContractor', 'LocalBusiness', 'HomeAndConstructionBusiness'],
   '@id': BUSINESS_ID,
   name: BUSINESS_NAME,
   alternateName: BUSINESS_SHORT_NAME,
+  slogan: SLOGAN,
   description:
-    'Second-generation, family-owned foundation repair, house leveling, pier and beam repair and drainage contractor serving Longview and Deep East Texas.',
+    'Second-generation concrete contractor specializing in foundation lifting and house leveling, with slab repair, pier and beam work and drainage across Longview and Deep East Texas.',
   url: `${SITE_URL}/`,
   telephone: PHONE_SCHEMA,
   email: EMAIL,
@@ -81,12 +91,16 @@ export const businessNode = () => ({
   currenciesAccepted: 'USD',
   areaServed: areaServed(),
   knowsAbout: [
-    'Foundation Repair',
+    PRIMARY_SERVICE,
     'House Leveling',
-    'Pier and Beam Repair',
-    'Drainage Solutions',
+    'Concrete Piers',
+    'Steel Press Piers',
+    'Concrete Foundation Repair',
     'Slab Foundation Stabilization',
+    'Pier and Beam Repair',
+    'Foundation Drainage',
     'Expansive Clay Soil',
+    PRIMARY_CATEGORY,
   ],
   sameAs: [FACEBOOK_URL],
   parentOrganization: { '@id': ORGANIZATION_ID },

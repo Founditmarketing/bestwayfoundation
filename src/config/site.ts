@@ -12,6 +12,20 @@ export const SITE_URL = 'https://www.bestwayfoundation.com';
 export const BUSINESS_NAME = 'Best Way Foundation Repair LLC';
 export const BUSINESS_SHORT_NAME = 'Best Way Foundation Repair';
 
+/**
+ * Positioning.
+ *
+ * James is listed as a concrete contractor and the work he actually focuses on
+ * is foundation lifting. The site leads with both: the trade he is categorized
+ * under, and the job he does most. "House leveling" stays prominent alongside
+ * "foundation lifting" because it is the term East Texas homeowners search.
+ */
+export const PRIMARY_CATEGORY = 'Concrete Contractor';
+export const PRIMARY_SERVICE = 'Foundation Lifting';
+export const SLOGAN = 'Concrete foundation lifting, done the best way.';
+export const POSITIONING =
+  'Concrete contractor specializing in foundation lifting and house leveling across Deep East Texas.';
+
 export const PHONE_DISPLAY = '(903) 932-8150';
 export const PHONE_HREF = 'tel:9039328150';
 export const PHONE_SCHEMA = '+1-903-932-8150';

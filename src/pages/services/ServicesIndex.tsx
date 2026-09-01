@@ -35,9 +35,9 @@ export default function ServicesIndex() {
               Our <span className="text-jac-lime">Services</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-              Four things, done properly, across Deep East Texas: stabilizing slabs, levelling settled
-              homes, rebuilding pier and beam structures, and moving the water that caused the problem
-              in the first place.
+              We are a concrete contractor and foundation lifting is our trade. Everything else here —
+              slab repair, pier and beam work, drainage — exists because a lift that ignores them does
+              not hold.
             </p>
           </div>
         </div>
