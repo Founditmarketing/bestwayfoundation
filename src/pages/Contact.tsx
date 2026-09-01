@@ -1,35 +1,18 @@
 import React from 'react';
 import { ArrowRight, Phone, Mail, MapPin, Clock } from 'lucide-react';
-import useSeo from '../hooks/useSeo';
+import Img from '../components/Img';
 
-const origin = typeof window === 'undefined' ? '' : window.location.origin;
 
-export default function Contact({ isLoading }: { isLoading?: boolean }) {
-  useSeo({
-    title: 'Contact Best Way Foundation Repair LLC | Free Inspection, Longview, TX',
-    description:
-      'Request a free foundation inspection in Longview or anywhere in Deep East Texas. Call (903) 932-8150 or send a message — we respond quickly.',
-    canonicalPath: '/contact',
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
-          { '@type': 'ListItem', position: 2, name: 'Contact', item: `${origin}/contact` },
-        ],
-      },
-    ],
-  });
-
+export default function Contact() {
   return (
     <>
       {/* Page Banner */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            src="/jacitimage.jpg"
-            alt="Contact Us background"
+          <Img
+            src="/img/foundation-repair-longview-tx.jpg"
+            alt="Best Way Foundation Repair serving Longview, Texas"
+            priority
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-jac-navy-dark/95 via-jac-green/85 to-jac-green/50"></div>

@@ -26,10 +26,12 @@ import {
   Award,
   Users
 } from 'lucide-react';
-import useSeo from '../hooks/useSeo';
 import { locations } from '../data/locations';
+import Img from '../components/Img';
+import FaqAccordion from '../components/FaqAccordion';
+import { homeFaqs } from '../data/homeFaqs';
+import { guides } from '../data/guides';
 
-const origin = typeof window === 'undefined' ? '' : window.location.origin;
 
 const warningSigns = [
   { icon: BrickWall, title: 'Cracks in Exterior & Interior Walls', to: '/services/foundation-repair' },
@@ -46,29 +48,29 @@ const services = [
   {
     title: 'Foundation Repair',
     desc: 'Precision stabilization for slab and pier & beam structures — we pinpoint the root cause and fix it for good.',
-    photo: '/jacitgallery2.jpeg',
-    icon: '/Construction-Foundation-Pit.H03.2k.png',
+    photo: '/img/foundation-repair-crew-east-texas.jpg',
+    icon: '/img/icon-foundation-repair.png',
     to: '/services/foundation-repair',
   },
   {
     title: 'House Leveling',
     desc: 'Restoring structural integrity with advanced hydraulic leveling that brings your home back to true.',
-    photo: '/jacitgallery3.jpeg',
-    icon: '/Survey-Automatic-Level-on-Tripod.H03.2k.png',
+    photo: '/img/house-leveling-kilgore-tx.jpg',
+    icon: '/img/icon-house-leveling.png',
     to: '/services/house-leveling',
   },
   {
     title: 'Pier & Beam Repair',
     desc: 'Specialized care for older homes and custom structural frames, from joists to sills to piers.',
-    photo: '/jacitgallery4.jpeg',
-    icon: '/Concrete-Pillar.H03.2k.png',
+    photo: '/img/foundation-inspection-east-texas.jpg',
+    icon: '/img/icon-pier-and-beam.png',
     to: '/services/pier-and-beam',
   },
   {
     title: 'Drainage Solutions',
     desc: 'Protecting your foundation from moisture and soil shifts before they become structural problems.',
-    photo: '/jacitgallery.jpeg',
-    icon: '/Steel-Shower-Drain.H03.2k.png',
+    photo: '/img/foundation-drainage-french-drain.jpg',
+    icon: '/img/icon-drainage-solutions.png',
     to: '/services/drainage-solutions',
   },
 ];
@@ -118,63 +120,20 @@ const trustFactors = [
 ];
 
 const fieldWork = [
-  { src: '/jacitgallery.jpeg', title: 'Wall Lifting', desc: 'Hydraulic lifting of exterior brick foundation.' },
-  { src: '/jacitgallery2.jpeg', title: 'Exterior Excavation', desc: 'Foundation excavation on residential structure.' },
-  { src: '/jacitgallery3.jpeg', title: 'Interior Leveling', desc: 'Completed interior with newly leveled floors.' },
-  { src: '/jacitgallery4.jpeg', title: 'Concrete Supports', desc: 'Deep concrete block installation for stability.' },
-  { src: '/jacitgallery5.png', title: 'Subfloor Installation', desc: 'Installing new structural subfloors.' },
-  { src: '/jacitgallery6.png', title: 'Joist Replacement', desc: 'Replacing damaged floor joists.' },
-  { src: '/jacitgallery7.png', title: 'Framework Repair', desc: 'Securing interior joist framework.' },
-  { src: '/presspiers.png', title: 'Press Piers System', desc: 'Heavy duty steel and concrete press pier installation.' },
+  { src: '/img/foundation-drainage-french-drain.jpg', title: 'Wall Lifting', desc: 'Hydraulic lifting of exterior brick foundation.' },
+  { src: '/img/foundation-repair-crew-east-texas.jpg', title: 'Exterior Excavation', desc: 'Foundation excavation on residential structure.' },
+  { src: '/img/house-leveling-kilgore-tx.jpg', title: 'Interior Leveling', desc: 'Completed interior with newly leveled floors.' },
+  { src: '/img/foundation-inspection-east-texas.jpg', title: 'Concrete Supports', desc: 'Deep concrete block installation for stability.' },
+  { src: '/img/subfloor-installation.jpg', title: 'Subfloor Installation', desc: 'Installing new structural subfloors.' },
+  { src: '/img/floor-joist-replacement.jpg', title: 'Joist Replacement', desc: 'Replacing damaged floor joists.' },
+  { src: '/img/pier-and-beam-joist-repair.jpg', title: 'Framework Repair', desc: 'Securing interior joist framework.' },
+  { src: '/img/press-piers-installation.jpg', title: 'Press Piers System', desc: 'Heavy duty steel and concrete press pier installation.' },
 ];
 
 const serviceAreas = locations.map((l) => ({ city: l.city, to: `/service-areas/${l.slug}` }));
 
-export default function Home({ isLoading }: { isLoading?: boolean }) {
+export default function Home() {
   const carouselRef = useRef<HTMLDivElement>(null);
-
-  useSeo({
-    title: 'Best Way Foundation Repair LLC | Foundation Repair & House Leveling in Longview, TX',
-    description:
-      'Family-owned foundation repair, house leveling, pier & beam repair and drainage solutions serving Longview and Deep East Texas for over 25 years. Free inspections, warranted work.',
-    canonicalPath: '/',
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'GeneralContractor',
-        name: 'Best Way Foundation Repair LLC',
-        description:
-          'Family-owned foundation repair, house leveling, pier & beam repair and drainage solutions serving Longview and Deep East Texas for over 25 years.',
-        telephone: '+1-903-932-8150',
-        email: 'bestwayfoundationrepair936@gmail.com',
-        url: `${origin}/`,
-        image: `${origin}/bestwaylogo.png`,
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Longview',
-          addressRegion: 'TX',
-          addressCountry: 'US',
-        },
-        openingHoursSpecification: {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '08:00',
-          closes: '18:00',
-        },
-        areaServed: locations.map((l) => ({
-          '@type': 'City',
-          name: l.city,
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: l.city,
-            addressRegion: 'TX',
-            addressCountry: 'US',
-          },
-        })),
-        knowsAbout: ['Foundation Repair', 'House Leveling', 'Pier and Beam Repair', 'Drainage Solutions'],
-      },
-    ],
-  });
 
   const scrollCarousel = (dir: number) => {
     if (carouselRef.current) {
@@ -188,9 +147,10 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
       {/* Hero Section — full-width photo with navy overlay */}
       <section className="relative min-h-[560px] md:min-h-[640px] flex items-center overflow-hidden border-b-8 border-jac-lime">
         <div className="absolute inset-0 z-0">
-          <img
-            src="/presspiers.png"
-            alt="Press pier foundation repair beneath a home"
+          <Img
+            src="/img/press-piers-installation.jpg"
+            alt="Press pier foundation repair beneath a home in Longview, Texas"
+            priority
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-jac-navy-dark/95 via-jac-green/80 to-jac-green/30"></div>
@@ -265,9 +225,9 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             {services.map((service) => (
               <Link key={service.title} to={service.to} className="group bg-white rounded-xl overflow-hidden border-b-4 border-b-jac-lime border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
                 <div className="relative h-44 overflow-hidden">
-                  <img src={service.photo} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Img src={service.photo} alt={service.title} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-jac-navy-dark/60 to-transparent"></div>
-                  <img src={service.icon} alt="" className="absolute bottom-3 right-3 w-16 h-16 object-contain drop-shadow-lg" />
+                  <Img src={service.icon} alt="" sizes="64px" className="absolute bottom-3 right-3 w-16 h-16 object-contain drop-shadow-lg" />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="font-display text-xl uppercase text-jac-green mb-2">{service.title}</h3>
@@ -355,7 +315,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
         <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
           <div className="relative">
             <div className="rounded-xl overflow-hidden shadow-2xl">
-              <img src="/jacitgallery3.jpeg" alt="Completed interior with newly leveled floors" className="w-full h-[320px] md:h-[440px] object-cover" />
+              <Img src="/img/house-leveling-kilgore-tx.jpg" alt="Completed interior with newly leveled floors" sizes="(min-width: 1024px) 640px, 100vw" className="w-full h-[320px] md:h-[440px] object-cover" />
             </div>
             <div className="absolute -bottom-6 right-6 bg-jac-lime text-jac-green rounded-xl shadow-xl px-6 py-4">
               <div className="text-sm font-bold uppercase tracking-wide">2 Generations Leveling You!</div>
@@ -439,7 +399,7 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
             {fieldWork.map((item) => (
               <div key={item.title} className="min-w-[80vw] sm:min-w-[380px] snap-center bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <div className="h-56 overflow-hidden">
-                  <img src={item.src} alt={item.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <Img src={item.src} alt={item.title} sizes="(min-width: 768px) 380px, 85vw" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-5">
                   <h4 className="font-display text-xl uppercase text-jac-green mb-1">{item.title}</h4>
@@ -505,10 +465,48 @@ export default function Home({ isLoading }: { isLoading?: boolean }) {
         </div>
       </section>
 
+      {/* FAQ + guides — the questions people ask before they know what to ask for */}
+      <section className="bg-white py-16 md:py-24 border-t border-gray-200">
+        <div className="max-w-[900px] mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Common Questions</div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl uppercase text-jac-green">
+              Foundation Repair <span className="text-jac-lime">FAQs</span>
+            </h2>
+            <div className="section-divider mt-5 mx-auto"></div>
+          </div>
+          <FaqAccordion faqs={homeFaqs} />
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-16 border-y border-gray-200">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-10">
+            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Free Guides</div>
+            <h2 className="font-display text-3xl md:text-4xl uppercase text-jac-green">
+              Know What You Are <span className="text-jac-lime">Buying</span>
+            </h2>
+            <div className="section-divider mt-5 mx-auto"></div>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {guides.map((g) => (
+              <Link
+                key={g.slug}
+                to={g.path}
+                className="bg-white border border-gray-200 border-b-4 border-b-jac-lime rounded-lg p-6 hover:shadow-lg transition-all"
+              >
+                <h3 className="font-display text-base uppercase text-jac-green mb-2 leading-snug">{g.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{g.tagline}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form */}
       <section id="contact" className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/jacitgallery4.jpeg" alt="" className="w-full h-full object-cover" />
+          <Img src="/img/foundation-inspection-east-texas.jpg" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-jac-navy-dark/90"></div>
         </div>
 

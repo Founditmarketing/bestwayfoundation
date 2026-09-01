@@ -12,20 +12,24 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FloatingContact from './FloatingContact';
+import Img from './Img';
+import useRouteSeo from '../hooks/useSeo';
 import { locations } from '../data/locations';
+import { services } from '../data/services';
+import { guides } from '../data/guides';
 
-const serviceLinks = [
-  { to: '/services/foundation-repair', label: 'Foundation Repair' },
-  { to: '/services/house-leveling', label: 'House Leveling' },
-  { to: '/services/pier-and-beam', label: 'Pier & Beam Repair' },
-  { to: '/services/drainage-solutions', label: 'Drainage Solutions' },
-];
+const serviceLinks = services.map((s) => ({ to: s.path, label: s.navLabel }));
+const guideLinks = guides.map((g) => ({ to: g.path, label: g.title }));
 
 const locationLinks = locations.map((l) => ({ to: `/service-areas/${l.slug}`, label: `${l.city}, TX` }));
 
 const NavItem = ({ children, to }: { children: React.ReactNode, to: string }) => (
   <RouterNavLink
     to={to}
+    // `to="/"` prefix-matches every route without this, which highlighted
+    // Home on every page and made the server and client disagree about
+    // aria-current — a hydration mismatch on all 89 non-home routes.
+    end={to === '/'}
     className={({ isActive }) => `text-[13px] xl:text-sm font-bold tracking-wide uppercase transition-colors py-2 whitespace-nowrap ${isActive ? 'text-jac-green border-b-2 border-jac-lime' : 'text-gray-700 hover:text-jac-green'}`}
   >
     {children}
@@ -33,6 +37,10 @@ const NavItem = ({ children, to }: { children: React.ReactNode, to: string }) =>
 );
 
 export default function Layout() {
+  // One call site for the whole site: no page can ship without its head tags,
+  // and the head can never drift from the sitemap or the prerendered HTML.
+  useRouteSeo();
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
@@ -83,9 +91,11 @@ export default function Layout() {
 
           {/* Logo — stretches across the top on mobile, fixed height on desktop */}
           <Link to="/" className="flex items-center flex-1 min-w-0 lg:flex-none lg:shrink-0 pr-3 lg:pr-0">
-            <img
-              src="/bestwaylogo.png"
-              alt="Best Way Foundation Repair LLC"
+            <Img
+              src="/img/best-way-foundation-repair-logo.png"
+              alt="Best Way Foundation Repair LLC — foundation repair in Longview, Texas"
+              priority
+              sizes="(min-width: 1024px) 320px, 480px"
               className={`w-full max-w-[480px] h-auto lg:max-w-none lg:w-auto object-contain transition-all duration-300 ${isScrolled ? 'lg:h-11 xl:h-14' : 'lg:h-12 xl:h-16 2xl:h-20'}`}
             />
           </Link>
@@ -135,6 +145,7 @@ export default function Layout() {
               </div>
             </div>
 
+            <NavItem to="/guides">Guides</NavItem>
             <NavItem to="/gallery">Gallery</NavItem>
             <NavItem to="/contact">Contact Us</NavItem>
           </nav>
@@ -172,7 +183,7 @@ export default function Layout() {
             className="fixed inset-0 z-[100] bg-white flex flex-col lg:hidden overflow-y-auto"
           >
             <div className="sticky top-0 z-50 w-full p-5 flex justify-between items-center bg-white border-b border-gray-100 shadow-sm">
-              <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className="h-12 w-auto object-contain" />
+              <Img src="/img/best-way-foundation-repair-logo.png" alt="Best Way Foundation Repair LLC" sizes="200px" className="h-12 w-auto object-contain" />
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-11 h-11 flex items-center justify-center text-jac-green bg-gray-50 rounded-full"
@@ -241,6 +252,7 @@ export default function Layout() {
                 </AnimatePresence>
               </div>
 
+              <Link to="/guides" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">Guides</Link>
               <Link to="/gallery" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">Gallery</Link>
               <Link to="/contact" className="font-display font-bold text-xl text-jac-green uppercase py-3 border-b border-gray-100">Contact Us</Link>
 
@@ -296,7 +308,7 @@ export default function Layout() {
           {/* Brand */}
           <div>
             <div className="bg-white rounded-lg p-3 inline-block mb-5 border-2 border-jac-lime">
-              <img src="/bestwaylogo.png" alt="Best Way Foundation Repair LLC" className="h-14 w-auto" />
+              <Img src="/img/best-way-foundation-repair-logo.png" alt="Best Way Foundation Repair LLC" sizes="220px" className="h-14 w-auto" />
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
               Providing dependable foundation repair and house leveling services across Deep East Texas for over 25 years. Licensed, insured, locally owned &amp; operated.
@@ -305,7 +317,7 @@ export default function Layout() {
               <a href="https://www.facebook.com/profile.php?id=61589371986773" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-jac-lime hover:text-jac-green transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <img src="/bbblogo2.png" alt="BBB Accredited Business" className="h-10 w-auto" />
+              <Img src="/img/bbb-accredited-business.png" alt="BBB Accredited Business" sizes="120px" className="h-10 w-auto" />
             </div>
           </div>
 
@@ -320,6 +332,7 @@ export default function Layout() {
                 <li key={s.to}><Link to={s.to} className="hover:text-jac-lime transition-colors">{s.label}</Link></li>
               ))}
               <li><Link to="/service-areas" className="hover:text-jac-lime transition-colors">Service Areas</Link></li>
+              <li><Link to="/guides" className="hover:text-jac-lime transition-colors">Foundation Guides</Link></li>
               <li><Link to="/gallery" className="hover:text-jac-lime transition-colors">Project Gallery</Link></li>
               <li><Link to="/contact" className="hover:text-jac-lime transition-colors">Contact Us</Link></li>
             </ul>
