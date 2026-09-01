@@ -69,9 +69,17 @@ oversized title, a wrong canonical, malformed JSON-LD, an image without
 dimensions, more than one `<h1>`, or a route in the sitemap that was never
 prerendered. Run it after every build.
 
-For hydration, `npm run serve:dist` then `npm run check:hydration`. React only
-prints readable mismatch messages in its development build, so for debugging
-build with `scripts/vite.debug.config.ts` first:
+For hydration, `npm run serve:dist` then `npm run check:hydration`. That script
+needs Playwright, which is deliberately **not** a devDependency — its
+postinstall downloads a browser, and paying that on every Vercel deploy for a
+check nobody runs in CI is not worth it. Install it when you need it:
+
+```bash
+npm i -D playwright && npx playwright install chromium
+```
+
+React only prints readable mismatch messages in its development build, so for
+debugging build with `scripts/vite.debug.config.ts` first:
 
 ```bash
 npm run build:ssr

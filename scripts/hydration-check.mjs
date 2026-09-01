@@ -1,8 +1,23 @@
 // Verifies the prerendered HTML hydrates cleanly and that client-side
 // navigation rewrites the head instead of stacking duplicate tags.
-// Requires: node serve-static.mjs running on 4173, and a dist built with the
-// development React bundle so mismatch messages are readable.
-import { chromium } from 'playwright';
+//
+// Requires: `npm run serve:dist` running on 4173, and a dist built with the
+// development React bundle so mismatch messages are readable (see README).
+//
+// Playwright is deliberately NOT a devDependency: its postinstall downloads a
+// browser, and paying that on every Vercel deploy for a manual check nobody
+// runs in CI is not worth it. Install it when you need this script.
+let chromium;
+try {
+  ({ chromium } = await import('playwright'));
+} catch {
+  console.error(
+    'playwright is not installed.\n' +
+      '  npm i -D playwright && npx playwright install chromium\n' +
+      '  (then remove it again before committing — see the note above)',
+  );
+  process.exit(1);
+}
 
 const BASE = 'http://localhost:4173';
 const ROUTES = [
