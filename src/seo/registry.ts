@@ -50,9 +50,9 @@ const crumbs = (...parts: [string, string][]) =>
 
 const home = (): RouteSeo => ({
   path: '/',
-  title: 'Concrete Contractor & Foundation Lifting | Longview',
+  title: 'Foundation Leveling & Concrete Contractor | Longview',
   description:
-    'Concrete contractor specializing in foundation lifting and house leveling across Deep East Texas. Free inspections, warranted work. (903) 932-8150.',
+    'Foundation leveling from a concrete contractor serving Longview and Deep East Texas. Free inspections, warranted work. Call (903) 932-8150.',
   ogImage: DEFAULT_OG_IMAGE,
   noIndex: false,
   priority: 1.0,
@@ -60,8 +60,8 @@ const home = (): RouteSeo => ({
   lastmod: BUILD_DATE,
   jsonLd: graph([
     ...baseNodes(),
-    webPageNode('/', `${BUSINESS_NAME} — Foundation Lifting in Longview, TX`,
-      'Concrete contractor specializing in foundation lifting and house leveling across Deep East Texas.'),
+    webPageNode('/', `${BUSINESS_NAME} — Foundation Leveling in Longview, TX`,
+      'Concrete contractor specializing in foundation leveling, house leveling and foundation lifting across Deep East Texas.'),
     faqNode('/', homeFaqs),
   ]),
 });
@@ -70,7 +70,7 @@ const about = (): RouteSeo => ({
   path: '/about',
   title: 'About Best Way Foundation Repair | Longview TX',
   description:
-    'Second-generation concrete contractor focused on foundation lifting across Deep East Texas for 25+ years. Owner James Wilson on every job.',
+    'Second-generation concrete contractor focused on foundation leveling across Deep East Texas for 25+ years. Owner James Wilson on every job.',
   ogImage: DEFAULT_OG_IMAGE,
   noIndex: false,
   priority: 0.6,
@@ -161,7 +161,7 @@ const servicePages = (): RouteSeo[] =>
 
 const servicesIndex = (): RouteSeo => ({
   path: '/services',
-  title: 'Foundation Lifting Services | Deep East Texas',
+  title: 'Foundation Leveling Services | Deep East Texas',
   description:
     'Foundation lifting and house leveling, slab repair, pier & beam work and drainage from a concrete contractor serving Deep East Texas. Free inspections.',
   ogImage: DEFAULT_OG_IMAGE,
@@ -171,8 +171,8 @@ const servicesIndex = (): RouteSeo => ({
   lastmod: BUILD_DATE,
   jsonLd: graph([
     ...baseNodes(),
-    webPageNode('/services', 'Foundation Lifting Services',
-      'Foundation lifting, slab repair, pier and beam work and drainage across Deep East Texas.'),
+    webPageNode('/services', 'Foundation Leveling Services',
+      'Foundation leveling, slab repair, pier and beam work and drainage across Deep East Texas.'),
     {
       '@type': 'ItemList',
       itemListElement: services.map((s, i) => ({
