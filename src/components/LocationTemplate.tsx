@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -6,7 +6,6 @@ import {
   MapPin,
   Clock,
   CheckCircle2,
-  ChevronDown,
   ChevronRight,
   BadgeCheck,
   Award,
@@ -22,35 +21,12 @@ import {
   TriangleAlert,
   LayoutGrid,
 } from 'lucide-react';
-import useSeo from '../hooks/useSeo';
 import { Location, getOtherLocations } from '../data/locations';
+import { services } from '../data/services';
+import { guides } from '../data/guides';
+import Img from './Img';
+import FaqAccordion from './FaqAccordion';
 
-const services = [
-  {
-    title: 'Foundation Repair',
-    desc: 'Slab stabilization that pinpoints the root cause and corrects it for good.',
-    icon: '/Construction-Foundation-Pit.H03.2k.png',
-    to: '/services/foundation-repair',
-  },
-  {
-    title: 'House Leveling',
-    desc: 'Controlled hydraulic lifting that brings your home back to true.',
-    icon: '/Survey-Automatic-Level-on-Tripod.H03.2k.png',
-    to: '/services/house-leveling',
-  },
-  {
-    title: 'Pier & Beam Repair',
-    desc: 'Joists, sills, beams and piers rebuilt on older and custom-framed homes.',
-    icon: '/Concrete-Pillar.H03.2k.png',
-    to: '/services/pier-and-beam',
-  },
-  {
-    title: 'Drainage Solutions',
-    desc: 'Moving water away from the foundation so the repair keeps holding.',
-    icon: '/Steel-Shower-Drain.H03.2k.png',
-    to: '/services/drainage-solutions',
-  },
-];
 
 const warningSigns = [
   { icon: BrickWall, label: 'Cracks in exterior brick or interior walls' },
@@ -85,96 +61,23 @@ const processSteps = [
 const PHONE_DISPLAY = '(903) 932-8150';
 const PHONE_HREF = 'tel:9039328150';
 
-/** Whatever domain the site is actually served from — keeps schema URLs honest. */
-const origin = typeof window === 'undefined' ? '' : window.location.origin;
 
 export default function LocationTemplate({ location }: { location: Location }) {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
   const otherLocations = getOtherLocations(location.slug);
 
-  // The same component instance is reused when navigating city → city.
-  useEffect(() => setOpenFaq(0), [location.slug]);
 
 
   const canonicalPath = `/service-areas/${location.slug}`;
-
-  useSeo({
-    title: location.metaTitle,
-    description: location.metaDescription,
-    canonicalPath,
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'GeneralContractor',
-        name: 'Best Way Foundation Repair LLC',
-        description: location.metaDescription,
-        telephone: '+1-903-932-8150',
-        email: 'bestwayfoundationrepair936@gmail.com',
-        url: `${origin}${canonicalPath}`,
-        image: `${origin}/bestwaylogo.png`,
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Longview',
-          addressRegion: 'TX',
-          addressCountry: 'US',
-        },
-        areaServed: {
-          '@type': 'City',
-          name: location.city,
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: location.city,
-            addressRegion: 'TX',
-            addressCountry: 'US',
-          },
-        },
-        openingHoursSpecification: {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '08:00',
-          closes: '18:00',
-        },
-        knowsAbout: ['Foundation Repair', 'House Leveling', 'Pier and Beam Repair', 'Drainage Solutions'],
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Service Areas',
-            item: `${origin}/service-areas`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: location.cityState,
-            item: `${origin}${canonicalPath}`,
-          },
-        ],
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: location.faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.q,
-          acceptedAnswer: { '@type': 'Answer', text: faq.a },
-        })),
-      },
-    ],
-  });
 
   return (
     <>
       {/* Page Banner */}
       <section className="relative overflow-hidden border-b-8 border-jac-lime">
         <div className="absolute inset-0 z-0">
-          <img
+          <Img
             src={location.heroImage}
             alt={`Foundation repair work in ${location.cityState}`}
+            priority
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-jac-navy-dark/95 via-jac-green/85 to-jac-green/50"></div>
@@ -342,13 +245,15 @@ export default function LocationTemplate({ location }: { location: Location }) {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
               <Link
-                key={service.title}
-                to={service.to}
+                key={service.slug}
+                to={`/services/${service.slug}/${location.slug}`}
                 className="group bg-white rounded-xl p-8 border-b-4 border-b-jac-lime border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
-                <img src={service.icon} alt="" className="w-20 h-20 object-contain mb-5" />
-                <h3 className="font-display text-xl uppercase text-jac-green mb-2">{service.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-grow">{service.desc}</p>
+                <Img src={service.icon} alt="" sizes="80px" className="w-20 h-20 object-contain mb-5" />
+                <h3 className="font-display text-xl uppercase text-jac-green mb-2">
+                  {service.name} in {location.city}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-grow">{service.summary}</p>
                 <span className="inline-flex items-center gap-2 text-jac-green font-bold uppercase tracking-wide text-xs group-hover:gap-3 transition-all">
                   Learn More <ArrowRight className="w-4 h-4 text-jac-lime" />
                 </span>
@@ -458,25 +363,31 @@ export default function LocationTemplate({ location }: { location: Location }) {
             <div className="section-divider mt-5 mx-auto"></div>
           </div>
 
-          <div className="divide-y divide-gray-200 border-y border-gray-200">
-            {location.faqs.map((faq, index) => {
-              const isOpen = openFaq === index;
-              return (
-                <div key={faq.q}>
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : index)}
-                    aria-expanded={isOpen}
-                    className="w-full flex items-center justify-between gap-4 text-left py-5"
-                  >
-                    <span className="font-display text-lg md:text-xl text-jac-green uppercase">{faq.q}</span>
-                    <ChevronDown className={`w-6 h-6 text-jac-lime shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  {isOpen && (
-                    <p className="text-gray-600 leading-relaxed pb-6 pr-10">{faq.a}</p>
-                  )}
-                </div>
-              );
-            })}
+          <FaqAccordion faqs={location.faqs} />
+        </div>
+      </section>
+
+      {/* Guides — cost and comparison content, linked from every city page */}
+      <section className="bg-white py-16 border-t border-gray-200">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-10">
+            <div className="text-jac-green font-bold tracking-widest uppercase text-sm mb-2">Before You Decide</div>
+            <h2 className="font-display text-3xl md:text-4xl uppercase text-jac-green">
+              Read These <span className="text-jac-lime">First</span>
+            </h2>
+            <div className="section-divider mt-5 mx-auto"></div>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {guides.map((g) => (
+              <Link
+                key={g.slug}
+                to={g.path}
+                className="bg-white border border-gray-200 border-b-4 border-b-jac-lime rounded-lg p-6 hover:shadow-lg transition-all"
+              >
+                <h3 className="font-display text-base uppercase text-jac-green mb-2 leading-snug">{g.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{g.tagline}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -525,7 +436,7 @@ export default function LocationTemplate({ location }: { location: Location }) {
       {/* Contact form */}
       <section id="contact" className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/jacitgallery4.jpeg" alt="" className="w-full h-full object-cover" />
+          <Img src="/img/foundation-inspection-east-texas.jpg" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-jac-navy-dark/90"></div>
         </div>
 

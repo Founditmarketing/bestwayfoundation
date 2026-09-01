@@ -1,56 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, MapPin, CheckCircle2 } from 'lucide-react';
-import useSeo from '../../hooks/useSeo';
 import { locations } from '../../data/locations';
+import Img from '../../components/Img';
 
 const PHONE_DISPLAY = '(903) 932-8150';
 const PHONE_HREF = 'tel:9039328150';
-const origin = typeof window === 'undefined' ? '' : window.location.origin;
 
 export default function ServiceAreas() {
-  useSeo({
-    title: 'Service Areas | Foundation Repair Across Deep East Texas | Best Way Foundation Repair',
-    description:
-      'Best Way Foundation Repair serves Longview, Kilgore, Tyler, Marshall, Henderson and communities across Deep East Texas with foundation repair and house leveling. Free inspections.',
-    canonicalPath: '/service-areas',
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'GeneralContractor',
-        name: 'Best Way Foundation Repair LLC',
-        telephone: '+1-903-932-8150',
-        email: 'bestwayfoundationrepair936@gmail.com',
-        url: `${origin}/service-areas`,
-        image: `${origin}/bestwaylogo.png`,
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Longview',
-          addressRegion: 'TX',
-          addressCountry: 'US',
-        },
-        areaServed: locations.map((l) => ({
-          '@type': 'City',
-          name: l.city,
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: l.city,
-            addressRegion: 'TX',
-            addressCountry: 'US',
-          },
-        })),
-      },
-    ],
-  });
-
   return (
     <>
       {/* Page Banner */}
       <section className="relative overflow-hidden border-b-8 border-jac-lime">
         <div className="absolute inset-0 z-0">
-          <img
-            src="/jacitimage.jpg"
+          <Img
+            src="/img/foundation-repair-longview-tx.jpg"
             alt="Foundation repair across Deep East Texas"
+            priority
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-jac-navy-dark/95 via-jac-green/85 to-jac-green/50"></div>
@@ -90,9 +56,10 @@ export default function ServiceAreas() {
                 className="group bg-white rounded-xl overflow-hidden border-b-4 border-b-jac-lime border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
                 <div className="relative h-40 overflow-hidden">
-                  <img
+                  <Img
                     src={location.heroImage}
                     alt={`Foundation repair in ${location.cityState}`}
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-jac-navy-dark/80 to-transparent"></div>

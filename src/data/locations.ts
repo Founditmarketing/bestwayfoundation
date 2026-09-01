@@ -29,6 +29,8 @@ export interface Location {
   distance: string;
   /** Google Maps embed query */
   mapQuery: string;
+  /** City centre coordinates, used for LocalBusiness geo + areaServed */
+  geo: { lat: number; lng: number };
   /** Photo used behind the page banner */
   heroImage: string;
   metaTitle: string;
@@ -52,10 +54,11 @@ export const locations: Location[] = [
     county: 'Gregg County',
     distance: 'Our home base — same-week inspections in most cases',
     mapQuery: 'Longview,+TX',
-    heroImage: '/jacitgallery2.jpeg',
-    metaTitle: 'Foundation Repair in Longview, TX | Best Way Foundation Repair',
+    geo: { lat: 32.5007, lng: -94.7405 },
+    heroImage: '/img/foundation-repair-crew-east-texas.jpg',
+    metaTitle: 'Foundation Repair in Longview, TX | Best Way',
     metaDescription:
-      'Longview foundation repair and house leveling from a second-generation, locally owned crew. Free inspections, warranted work, owner on every job. Call (903) 932-8150.',
+      'Longview foundation repair and house leveling from a second-generation local crew. Free inspections, warranted work. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Longview, Texas',
     intro: [
       'Longview is home for us. Best Way Foundation Repair LLC is headquartered right here in Gregg County, and for more than 25 years we have been lifting, leveling and stabilizing houses across the city — from the older pier and beam homes near downtown and South Longview to the newer slab-on-grade subdivisions spreading north and west toward Highway 259 and Loop 281.',
@@ -90,6 +93,34 @@ export const locations: Location[] = [
         q: 'Do you repair both slab and pier and beam foundations?',
         a: 'Yes. We handle concrete slab stabilization, pier and beam repair including joists, sills and piers, full house leveling, and the drainage work that keeps the problem from coming back.',
       },
+      {
+        q: 'How much does foundation repair cost in Longview?',
+        a: 'There is no flat rate, because the price follows the number of piers your house needs and how deep they have to be driven. A single settling corner is a much smaller job than a full perimeter lift. We take elevation readings, price the actual plan, and hand it to you in writing before you commit to anything.',
+      },
+      {
+        q: 'Which parts of Longview do you work in most?',
+        a: 'All of it. We do a lot of pier and beam work on the older homes around downtown and South Longview, and a lot of slab work in the newer subdivisions spreading north and west toward Loop 281 and Highway 259. Pine Tree, Spring Hill, Judson and Lakeport are all regular territory for us.',
+      },
+      {
+        q: 'Do I need an engineer\'s report before you can start?',
+        a: 'For most residential repairs, no. Our elevation survey documents what the house is doing and what we propose to do about it. If a lender, insurer or buyer requires a structural engineer\'s letter, we are glad to work alongside one — we just do not require you to buy a report you may not need.',
+      },
+      {
+        q: 'Should I water my foundation during a Longview summer?',
+        a: 'Consistent moisture helps. Gregg County clay damages foundations through the swing between saturated and bone dry, so soaker hoses run modestly and evenly around the perimeter through a hard dry spell are genuinely worth doing. What you want to avoid is letting it bake and then flooding it.',
+      },
+      {
+        q: 'I am buying a house in Longview and the inspector flagged the foundation. Can you help?',
+        a: 'Yes, and it is one of the most common calls we get. We will inspect the property for free, take elevation readings, and give you a written assessment and price so you know what you are actually buying before the option period runs out.',
+      },
+      {
+        q: 'How soon can you start once I approve the quote?',
+        a: 'Longview is our home base, so scheduling here is usually the quickest in our service area. We will give you a realistic start date with the written quote rather than a placeholder, and we put the payment schedule in writing at the same time.',
+      },
+      {
+        q: 'What happens to my landscaping and driveway during the work?',
+        a: 'Exterior pier work needs access around the perimeter, so beds along the affected elevations get disturbed and we backfill and restore the ground when we finish. We tell you before we start exactly which areas we need and what they will look like afterwards.',
+      },
     ],
   },
   {
@@ -99,8 +130,9 @@ export const locations: Location[] = [
     county: 'Gregg & Rusk Counties',
     distance: 'Roughly 15 miles from our Longview shop',
     mapQuery: 'Kilgore,+TX',
-    heroImage: '/jacitgallery3.jpeg',
-    metaTitle: 'Foundation Repair in Kilgore, TX | Best Way Foundation Repair',
+    geo: { lat: 32.3862, lng: -94.8752 },
+    heroImage: '/img/house-leveling-kilgore-tx.jpg',
+    metaTitle: 'Foundation Repair in Kilgore, TX | Best Way',
     metaDescription:
       'Kilgore foundation repair, house leveling and pier & beam work from a local East Texas crew. Free inspections and warranted work. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Kilgore, Texas',
@@ -137,6 +169,34 @@ export const locations: Location[] = [
         q: 'Is your work warranted?',
         a: 'Yes. Our lifting and leveling work carries a long-term warranty. We will go over exactly what is covered when we present your repair plan.',
       },
+      {
+        q: 'How much does foundation repair cost in Kilgore?',
+        a: 'It comes down to pier count and depth, which the elevation survey determines. Many Kilgore homes are old enough that the wood under a pier and beam house needs attention alongside the supports, and that affects the number too. The inspection and the written quote are free either way.',
+      },
+      {
+        q: 'Can a Kilgore house still on its original oil-boom-era piers be saved?',
+        a: 'Almost always, yes. We rebuild failed piers, replace rotted sills and beams with treated material, and add supports where the original spans were too long. Age is rarely the problem on these houses — untreated wood sitting on dry-stacked block in a damp crawlspace is.',
+      },
+      {
+        q: 'My chimney is pulling away from the house. Is that the foundation?',
+        a: 'Usually. A chimney sits on its own footing, and when the soil under one moves differently from the soil under the rest of the house, the two separate. It is worth having measured, because a chimney leaning away from the structure is both a foundation symptom and a safety issue.',
+      },
+      {
+        q: 'Do you work on the historic homes near downtown and the college?',
+        a: 'Yes, and we treat them carefully. Older Kilgore construction rewards a slow, incremental lift and punishes a fast one. We work in small increments across many points at once so original plaster, trim and masonry move with the house rather than against it.',
+      },
+      {
+        q: 'Could a plumbing leak under the slab be causing this?',
+        a: 'It is worth ruling out, particularly on the older lines around Kilgore. A leaking supply or drain line saturates the soil in one spot and drops that part of the house. If our readings point that way, we will tell you to have the plumbing tested before you spend money on piers.',
+      },
+      {
+        q: 'Do you handle drainage around the slab as part of the repair?',
+        a: 'Yes, and on most Kilgore jobs it is part of the repair rather than an add-on. Correcting the grade and getting roof water away from the slab is what stops the soil moving again once we have the house back to elevation.',
+      },
+      {
+        q: 'Will you tell me if I do not need repairs?',
+        a: 'Yes. A good share of the inspections we run end with us telling the homeowner to keep an eye on it. We would rather give you that answer for free than sell you piers you do not need in a town where everybody knows everybody.',
+      },
     ],
   },
   {
@@ -146,8 +206,9 @@ export const locations: Location[] = [
     county: 'Gregg & Upshur Counties',
     distance: 'Roughly 15 miles northwest of Longview',
     mapQuery: 'Gladewater,+TX',
-    heroImage: '/jacitgallery4.jpeg',
-    metaTitle: 'Foundation Repair in Gladewater, TX | Best Way Foundation Repair',
+    geo: { lat: 32.5382, lng: -94.9427 },
+    heroImage: '/img/foundation-inspection-east-texas.jpg',
+    metaTitle: 'Foundation Repair in Gladewater, TX | Best Way',
     metaDescription:
       'Foundation repair and house leveling in Gladewater, TX. Second-generation local crew, free inspections, warranted work. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Gladewater, Texas',
@@ -184,6 +245,34 @@ export const locations: Location[] = [
         q: 'Can drainage work alone fix my problem?',
         a: 'Sometimes. If the structure has not moved much yet, correcting drainage can stop the problem where it stands. If the house has already shifted, it needs to be lifted back to true and then protected with better drainage.',
       },
+      {
+        q: 'How much does foundation repair cost in Gladewater?',
+        a: 'The price follows the scope: how many supports need replacing or adding, and whether drainage correction is part of the job. Rural Gladewater lots often need the grading addressed as much as the structure. We price it in writing after a free inspection.',
+      },
+      {
+        q: 'My house is outside the city limits on acreage. Do you still come out?',
+        a: 'Yes. A large share of our Gladewater work is on rural properties in Gregg and Upshur County, and there is no travel charge for the inspection. Long driveways and gates are normal for us — just let us know at booking.',
+      },
+      {
+        q: 'What causes the uneven settling on these rural lots?',
+        a: 'Grading, mostly. Houses on acreage were often set on ground that was never properly cut and shaped, so water collects on one elevation and drains away from another. The foundation ends up sitting on soil with two different moisture contents, and it moves accordingly.',
+      },
+      {
+        q: 'Can you work on a historic Gladewater home still on its original piers?',
+        a: 'Yes. We inspect every pier, sill and beam, replace what has failed with treated material, and add supports where the original spacing was too generous. Original piers are often reusable; the untreated wood sitting on them usually is not.',
+      },
+      {
+        q: 'Do you install French drains in Gladewater?',
+        a: 'Where surface grading cannot shed the water on its own, yes — perforated pipe in washed rock, wrapped in filter fabric and sloped to a proper discharge point. On a lot of rural lots, correcting the fall and moving roof water is enough, and we will tell you when that is the cheaper right answer.',
+      },
+      {
+        q: 'How long will the repair take?',
+        a: 'Pier resets and shimming often run a day or two. Structural wood replacement across several bays takes longer. You get a schedule alongside the written quote rather than an open-ended start.',
+      },
+      {
+        q: 'Is your work warranted?',
+        a: 'Yes. Our lifting work carries a long-term warranty, and the scope and terms are written into the agreement before anyone starts.',
+      },
     ],
   },
   {
@@ -193,8 +282,9 @@ export const locations: Location[] = [
     county: 'Gregg County',
     distance: 'Roughly 10 miles from our Longview shop',
     mapQuery: 'White+Oak,+TX',
-    heroImage: '/jacitgallery.jpeg',
-    metaTitle: 'Foundation Repair in White Oak, TX | Best Way Foundation Repair',
+    geo: { lat: 32.5271, lng: -94.8577 },
+    heroImage: '/img/foundation-drainage-french-drain.jpg',
+    metaTitle: 'Foundation Repair in White Oak, TX | Best Way',
     metaDescription:
       'White Oak foundation repair, house leveling and drainage solutions from a locally owned East Texas crew. Free inspections. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in White Oak, Texas',
@@ -231,6 +321,34 @@ export const locations: Location[] = [
         q: 'How much does foundation repair cost in White Oak?',
         a: 'It depends entirely on how many supports the house needs and how far it has moved. We price by the actual scope after the inspection, in writing, with no hidden add-ons.',
       },
+      {
+        q: 'How long does the work take on a White Oak home?',
+        a: 'Most residential jobs here run one to three working days, depending on how many piers are involved and whether there is wood to replace underneath. We give you the schedule in writing with the quote.',
+      },
+      {
+        q: 'Are the big trees near my house causing the problem?',
+        a: 'They can contribute. A mature tree draws a substantial amount of moisture out of the soil in a dry spell, and it does it on one side of the house. That creates exactly the kind of dry pocket that lets one corner drop. We look at tree position as part of the inspection.',
+      },
+      {
+        q: 'Slab or pier and beam — do you do both in White Oak?',
+        a: 'Both, and White Oak has plenty of each. Slab work is press piers and controlled lifting; pier and beam is supports, sills, beams and joists. The inspection tells us which set of problems you actually have.',
+      },
+      {
+        q: 'Water stands along one side of my house after it rains. Is that related?',
+        a: 'Almost certainly. Water sitting against the perimeter keeps that strip of soil swollen while the rest of the lot dries out, and the foundation twists between the two. Correcting the fall and moving roof water away is often the first thing we recommend.',
+      },
+      {
+        q: 'Can you come out if I just want a second opinion?',
+        a: 'Yes, and we get asked often. Bring us the other assessment if you have one. We will take our own elevation readings and tell you plainly where we agree and where we do not.',
+      },
+      {
+        q: 'Will foundation work damage my interior finishes?',
+        a: 'A careful, incremental lift is designed to avoid it. As the house returns to level, existing cracks change shape and some doors need rehanging. We walk the interior with you beforehand and tell you what to expect rather than leaving you to find out.',
+      },
+      {
+        q: 'Do you guarantee the work?',
+        a: 'Yes — our lifting work is warranted long-term, with the terms in the written agreement before we begin.',
+      },
     ],
   },
   {
@@ -240,8 +358,9 @@ export const locations: Location[] = [
     county: 'Harrison County',
     distance: 'Roughly 12 miles east of Longview',
     mapQuery: 'Hallsville,+TX',
-    heroImage: '/jacitgallery5.png',
-    metaTitle: 'Foundation Repair in Hallsville, TX | Best Way Foundation Repair',
+    geo: { lat: 32.5043, lng: -94.5766 },
+    heroImage: '/img/subfloor-installation.jpg',
+    metaTitle: 'Foundation Repair in Hallsville, TX | Best Way',
     metaDescription:
       'Foundation repair and house leveling in Hallsville, TX. Free inspections, warranted work, owner on every job. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Hallsville, Texas',
@@ -278,6 +397,34 @@ export const locations: Location[] = [
         q: 'Is the inspection really free?',
         a: 'It is. No charge, no travel fee, and no obligation to hire us afterward.',
       },
+      {
+        q: 'How much does foundation repair cost in Hallsville?',
+        a: 'It depends on pier count, depth and whether drainage work is part of the scope. Rural Harrison County properties often need the water addressed as much as the structure. Everything is priced in writing after a free inspection, with no obligation.',
+      },
+      {
+        q: 'We are on a septic system and a well. Does that change anything?',
+        a: 'It changes where we can work, so tell us at booking. We locate the septic field and lines before any excavation and plan pier access around them. It is a routine part of working on acreage out here.',
+      },
+      {
+        q: 'Why does Harrison County clay cause so much movement?',
+        a: 'Because it holds water and changes volume when it does. It swells through a wet spring and shrinks back through a dry August, and the house on top moves with it. That annual cycle, repeated for decades, is what puts most Hallsville homes out of level.',
+      },
+      {
+        q: 'My house is an older frame home. Is it worth repairing?',
+        a: 'Usually very much so. Older frame construction is generally straightforward to lift and re-support, and the materials it was built with are often better than what is sold now. What needs replacing is the untreated wood at the bearing points, not the house.',
+      },
+      {
+        q: 'Do you fix the drainage as well as the foundation?',
+        a: 'Yes, and we recommend it on most Hallsville jobs. Grade correction, downspout discharge and French drains where they are needed. Lifting a house and leaving the water where it was gets you the same problem back.',
+      },
+      {
+        q: 'How long does the repair take?',
+        a: 'Typically one to three days for pier work, longer where sills or beams need replacing. You get a written schedule with the quote.',
+      },
+      {
+        q: 'What sort of warranty do you provide?',
+        a: 'Our lifting work is warranted long-term. The scope and terms are written into the agreement before work starts, not described verbally and forgotten.',
+      },
     ],
   },
   {
@@ -287,8 +434,9 @@ export const locations: Location[] = [
     county: 'Harrison County',
     distance: 'Roughly 25 miles east of Longview',
     mapQuery: 'Marshall,+TX',
-    heroImage: '/jacitgallery6.png',
-    metaTitle: 'Foundation Repair in Marshall, TX | Best Way Foundation Repair',
+    geo: { lat: 32.5449, lng: -94.3674 },
+    heroImage: '/img/floor-joist-replacement.jpg',
+    metaTitle: 'Foundation Repair in Marshall, TX | Best Way',
     metaDescription:
       'Marshall, TX foundation repair, house leveling and pier & beam restoration. Second-generation local crew with warranted work. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Marshall, Texas',
@@ -325,6 +473,34 @@ export const locations: Location[] = [
         q: 'How do I know if my house actually needs leveling?',
         a: 'We take elevation measurements throughout the house so the answer is a number, not an opinion. If the variance is within normal tolerance, we will say so and you owe us nothing.',
       },
+      {
+        q: 'How much does foundation repair cost in Marshall?',
+        a: 'Marshall has a lot of older and historic construction, and the price follows what is actually under the house — pier count, condition of the sills and beams, and whether additions are settling differently from the original structure. We inspect and quote in writing for free.',
+      },
+      {
+        q: 'My addition is separating from the original house. Can that be fixed?',
+        a: 'Yes, and it is one of the most common calls we take in Marshall. Additions are usually built on shallower or newer footings than the original house, so the two settle at different rates. We measure both, lift them back into alignment where we can, and support them so they stay together.',
+      },
+      {
+        q: 'Do you work on homes in the historic districts?',
+        a: 'Yes, carefully. Historic masonry and plaster demand a slow, incremental lift across many points at once. We would rather take an extra day than crack a hundred-year-old wall that cannot be matched.',
+      },
+      {
+        q: 'There is a huge oak next to my foundation. Should it come out?',
+        a: 'Not necessarily. Removing a mature tree can cause its own movement as the soil rehydrates. We would rather look at the whole picture — where the tree is, what the elevations say, and whether drainage and root management solve it — before anyone reaches for a chainsaw.',
+      },
+      {
+        q: 'How long does the work take?',
+        a: 'Most Marshall jobs run one to four days depending on the size of the house and how much wood is being replaced. Historic work sometimes takes longer by design, and we tell you that up front.',
+      },
+      {
+        q: 'Will you come to Marshall for a small job?',
+        a: 'Yes. Marshall is about 25 miles from our Longview shop and we are over there regularly. There is no minimum job size and no travel charge for the inspection.',
+      },
+      {
+        q: 'Is the repair warranted?',
+        a: 'Yes. Long-term warranty on our lifting work, with the terms written into the agreement before we start.',
+      },
     ],
   },
   {
@@ -334,10 +510,11 @@ export const locations: Location[] = [
     county: 'Smith County',
     distance: 'Roughly 40 miles west of Longview',
     mapQuery: 'Tyler,+TX',
-    heroImage: '/jacitgallery7.png',
-    metaTitle: 'Foundation Repair in Tyler, TX | Best Way Foundation Repair',
+    geo: { lat: 32.3513, lng: -95.3011 },
+    heroImage: '/img/pier-and-beam-joist-repair.jpg',
+    metaTitle: 'Foundation Repair in Tyler, TX | Best Way',
     metaDescription:
-      'Tyler, TX foundation repair and house leveling from a second-generation East Texas company. Free inspections, transparent pricing, warranted work. Call (903) 932-8150.',
+      'Tyler, TX foundation repair and house leveling from a second-generation East Texas crew. Free inspections, warranted work. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Tyler, Texas',
     intro: [
       'Tyler is the largest city we serve, and we make the drive west regularly. Smith County has a huge range of housing — the older brick and frame homes in the Azalea District and around downtown, mid-century ranch houses, and thousands of newer slabs on the south and southeast sides.',
@@ -372,6 +549,34 @@ export const locations: Location[] = [
         q: 'Will foundation repair hurt my resale value?',
         a: 'Properly documented, warranted repair generally helps. Buyers and inspectors are far more concerned about an unaddressed moving foundation than about one that was repaired correctly and can be shown to be stable.',
       },
+      {
+        q: 'How much does foundation repair cost in Tyler?',
+        a: 'It follows the plan, not the postcode: how many piers, how deep, and whether drainage correction is included. Tyler\'s sloping lots sometimes need more work on the downhill elevation than the rest of the house. The inspection and the written quote are free.',
+      },
+      {
+        q: 'My house is built into a slope. Does that make it worse?',
+        a: 'It makes it different. Tyler is hillier than most of East Texas, and a house built into a grade has unequal soil pressure and drainage across its footprint. The downhill side is nearly always where the settling shows first, and it usually needs drainage work as well as structural support.',
+      },
+      {
+        q: 'Which Tyler areas do you work in?',
+        a: 'All of Smith County. Older brick and frame homes in the Azalea District and around downtown, mid-century ranch houses, and the newer slabs across the south and southeast sides. Whitehouse, Flint, Bullard, Lindale, Chandler and Arp are all in our regular run.',
+      },
+      {
+        q: 'Sandy soil over clay — why does that cause problems?',
+        a: 'Water moves quickly through the sand and then stalls when it hits the clay layer. So moisture builds up unevenly under the slab, swelling the clay in some places and not others. The house sits on top of that inconsistency and moves with it.',
+      },
+      {
+        q: 'Can you inspect before I buy a house in Tyler?',
+        a: 'Yes, and we recommend it if the inspector flagged anything. Free inspection, elevation readings, and a written assessment with pricing so you can make the decision inside your option period.',
+      },
+      {
+        q: 'Do you charge extra for the drive to Tyler?',
+        a: 'No. Tyler is roughly 40 miles west of our Longview shop and part of our regular service area. There is no travel charge for the inspection.',
+      },
+      {
+        q: 'How do I know the repair actually worked?',
+        a: 'Because we measure it. You get elevation readings from before the lift and again afterwards, so the result is documented in numbers rather than described to you.',
+      },
     ],
   },
   {
@@ -381,8 +586,9 @@ export const locations: Location[] = [
     county: 'Rusk County',
     distance: 'Roughly 25 miles south of Longview',
     mapQuery: 'Henderson,+TX',
-    heroImage: '/jacitgallery2.jpeg',
-    metaTitle: 'Foundation Repair in Henderson, TX | Best Way Foundation Repair',
+    geo: { lat: 32.1532, lng: -94.7994 },
+    heroImage: '/img/foundation-repair-crew-east-texas.jpg',
+    metaTitle: 'Foundation Repair in Henderson, TX | Best Way',
     metaDescription:
       'Henderson, TX foundation repair, house leveling and pier & beam work. Locally owned, free inspections, warranted results. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Henderson, Texas',
@@ -419,6 +625,34 @@ export const locations: Location[] = [
         q: 'Who will actually be at my house?',
         a: 'Our own crew, trained under James Wilson, with James on-site. We do not subcontract the work out.',
       },
+      {
+        q: 'How much does foundation repair cost in Henderson?',
+        a: 'The price follows the scope the elevation survey produces — pier count, depth, and any wood replacement under a pier and beam house. Many Henderson properties also need drainage attention. All of it is quoted in writing after a free inspection.',
+      },
+      {
+        q: 'We are on acreage with a well. Will that complicate the work?',
+        a: 'Not usually, but tell us at booking so we can locate the well, the septic field and any buried lines before we plan pier access. Working around rural utilities is routine for us in Rusk County.',
+      },
+      {
+        q: 'Can well water or irrigation affect my foundation?',
+        a: 'Anything that keeps one part of the soil consistently wetter than the rest can. A leaking line, a pressure tank discharge or an irrigation zone running against one elevation will swell that patch of clay and leave the rest to shrink. We look for it during the inspection.',
+      },
+      {
+        q: 'My house has been on the same piers for fifty years. Is that a problem?',
+        a: 'Not in itself. Long-standing pier homes are common around Henderson and many are in good shape. What fails is usually the untreated wood at the bearing points and piers set on soil that has since moved. Both are repairable without rebuilding the house.',
+      },
+      {
+        q: 'How long will the job take?',
+        a: 'Most Henderson jobs run one to three days. Replacing sills, beams or joists across several bays pushes it longer. The written quote includes the schedule.',
+      },
+      {
+        q: 'Do you charge to come out to Henderson?',
+        a: 'No. Henderson is about 25 miles south of Longview and firmly inside our service area. The inspection is free with no obligation.',
+      },
+      {
+        q: 'What warranty comes with the work?',
+        a: 'A long-term warranty on our lifting work, written into the agreement before anyone starts.',
+      },
     ],
   },
   {
@@ -428,8 +662,9 @@ export const locations: Location[] = [
     county: 'Upshur County',
     distance: 'Roughly 25 miles northwest of Longview',
     mapQuery: 'Gilmer,+TX',
-    heroImage: '/jacitgallery3.jpeg',
-    metaTitle: 'Foundation Repair in Gilmer, TX | Best Way Foundation Repair',
+    geo: { lat: 32.7287, lng: -94.9424 },
+    heroImage: '/img/house-leveling-kilgore-tx.jpg',
+    metaTitle: 'Foundation Repair in Gilmer, TX | Best Way',
     metaDescription:
       'Gilmer, TX foundation repair and house leveling. Second-generation crew, free inspections, engineering-approved materials. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Gilmer, Texas',
@@ -466,6 +701,34 @@ export const locations: Location[] = [
         q: 'What does "house leveling" actually involve?',
         a: 'We measure elevations throughout the house, install or reset supports where they are needed, then lift in small controlled increments until the structure is back within tolerance and evenly carried.',
       },
+      {
+        q: 'How much does foundation repair cost in Gilmer?',
+        a: 'It depends on how much of the structure is going back in — resetting piers and shimming is the low end, replacing rotted sills and beams across a side of the house is the high end. Upshur County crawlspaces often need moisture work as well. We price the real scope in writing, free.',
+      },
+      {
+        q: 'My crawlspace stays damp. How serious is that?',
+        a: 'Serious enough to be the reason many Gilmer homes need repair at all. A damp crawlspace rots sills and beams from below, softens the soil under the piers, and keeps the whole underside of the house at a moisture level wood cannot survive. Vapor barrier and drainage are part of the fix.',
+      },
+      {
+        q: 'Can you add piers where the floor sags in the middle of the house?',
+        a: 'Yes, and on country homes it is usually the correct fix. Mid-room sag almost always means the span between interior supports was too long to begin with. Additional properly footed piers resolve it permanently.',
+      },
+      {
+        q: 'Do you serve rural Upshur County addresses?',
+        a: 'Yes — Diana, Ore City, Big Sandy, Union Grove and the county roads in between. There is no travel charge for the inspection and long driveways are not a problem.',
+      },
+      {
+        q: 'How do I know if it is the piers or the wood?',
+        a: 'You have to get underneath and look, which is what the free inspection is for. From inside the house a rotten sill and a settled pier produce identical symptoms, which is why houses sometimes get jacked when what they needed was new wood.',
+      },
+      {
+        q: 'How long does the repair take?',
+        a: 'A day or two for pier resets and shimming; several days where structural wood is being replaced. The schedule comes with the written quote.',
+      },
+      {
+        q: 'Is the work guaranteed?',
+        a: 'Yes. Long-term warranty on our lifting work, with the terms in writing before we begin.',
+      },
     ],
   },
   {
@@ -475,8 +738,9 @@ export const locations: Location[] = [
     county: 'Panola County',
     distance: 'Roughly 40 miles southeast of Longview',
     mapQuery: 'Carthage,+TX',
-    heroImage: '/jacitgallery4.jpeg',
-    metaTitle: 'Foundation Repair in Carthage, TX | Best Way Foundation Repair',
+    geo: { lat: 32.1571, lng: -94.3374 },
+    heroImage: '/img/foundation-inspection-east-texas.jpg',
+    metaTitle: 'Foundation Repair in Carthage, TX | Best Way',
     metaDescription:
       'Carthage, TX foundation repair, house leveling and pier & beam restoration from a locally owned East Texas crew. Free inspections. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Carthage, Texas',
@@ -513,6 +777,34 @@ export const locations: Location[] = [
         q: 'Do you offer any guarantee?',
         a: 'Yes. Our lifting and leveling work is warranted, and we go over the terms with you in person before you sign anything.',
       },
+      {
+        q: 'How much does foundation repair cost in Carthage?',
+        a: 'It follows pier count, depth and the condition of the wood underneath. Panola County properties on large lots often need runoff addressed too. Everything is quoted in writing after a free inspection, and the drive out is not charged for.',
+      },
+      {
+        q: 'Runoff crosses my property when it rains hard. Can that be dealt with?',
+        a: 'Yes, and quite a lot can be done within your own property lines — intercepting the flow with a drain and routing it past the house rather than letting it reach the foundation. On big Panola County lots, uncontrolled runoff is one of the main drivers of foundation movement we see.',
+      },
+      {
+        q: 'My pier system is decades old. Does the whole thing need replacing?',
+        a: 'Rarely all of it. We inspect every pier and every bearing point and replace what has actually failed, add supports where the original spacing was too wide, and leave what is sound. Wholesale replacement is usually selling, not engineering.',
+      },
+      {
+        q: 'Will you look at the crawlspace as well as the foundation?',
+        a: 'Yes. Moisture, standing water, missing vapor barrier and blocked vents all show up in the same inspection, because they are what will take out the new wood if they are left alone.',
+      },
+      {
+        q: 'How long does a Carthage job take?',
+        a: 'Typically one to three days, longer where sills and beams need replacing. You get a schedule with the written quote.',
+      },
+      {
+        q: 'Do you work in Beckville, Deberry and Gary City too?',
+        a: 'Yes. Those and the rest of Panola County are part of the same run for us. Free inspection regardless of where in the county you are.',
+      },
+      {
+        q: 'Will you push me toward repairs I do not need?',
+        a: 'No. If the readings say the house is within tolerance, we will tell you to monitor it and we will not charge you for that conversation. That is how we have stayed busy in small towns for over two decades.',
+      },
     ],
   },
   {
@@ -522,10 +814,11 @@ export const locations: Location[] = [
     county: 'Rusk & Panola Counties',
     distance: 'Roughly 20 miles southeast of Longview',
     mapQuery: 'Tatum,+TX',
-    heroImage: '/jacitgallery.jpeg',
-    metaTitle: 'Foundation Repair in Tatum, TX | Best Way Foundation Repair',
+    geo: { lat: 32.3182, lng: -94.5188 },
+    heroImage: '/img/foundation-drainage-french-drain.jpg',
+    metaTitle: 'Foundation Repair in Tatum, TX | Best Way',
     metaDescription:
-      'Tatum, TX foundation repair and house leveling from a second-generation local crew. Free inspections, warranted work, owner on every job. Call (903) 932-8150.',
+      'Tatum, TX foundation repair and house leveling from a second-generation local crew. Free inspections, warranted work. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Tatum, Texas',
     intro: [
       'Tatum is a short drive southeast of Longview, near Martin Creek Lake, and it is well inside the area we cover every week. Lakeside and rural properties bring extra moisture into the equation, which makes drainage a bigger part of the picture here than in town.',
@@ -560,6 +853,34 @@ export const locations: Location[] = [
         q: 'Will you try to sell me repairs I do not need?',
         a: 'No. If the house is within tolerance we tell you so and there is no charge. That reputation is why most of our work comes by word of mouth.',
       },
+      {
+        q: 'How much does foundation repair cost in Tatum?',
+        a: 'The scope drives the price — pier count, depth, and any wood replacement. Lake-area properties often need drainage work in the mix as well. We inspect free and put the whole price in writing before you decide anything.',
+      },
+      {
+        q: 'Does being near the lake make foundation problems more likely?',
+        a: 'It can. Lake-area lots often sit lower, hold moisture longer and have a higher water table, so the soil under the house stays wetter than it would a few miles inland. That does not doom a house, but it makes drainage a bigger part of the repair.',
+      },
+      {
+        q: 'Can you work on a weekend cabin or a house that sits empty part of the year?',
+        a: 'Yes. Give us access and we can inspect and work whether you are there or not, and we will send you the readings and photographs. Houses that sit empty are worth checking periodically — small movement goes unnoticed when nobody is opening the doors every day.',
+      },
+      {
+        q: 'What does the shrink-swell cycle actually do to my house?',
+        a: 'The clay under the foundation expands when it takes on water and contracts as it dries. Over a wet spring and a dry late summer, the ground under different parts of the house moves by different amounts, and the structure has to absorb the difference. Cracks and sloping floors are that difference showing up.',
+      },
+      {
+        q: 'Do you install drainage as part of the repair?',
+        a: 'Routinely here. Grade correction, downspout discharge and French drains where the surface cannot shed water on its own. Around Tatum it is often what keeps the repair holding.',
+      },
+      {
+        q: 'How long will the work take?',
+        a: 'Most jobs run one to three days. Structural wood replacement takes longer, and the written quote tells you which you are looking at.',
+      },
+      {
+        q: 'Is the work warranted?',
+        a: 'Yes — long-term warranty on our lifting work, terms in writing before we start.',
+      },
     ],
   },
   {
@@ -569,8 +890,9 @@ export const locations: Location[] = [
     county: 'Cherokee County',
     distance: 'Roughly 60 miles southwest of Longview',
     mapQuery: 'Jacksonville,+TX',
-    heroImage: '/jacitgallery5.png',
-    metaTitle: 'Foundation Repair in Jacksonville, TX | Best Way Foundation Repair',
+    geo: { lat: 31.9638, lng: -95.2705 },
+    heroImage: '/img/subfloor-installation.jpg',
+    metaTitle: 'Foundation Repair in Jacksonville, TX | Best Way',
     metaDescription:
       'Jacksonville, TX foundation repair and house leveling. Free inspections, engineering-approved methods, warranted work. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Jacksonville, Texas',
@@ -607,6 +929,34 @@ export const locations: Location[] = [
         q: 'How long will the repair last?',
         a: 'Our lifting work is warranted long-term. Using engineering-approved materials and fixing the drainage that caused the movement is what makes that possible.',
       },
+      {
+        q: 'How much does foundation repair cost in Jacksonville?',
+        a: 'It follows the plan the elevation survey produces. Cherokee County\'s hilly sites sometimes need more support and more drainage work on the downhill elevation. The inspection, the readings and the written quote cost nothing.',
+      },
+      {
+        q: 'My house is on a slope. Does that need a different approach?',
+        a: 'It needs more attention to water. On a graded site the soil pressure and drainage are different on each elevation, so the downhill side moves first and moves most. We plan pier placement and drainage around that rather than treating the house as if it sat on flat ground.',
+      },
+      {
+        q: 'A previous contractor did work that did not hold. Can you fix it?',
+        a: 'Yes, and we see it regularly. We measure what is actually there, identify why the earlier repair failed — usually piers too shallow, too few, or drainage never addressed — and price a plan that corrects it. We will show you the readings rather than just telling you the last crew was wrong.',
+      },
+      {
+        q: 'Is 60 miles too far for you to service properly?',
+        a: 'No. Jacksonville is part of our regular service area and there is no travel charge for the inspection. Scheduling takes a little more coordination than a Longview job, so call ahead and we will find a workable date.',
+      },
+      {
+        q: 'How long does the repair last?',
+        a: 'Properly placed piers driven to refusal and supported ground do not un-do themselves. What shortens a repair\'s life is unaddressed drainage, which is why we treat water management as part of the job rather than an extra.',
+      },
+      {
+        q: 'Do you work in Rusk, Troup and Bullard as well?',
+        a: 'Yes, plus New Summerfield, Frankston and Whitehouse. It is all the same run for us.',
+      },
+      {
+        q: 'What guarantee do I get?',
+        a: 'A long-term warranty on our lifting work, written into the agreement before the job begins.',
+      },
     ],
   },
   {
@@ -616,8 +966,9 @@ export const locations: Location[] = [
     county: 'Cherokee County',
     distance: 'Roughly 60 miles south-southwest of Longview',
     mapQuery: 'Rusk,+TX',
-    heroImage: '/jacitgallery6.png',
-    metaTitle: 'Foundation Repair in Rusk, TX | Best Way Foundation Repair',
+    geo: { lat: 31.7982, lng: -95.1508 },
+    heroImage: '/img/floor-joist-replacement.jpg',
+    metaTitle: 'Foundation Repair in Rusk, TX | Best Way',
     metaDescription:
       'Rusk, TX foundation repair, house leveling and pier & beam work. Free inspections, warranted results, owner on every job. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Rusk, Texas',
@@ -654,6 +1005,34 @@ export const locations: Location[] = [
         q: 'Can an old pier and beam house be leveled without tearing it up?',
         a: 'In most cases, yes. We work from underneath, replacing failed piers and rotted framing and bringing the house back to level in controlled stages so the finishes above take as little strain as possible.',
       },
+      {
+        q: 'How much does foundation repair cost in Rusk?',
+        a: 'It comes down to what the house needs — pier count and depth, plus any sill, beam or joist replacement on an older pier and beam home. Many houses near the square are old enough that the wood matters as much as the supports. Free inspection, written price.',
+      },
+      {
+        q: 'Can a century-old house near the square be leveled safely?',
+        a: 'Yes, if it is done slowly. We lift in small increments across many points at once so the structure moves as one piece. Old houses reward patience and punish speed — a fast lift is what cracks original plaster and masonry that cannot be matched.',
+      },
+      {
+        q: 'Why does sandy surface soil over tight clay cause trouble?',
+        a: 'Water passes straight through the sand and then stops at the clay. It pools there, swelling the clay unevenly under the house while other areas stay dry. The foundation ends up bridging two different soil conditions, and it moves accordingly.',
+      },
+      {
+        q: 'The land here rolls. Does that affect the foundation?',
+        a: 'It affects the water, which affects the foundation. On rolling Cherokee County terrain, surface water arrives at the house from uphill and leaves slowly on the downhill side. Correcting how water crosses the lot is often as important as the structural work.',
+      },
+      {
+        q: 'Do you work on rural Cherokee County properties?',
+        a: 'Yes — Alto, Reklaw, New Summerfield, Mount Enterprise, Gallatin, Cuney and the county roads between them. No travel charge for the inspection.',
+      },
+      {
+        q: 'How long does the work take?',
+        a: 'One to three days for most pier work; longer where structural wood is being replaced. The schedule is part of the written quote.',
+      },
+      {
+        q: 'What warranty do you offer?',
+        a: 'Long-term warranty on our lifting work, with the terms written into the agreement before we start.',
+      },
     ],
   },
   {
@@ -663,8 +1042,9 @@ export const locations: Location[] = [
     county: 'Nacogdoches County',
     distance: 'Roughly 70 miles south of Longview',
     mapQuery: 'Nacogdoches,+TX',
-    heroImage: '/jacitgallery7.png',
-    metaTitle: 'Foundation Repair in Nacogdoches, TX | Best Way Foundation Repair',
+    geo: { lat: 31.6035, lng: -94.6555 },
+    heroImage: '/img/pier-and-beam-joist-repair.jpg',
+    metaTitle: 'Foundation Repair in Nacogdoches, TX | Best Way',
     metaDescription:
       'Nacogdoches, TX foundation repair and house leveling. Historic pier & beam homes and modern slabs. Free inspections, warranted work. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Nacogdoches, Texas',
@@ -701,6 +1081,34 @@ export const locations: Location[] = [
         q: 'Do you handle rental and investment properties?',
         a: 'Yes. We can inspect, provide a written scope and price for your records, and schedule the work around tenants where that is needed.',
       },
+      {
+        q: 'How much does foundation repair cost in Nacogdoches?',
+        a: 'The price follows the scope, and in Nacogdoches that often includes wood — the housing stock is old enough that sills and beams frequently need replacing alongside the supports. We inspect the crawlspace, price the real scope in writing, and charge nothing for either.',
+      },
+      {
+        q: 'What is different about the red clay soils here?',
+        a: 'Redland clay holds water tightly and changes volume noticeably as it wets and dries. It is productive soil and difficult foundation soil for the same reason. Houses on it move seasonally unless the water reaching them is controlled.',
+      },
+      {
+        q: 'My lot is low and near a creek bottom. Is that a problem?',
+        a: 'It raises the stakes on drainage. Low lots and creek bottoms keep the soil wetter for longer, and a crawlspace on one will hold moisture that rots sills and beams. Getting water away from and out from under the house is usually the first thing we address.',
+      },
+      {
+        q: 'Do you work on the very old homes here?',
+        a: 'Yes, and Nacogdoches has plenty of them. Old houses are generally very repairable — we replace the untreated wood at the bearing points, rebuild failed piers and add supports where original spans were too long, working incrementally so original finishes survive the lift.',
+      },
+      {
+        q: 'Do you handle rental and investment properties?',
+        a: 'Yes. We can coordinate with tenants, work around occupancy, and send the owner the elevation readings, photographs and written scope directly. It is a routine arrangement for us.',
+      },
+      {
+        q: 'How long does the repair take?',
+        a: 'One to three days for typical pier work, longer where structural wood replacement is involved. You get a schedule with the quote.',
+      },
+      {
+        q: 'Is the work warranted?',
+        a: 'Yes — a long-term warranty on our lifting work, with the terms in writing before we begin.',
+      },
     ],
   },
   {
@@ -710,8 +1118,9 @@ export const locations: Location[] = [
     county: 'Angelina County',
     distance: 'Roughly 90 miles south of Longview',
     mapQuery: 'Lufkin,+TX',
-    heroImage: '/jacitgallery2.jpeg',
-    metaTitle: 'Foundation Repair in Lufkin, TX | Best Way Foundation Repair',
+    geo: { lat: 31.3382, lng: -94.7291 },
+    heroImage: '/img/foundation-repair-crew-east-texas.jpg',
+    metaTitle: 'Foundation Repair in Lufkin, TX | Best Way',
     metaDescription:
       'Lufkin, TX foundation repair, house leveling and pier & beam repair. Free inspections, engineering-approved methods, warranted work. Call (903) 932-8150.',
     tagline: 'Foundation Repair & House Leveling in Lufkin, Texas',
@@ -747,6 +1156,34 @@ export const locations: Location[] = [
       {
         q: 'What kind of warranty comes with the work?',
         a: 'Our lifting work is warranted long-term. We use engineering-approved materials and methods, and we put the scope and the warranty in writing before the job starts.',
+      },
+      {
+        q: 'How much does foundation repair cost in Lufkin?',
+        a: 'It follows pier count, depth and the state of the wood underneath, and in Lufkin drainage is nearly always part of the scope. Angelina County gets the heaviest rainfall in our service area, and pricing a repair without addressing that would be pricing half a job. Free inspection, written quote.',
+      },
+      {
+        q: 'Does Lufkin really get more rain than the rest of the area?',
+        a: 'Yes — this is the wettest part of our service area, and it shows up in the foundations. More rain means more water reaching the soil around and under the house, and more of the shrink-swell movement that puts houses out of level. Drainage matters more here than anywhere else we work.',
+      },
+      {
+        q: 'There are big pines close to my house. Should I be worried?',
+        a: 'Worth looking at. Mature pines pull a lot of moisture from the soil during a dry spell, and they do it on one side of the house, creating a dry pocket that lets that side drop. Removing them can cause its own movement, so we would rather assess the whole picture first.',
+      },
+      {
+        q: 'My house is a mid-century home from the timber and foundry years. Is that typical work for you?',
+        a: 'Very much so. Those houses are now well past the age where original supports and drainage need attention, and most are straightforward to repair. The framing is often better than what gets built now — it is the bearing points and the water that need addressing.',
+      },
+      {
+        q: 'Will the repair hold in this climate?',
+        a: 'Only if the water is dealt with, which is why we treat drainage as part of the repair rather than an optional extra here. Correcting grading, roof water discharge and crawlspace moisture is what keeps the house where we put it.',
+      },
+      {
+        q: 'Do you work in Diboll, Hudson, Huntington and Pollok?',
+        a: 'Yes, along with Zavalla, Burke and Central. It is all one run for us when we come south.',
+      },
+      {
+        q: 'How does scheduling work at 90 miles out?',
+        a: 'Call (903) 932-8150 and we will coordinate a date — we tend to group Angelina County work together. The inspection itself is still free and there is no travel charge.',
       },
     ],
   },
