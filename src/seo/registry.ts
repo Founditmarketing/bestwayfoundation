@@ -50,7 +50,7 @@ const crumbs = (...parts: [string, string][]) =>
 
 const home = (): RouteSeo => ({
   path: '/',
-  title: 'Foundation Lifting & Repair | Longview, TX',
+  title: 'Concrete Contractor & Foundation Lifting | Longview',
   description:
     'Concrete contractor specializing in foundation lifting and house leveling across Deep East Texas. Free inspections, warranted work. (903) 932-8150.',
   ogImage: DEFAULT_OG_IMAGE,
